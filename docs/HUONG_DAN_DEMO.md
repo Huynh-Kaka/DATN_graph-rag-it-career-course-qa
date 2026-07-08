@@ -18,7 +18,7 @@ Tài liệu dùng khi **trình diễn trực tiếp** hệ thống tư vấn ngh
 ## 0. Chuẩn bị trước khi demo (~2 phút)
 
 ```powershell
-cd D:\Doantotnghiep
+cd DATN_graph-rag-it-career-course-qa   # hoặc đường dẫn thư mục sau khi clone
 uvicorn app.main:app --reload
 ```
 

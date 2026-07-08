@@ -350,11 +350,9 @@ Playbook đầy đủ: `docs/HUONG_DAN_KIEM_TRA_LAI.md`.
 
 | File | Nội dung |
 |------|----------|
-| `ket_qua_thuc_nghiem.md` | Số liệu và bảng chi tiết |
-| `audit_report_final.md` | Chuẩn hóa phương pháp luận |
 | `docs/HUONG_DAN_KIEM_TRA_LAI.md` | Tái lập v2.2 |
-| `chuong_4_ket_luan.md` | Kết luận và hạn chế |
-| `results/eval_summary.json` | Snapshot D-03 mới nhất |
+| `docs/HUONG_DAN_THI_NGHIEM_D01_D02_D03.md` | Metric thí nghiệm |
+| `results/eval_summary.json` | Snapshot D-03 (sinh ra khi chạy eval) |
 
 ---
 

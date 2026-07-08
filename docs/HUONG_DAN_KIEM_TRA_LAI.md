@@ -13,7 +13,7 @@ Tài liệu này dùng khi hội đồng yêu cầu tái lập kết quả sau n
 | Judge E2E | `JUDGE_PROVIDER=local` (fallback Groq → Gemini) |
 
 ```powershell
-cd D:\Doantotnghiep
+cd DATN_graph-rag-it-career-course-qa   # hoặc đường dẫn thư mục sau khi clone
 ```
 
 ## Bước 1 — Kiểm thử hồi quy tự động (bắt buộc)
@@ -104,7 +104,7 @@ python scripts/summarize_eval_results.py `
   --out results/verification_summary_v22.json
 ```
 
-Sau khi chạy xong, cập nhật dòng `[v2.2-D2]` trong bảng **Lịch sử kiểm tra** (Bước 9) và mục X.2ter trong `ket_qua_thuc_nghiem.md` từ `results/eval_summary.json` → `by_cohort`.
+Sau khi chạy xong, cập nhật dòng `[v2.2-D2]` trong bảng **Lịch sử kiểm tra** (Bước 9) từ `results/eval_summary.json` → `by_cohort`.
 
 | Cohort | Ngưỡng |
 |--------|--------|
@@ -133,7 +133,7 @@ python scripts/eval_answer_quality.py --gold data/eval/answer_quality_gold_basel
 - [ ] pytest pass
 - [ ] gold 52 case + probe ok
 - [ ] D0/D1/D2 report JSON có `by_cohort`
-- [ ] Cập nhật `ket_qua_thuc_nghiem.md` (thêm dòng changelog mới)
+- [ ] Lưu `results/eval_summary.json` và ghi chú kết quả trong báo cáo nội bộ (nếu cần)
 
 ### Lịch sử kiểm tra
 
