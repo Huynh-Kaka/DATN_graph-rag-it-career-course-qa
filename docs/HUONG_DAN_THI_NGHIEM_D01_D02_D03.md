@@ -1,6 +1,6 @@
 # Hướng dẫn thí nghiệm D-01 / D-02 / D-03
 
-Tài liệu này giải thích **ba bài kiểm tra chính** của đề tài Graph-RAG tư vấn hướng nghiệp IT: mỗi bài đo gì, vì sao cần đo, kết luận được rút ra, và **gợi ý trả lời khi phản biện**.
+Tài liệu này giải thích **ba bài kiểm tra chính** của đề tài Graph-RAG tư vấn hướng nghiệp IT: mỗi bài đo gì, vì sao cần đo, và kết luận được rút ra.
 
 > **Nguyên tắc thiết kế:** Không dùng thư viện RAGAS nguyên bản; dùng **bộ metric tùy biến** (D-01/D-02/D-03) phù hợp ontology Career–Competency–Course và kiến trúc tight fusion.
 
@@ -346,47 +346,7 @@ Playbook đầy đủ: `docs/HUONG_DAN_KIEM_TRA_LAI.md`.
 
 ---
 
-## 7. Gợi ý trả lời phản biện
-
-### “Sao không dùng RAGAS?”
-
-> Đề tài dùng **metric tùy biến theo domain IT**: ontology 7 nhóm competency, tight fusion, route validity, gold provenance. RAGAS generic không bám schema Career–Competency–Course và không tách route_mismatch/infra_error. Ba trục D-01/02/03 **tương đương tinh thần** RAGAS (retrieval, faithfulness, answer quality) nhưng **kiểm soát được** cho luận văn.
-
-### “52 case E2E quá ít, kết quả có tin cậy không?”
-
-> Thừa nhận **hạn chế cỡ mẫu**. D-03 bổ sung định tính/định lượng E2E; **D-02 (248 query)** và **D-01 ablation (25–45 case, có kiểm định thống kê)** mang tính suy luận mạnh hơn. Gold E2E được thiết kế **cân bằng intent** (pathfinding, course_rec, skills_gap, competency_relation, multi-turn), không phải random. Hướng phát triển: mở rộng ≥100 case + human eval.
-
-### “HitRate chỉ ~65%, hệ thống có dùng được không?”
-
-> ~65% trên tập **paraphrased + multi-relevant**, không phải query copy entity. Subset 20 query đầu từng cho ~95% — đó là **bias mẫu nhỏ**. Career ~68% ổn định; course_rec E2E ~96% faithfulness. Retrieval là **tầng đầu**; graph + validator + confidence gate bù cho miss retrieval.
-
-### “Gold derived_from_graph có circular evaluation không?”
-
-> Có **nguy cơ** nếu chỉ dùng một bộ. Đề tài có **`excel_derived` (45 case)** sinh từ Excel không qua GraphRepository runtime; so sánh mẫu 5 case chênh lệch faithfulness **2,5 điểm %** — không có bằng chứng “ăn điểm” mạnh. Luận văn ghi rõ provenance và dùng **dual gold**.
-
-### “Tại sao tách valid_run, route_mismatch, infra_error?”
-
-> Trước audit, lỗi judge 413 hoặc router 503 bị **trộn vào faithfulness**, làm sai kết luận. Sau chuẩn hóa, chỉ **valid_run** mới vào aggregate — phân biệt **lỗi vận hành** vs **chất lượng nội dung thật**. Đây là đóng góp phương pháp luận của đề tài.
-
-### “Graph-RAG có thực sự hơn vector-only không?”
-
-> **D-01 ablation (metric v3)** trên cùng gold: vector_only Answer Entity F1 ~2%, Ontology F1 ~12%, off-graph mention ~100%; graph_only Ontology F1 ~87%, off-graph 0%; tight_fusion Answer Entity F1 ~40%, off-graph ~45% (tốt hơn late_fusion ~69%). Không dùng faithfulness ~100% static vì đó là chỉ số phụ trivial ở formatter tĩnh.
-
-### “Judge cũng là LLM, có bias không?”
-
-> Có thể có bias. Giảm thiểu bằng: (1) judge **tách provider** khỏi generator; (2) prompt chấm có rubric rõ (faithfulness, completeness, no_hallucination); (3) **valid citation rate** rule-based 100% đối chiếu graph; (4) hướng human eval Likert. Judge là **proxy**, không thay human hoàn toàn.
-
-### “Faithfulness ~76% chưa đạt 78% KPI — đề tài thất bại?”
-
-> KPI 78% là **mục tiêu tham chiếu** nội bộ. Hệ thống đạt **~76%** trên 52 case, course_rec ~96%, valid citation 100%. Điểm yếu tập trung competency_relation và skills_gap — **đã phân tích attribution** và nêu hướng cải thiện. Đề tài **đạt mục tiêu xây dựng và thử nghiệm**, không cam kết production-grade hoàn hảo.
-
-### “Hội đồng muốn tái lập — làm sao?”
-
-> Chạy `.\scripts\run_full_verification.ps1` hoặc theo `docs/HUONG_DAN_KIEM_TRA_LAI.md`: pytest → validate gold 52 case → D-02 retrieval → D-03 E2E với `--report-json results/eval_summary.json`. Kết quả đối chiếu `results/eval_summary.json`, `data/eval/retrieval_results.csv`.
-
----
-
-## 8. Tài liệu liên quan
+## 7. Tài liệu liên quan
 
 | File | Nội dung |
 |------|----------|
