@@ -1,0 +1,36 @@
+flowchart LR
+    User[Actor: Nguoi dung]
+    Admin[Actor: Quan tri/Chuyen gia]
+    Sys[Graph-RAG Career Advisor]
+
+    UC1([Dat cau hoi nghe nghiep])
+    UC2([Nhan lo trinh hoc tap ca nhan hoa])
+    UC3([So sanh 2 vai tro nghe nghiep])
+    UC4([Xem bang chung evidence tu graph/vector])
+    UC5([Hoi tiep theo ngu canh cu])
+
+    UC6([Nhap du lieu tu Excel vao Graph/Vector])
+    UC7([Quan ly tri thuc Career-Competency-Course])
+    UC8([Fine-tune local model])
+    UC9([Theo doi log va danh gia chat luong])
+
+    User --> UC1
+    User --> UC2
+    User --> UC3
+    User --> UC4
+    User --> UC5
+
+    Admin --> UC6
+    Admin --> UC7
+    Admin --> UC8
+    Admin --> UC9
+
+    Sys --- UC1
+    Sys --- UC2
+    Sys --- UC3
+    Sys --- UC4
+    Sys --- UC5
+    Sys --- UC6
+    Sys --- UC7
+    Sys --- UC8
+    Sys --- UC9

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form tư vấn — IT Career Advisor</title>
+  <link rel="stylesheet" href="css/form.css?v=2"/>
+</head>
+<body>
+<div class="form-screen">
+  <div class="form-envelope">
+    <svg class="env-border" viewBox="0 0 1000 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="1" y="1" width="998" height="498" fill="none" stroke="rgba(26,26,46,0.32)" stroke-width="1.5" rx="2"/>
+      <rect x="4" y="4" width="992" height="492" fill="none" stroke="rgba(26,26,46,0.07)" stroke-width="0.8" rx="1.5"/>
+    </svg>
+    <div class="stamp" aria-hidden="true">
+      <div class="stamp-icon">✉</div>
+      <div class="stamp-lines">
+        <div></div><div></div>
+      </div>
+    </div>
+    <svg class="postmark" width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="25" cy="25" r="23" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="25" cy="25" r="17" fill="none" stroke="currentColor" stroke-width="1"/>
+      <line x1="9" y1="25" x2="41" y2="25" stroke="currentColor" stroke-width="1.5"/>
+    </svg>
+
+    <div class="form-envelope-content">
+      <header class="form-topnav" aria-label="Điều hướng">
+        <a class="back-link" href="chat.html" id="backLink">← quay lại</a>
+        <span class="nav-sep" aria-hidden="true">|</span>
+        <span class="nav-context">chat</span>
+        <button type="button" class="theme-btn" onclick="toggleTheme()" aria-label="Đổi giao diện sáng/tối">
+          <svg id="moonIco" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M14 10.5A6.5 6.5 0 0 1 5.5 2a6.5 6.5 0 1 0 8.5 8.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+          <svg id="sunIco" width="14" height="14" viewBox="0 0 16 16" fill="none" style="display:none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+
+      <h1 class="form-page-title">Hồ sơ tư vấn IT</h1>
+      <p class="form-page-sub">Điền từng bước để nhận lộ trình cá nhân hóa — dữ liệu lưu vào hồ sơ, dùng cho mọi phiên chat sau này.</p>
+
+      <div class="progress-group" aria-live="polite">
+        <span class="step-indicator" id="stepLabel">Bước 1 / 4</span>
+        <div class="progress-bar" id="prog" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1"></div>
+      </div>
+
+      <div id="formApp"></div>
+      <p class="form-error" id="formError" role="alert"></p>
+    </div>
+
+    <div
+      id="formLoading"
+      class="form-loading"
+      hidden
+      role="status"
+      aria-live="polite"
+      aria-busy="false"
+    >
+      <div class="form-loading-panel">
+        <span class="typing-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <p class="form-loading-title">AI đang tư vấn theo hồ sơ của bạn</p>
+        <p class="form-loading-hint">
+          Đang tra đồ thị nghề &amp; gợi ý lộ trình — thường mất 15–30 giây
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/theme.js"></script>
+<script src="js/form.js?v=2"></script>
+</body>
+</html>

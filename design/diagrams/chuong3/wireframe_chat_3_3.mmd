@@ -1,0 +1,18 @@
+%% Hình 3.3 — Wireframe giao diện chat (chat.html)
+flowchart LR
+    subgraph sidebar["Sidebar (#chatSidebar)"]
+        NEW["Nút «tạo chat mới»"]
+        HIST["Danh sách lịch sử phiên (#historyList)"]
+    end
+
+    subgraph main["Khu vực chat chính"]
+        TOP["Topbar: ☰ | ← quay lại | form tư vấn | theme"]
+        MSGS["Vùng tin nhắn (#chatMsgs)<br/>bot / user bubbles"]
+        INPUT["Thanh nhập (#chatInput) + nút gửi"]
+    end
+
+    sidebar --- main
+
+    MSGS --> CARD["Structured card<br/>(sections, course-card)"]
+    MSGS --> FB["Feedback bar 👍/👎<br/>POST /api/chat/messages/{id}/feedback"]
+    MSGS --> ERR["Error bubble + nút thử lại<br/>(is_error)"]

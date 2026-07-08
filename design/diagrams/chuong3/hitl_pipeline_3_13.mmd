@@ -1,0 +1,28 @@
+%% Hình 3.13 — Pipeline Human-in-the-loop (feedback → duyệt → cải thiện)
+flowchart TD
+    U([Người dùng chat]) --> R[Phản hồi assistant message]
+    R --> FB["POST /api/chat/messages/{id}/feedback<br/>rating: +1 / -1, comment"]
+    FB --> DB[("message_feedback<br/>review_status=pending")]
+
+    DB --> REV{Quản trị duyệt}
+    REV -->|scripts/mark_review.py| APP[approved]
+    REV -->|scripts/mark_review.py| REJ[rejected]
+
+    APP --> EXP["scripts/export_chat_dataset.py<br/>--approved-only"]
+    REJ --> DROP[Loại khỏi dataset FT]
+
+    DB --> ALQ["scripts/active_learning_queue.py<br/>ưu tiên low confidence / rating -1"]
+    ALQ --> LABEL[Gán nhãn chuyên gia / sửa gold]
+
+  EXP --> FT["scripts/build_ft_datasets.py"]
+    LABEL --> FT
+
+    FT --> IMP["Cải thiện generator<br/>exemplar retrieval + fine-tune"]
+
+    subgraph hitl["Vòng HITL"]
+        FB
+        DB
+        REV
+        EXP
+        ALQ
+    end

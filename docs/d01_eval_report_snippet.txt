@@ -1,0 +1,160 @@
+================================================================================
+ĐOẠN PHỤC VỤ BÁO CÁO — D-01 ABLATION 4 CẤU HÌNH (GOLD MỚI — ĐA NGÀNH NGHỀ)
+================================================================================
+
+Phiên bản gold: build từ Neo4j qua `python scripts/build_answer_gold.py`
+(25 case: 15 pathfinding + 10 course_rec; subset generative 10 case tự sinh).
+
+--------------------------------------------------------------------------------
+I. GIẢI THÍCH THUẬT NGỮ
+--------------------------------------------------------------------------------
+
+Ablation study (thí nghiệm bóc tách)
+  Chạy cùng một tập câu hỏi qua nhiều cấu hình hệ thống, tắt/bật từng thành
+  phần để đo ảnh hưởng của từng thành phần — không đổi gold set giữa các mode.
+
+Gold set / Ground truth
+  `data/eval/answer_gold.jsonl`: mỗi dòng = 1 testcase với câu hỏi (query),
+  intent, và nhãn chuẩn từ ontology Neo4j (`gold_skills` hoặc `gold_course_codes`).
+
+Entity hint (gợi ý thực thể)
+  Trường `career` hoặc `competency` trong gold — mô phỏng người dùng đã chọn
+  nghề/kỹ năng rõ. Ablation D-01 dùng hint này khi gọi graph; khác luồng chat
+  E2E (D-03) nơi router phải suy luận từ câu hỏi tự nhiên.
+
+Fusion mode — bốn cấu hình Graph-RAG:
+  (A) VectorOnly    — chỉ Qdrant (top-k chunk), không Neo4j
+  (B) GraphOnly     — chỉ truy vấn Neo4j (pathfinding / course_rec)
+  (C) LateFusion    — vector + graph song song; ghép ngữ cảnh muộn, không seed
+  (D) TightFusion   — vector → map_hits_to_graph_nodes → seed Cypher (A-01)
+
+Static eval vs Generative eval
+  Static: formatter tĩnh (`format_pathfinding` / `format_course_rec`), không gọi
+  LLM — đo tầng retrieval + graph + grounding entity, reproducible.
+  Generative: `ResponseGenerator` + Gemini — gần production; thêm cosine sim.
+
+Faithfulness (độ trung thực / grounded)
+  Trong reply, tỷ lệ entity được nhắc tới nằm trong tập ngữ cảnh cho phép
+  (entity từ graph snapshot + vector docs). Cao → ít “nhắc” thứ ngoài nguồn.
+
+Skill accuracy (độ chính xác kỹ năng / khóa học)
+  F1 giữa danh sách entity DỰ ĐOÁN (từ graph hoặc metadata vector) và GOLD.
+  Pathfinding: so competency names; course_rec: so course_code.
+  Lưu ý: VectorOnly chỉ lấy ~3 title/career_name từ chunk → F1 thấp là có chủ đích,
+  không có nghĩa vector “sai hoàn toàn” mà là không liệt kê đủ ontology.
+
+Hallucination rate (tỷ lệ thông tin ảo)
+  % entity trong reply KHÔNG thuộc context. Trên static + graph formatter
+  thường ≈ 0% vì reply chỉ in dữ liệu graph. Phân biệt mode kém hơn skill_accuracy;
+  dùng D-03 (LLM judge) cho hallucination ngôn ngữ tự nhiên.
+
+Cosine similarity (chỉ generative)
+  Embedding(câu trả lời LLM) vs embedding(văn bản tham chiếu từ gold). Đo gần
+  nghĩa ngữ nghĩa, bổ sung cho metric entity-based.
+
+Paired t-test / Wilcoxon
+  So sánh cặp điểm cùng testcase giữa TightFusion và baseline (Late/Vector).
+  p < 0.05 → khác biệt có ý nghĩa thống kê trên tập 25 (hoặc 10 subset).
+
+--------------------------------------------------------------------------------
+II. CÁC CHỈ SỐ “LÀM ĐƯỢC GÌ” — DÙNG ĐÚNG TRONG BÁO CÁO
+--------------------------------------------------------------------------------
+
+| Chỉ số            | Kết luận được phép                          | Không nên kết luận              |
+|-------------------|---------------------------------------------|----------------------------------|
+| Skill accuracy    | Graph ≫ Vector cho liệt kê skill/course     | Tight > Late trên gold có hint   |
+| Faithfulness      | Vector đôi khi nhắc entity ngoài context    | Thay thế đánh giá người dùng     |
+| Hallucination     | Graph formatter gần như không bịa entity    | So sánh chính giữa 4 mode static |
+| Cosine sim.       | LLM + graph gần gold text hơn vector-only   | Thay skill F1                    |
+| Tight vs Late     | Cần query mơ hồ / không có career hint      | Từ chối đóng góp tight fusion    |
+
+Đóng góp chính từ D-01: ontology Neo4j (graph path) vượt vector-only về
+độ đầy đủ entity có cấu trúc; tight fusion bổ sung khi disambiguate nghề từ query.
+
+--------------------------------------------------------------------------------
+III. TẬP NGÀNH NGHỀ / COMPETENCY (GOLD MỚI)
+--------------------------------------------------------------------------------
+
+Pathfinding (15 nghề — khác bộ BE/FE/DS cũ):
+  Game Developer, Blockchain Developer, Security Engineer, QA Engineer,
+  Product Manager, Embedded Software Engineer, AR/VR Developer,
+  Analytics Engineer, Computer Vision Engineer, MLOps Engineer,
+  Site Reliability Engineer, Cloud Architect, Network Engineer,
+  Cybersecurity Analyst, Business Analyst
+
+Course recommendation (10 competency):
+  Go, Rust, TypeScript, Terraform, Power BI, Angular, Flutter,
+  MongoDB, NestJS, PostgreSQL
+
+Generative subset (10 id): pf_gd_01, pf_bc_01, pf_sec_01, pf_pm_01, pf_sre_01,
+  cr_go_01, cr_terraform_01, cr_angular_01, cr_flutter_01, cr_powerbi_01
+
+--------------------------------------------------------------------------------
+IV. KẾT QUẢ — STATIC (25 case) — results/ablation_d01_static.tex
+--------------------------------------------------------------------------------
+
+| Cấu hình    | Faithfulness | Skill accuracy | Hallucination (%) |
+|-------------|--------------|----------------|-------------------|
+| VectorOnly  | 0.992        | 0.140          | 0.8               |
+| GraphOnly   | 1.000        | 0.878          | 0.0               |
+| LateFusion  | 1.000        | 0.878          | 0.0               |
+| TightFusion | 1.000        | 0.878          | 0.0               |
+
+Theo intent (trích `summary_by_intent` trong JSON):
+  pathfinding — Vector skill_acc 0.00 vs Graph/Late/Tight ~0.80
+  course_rec  — Vector skill_acc 0.35 vs Graph/Late/Tight 1.00
+
+Kiểm định TightFusion vs VectorOnly (n=25):
+  faithfulness: t=3.34, p=0.003
+  skill_accuracy: t=18.39, p<0.001
+
+--------------------------------------------------------------------------------
+V. KẾT QUẢ — GENERATIVE SUBSET (10 case)
+--------------------------------------------------------------------------------
+
+| Cấu hình    | Faithfulness | Skill accuracy | Halluc. (%) | Cosine sim. |
+|-------------|--------------|----------------|-------------|-------------|
+| VectorOnly  | 0.997        | 0.150          | 0.3         | 0.796       |
+| GraphOnly   | 1.000        | 0.909          | 0.0         | 0.848       |
+| LateFusion  | 1.000        | 0.909          | 0.0         | 0.844       |
+| TightFusion | 1.000        | 0.909          | 0.0         | 0.844       |
+
+TightFusion vs VectorOnly skill_accuracy (n=10): t=10.76, p<0.001
+
+--------------------------------------------------------------------------------
+VI. NHẬN XÉT BẢO VỆ (gợi ý)
+--------------------------------------------------------------------------------
+
+Thí nghiệm lặp trên 25 nghề/competency đa dạng (game, security, PM, SRE, …)
+vẫn cho cùng xu hướng: graph-based fusion vượt vector-only về skill accuracy
+có ý nghĩa thống kê. Hallucination rate gần 0 với graph không phải vì hệ thống
+“hoàn hảo” mà vì reply bám snapshot ontology — phần bịa ngôn ngữ xem thêm D-03.
+
+Ví dụ vector-only thua rõ: pathfinding (mọi nghề F1≈0 vì không list competency
+từ graph); course_rec vector F1=0.35 khi chunk không chứa đủ course_code gold.
+
+--------------------------------------------------------------------------------
+VII. TÁI TẠO TOÀN BỘ (rebuild pipeline)
+--------------------------------------------------------------------------------
+
+  # 1. Sửa danh sách nghề/competency trong scripts/build_answer_gold.py (SEED_CASES)
+  python scripts/build_answer_gold.py
+  # → data/eval/answer_gold.jsonl + answer_gold_ablation_gen.jsonl
+
+  python scripts/smoke_ablation.py
+
+  python scripts/run_quality_ablation.py --eval-mode static \
+    --json-out results/ablation_d01_static.json \
+    --latex-out results/ablation_d01_static.tex
+
+  python scripts/run_quality_ablation.py \
+    --gold data/eval/answer_gold_ablation_gen.jsonl \
+    --eval-mode generative \
+    --json-out results/ablation_d01_generative_subset.json \
+    --latex-out results/ablation_d01_generative_subset.tex
+
+Yêu cầu: Neo4j + Qdrant online; generative cần GEMINI_API_KEY (hoặc local LLM).
+
+Phân vai: D-01 (ablation entity) | D-02 (retrieval 231 query) | D-03 (E2E judge)
+
+================================================================================

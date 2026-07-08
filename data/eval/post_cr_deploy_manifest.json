@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-06-13T04:42:55.201573+00:00",
+  "verified_at": "2026-06-13T05:15:00+00:00",
+  "neo4j_relation_edges": 47,
+  "neo4j_coverage_pct": 14.6,
+  "qdrant_collection": "career_roadmap",
+  "corpus_sha256": "787f2c15c107dd654c21a4400ca95f7b529f3b478e6d4c268ee94a05f3160f27",
+  "corpus_path": "data/index_corpus.jsonl",
+  "index_corpus_v2_baseline": "data/index_corpus_v2_baseline.jsonl",
+  "track_a": "pass",
+  "track_c_post_run_verify": "pass",
+  "pre_cr_collection_deleted": true,
+  "pre_cr_delete_note": "career_roadmap_pre_cr not found at cleanup (already absent or never persisted on this Qdrant host)",
+  "report": "docs/d01_eval_report_post_cr.txt",
+  "failure_log": "results/post_cr_failure_log.json"
+}

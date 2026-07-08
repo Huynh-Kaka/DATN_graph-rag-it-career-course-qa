@@ -1,0 +1,43 @@
+%% Hình 3.8 — Activity: luồng competency multi-phase (7 nhóm)
+flowchart TD
+    A([Bắt đầu]) --> B{intent == competency_slot_fill<br/>hoặc pathfinding → chuyển phase?}
+
+    B -->|pathfinding + collecting + đổi career| C1[start_collection_with_card]
+    C1 --> C2[intent → competency_slot_fill] --> O
+
+    B -->|competency_slot_fill| O[CompetencyTypeOrchestrator.handle_turn]
+
+    O --> P{phase hiện tại?}
+
+    P -->|idle → collecting| S1[Đặt career, index=0<br/>Nhóm CT_LANG]
+    S1 --> S2[Trả competency card<br/>hỏi kỹ năng nhóm hiện tại]
+
+    P -->|collecting| S3{Parse tin nhắn}
+    S3 -->|skip / none| S4[Bỏ qua nhóm → index++]
+    S3 -->|alias competency| S5[Merge vào known_by_type]
+    S3 -->|exit-flow regex| S6[Nhảy gap_summary]
+    S3 -->|câu hỏi tự do| S7[handled=false → fallthrough intent khác]
+
+    S4 --> S8{Còn nhóm CT_*?}
+    S5 --> S8
+    S8 -->|Có| S2
+    S8 -->|Không| S6
+
+    P -->|gap_summary| G1[apply_skills_gap_typed<br/>theo NEED_* từng loại]
+    G1 --> G2[structured_from_gap_summary<br/>+ format text]
+    G2 --> G3[phase → course hoặc idle]
+
+    P -->|course| K1[TEACH_* per missing skill]
+    K1 --> K2[Gợi ý khóa học theo block]
+    K2 --> Z([Kết thúc — trả structured + graph])
+
+    S2 --> Z
+    S6 --> G1
+    S7 --> Z
+    G3 --> Z
+
+    subgraph order["Thứ tự 7 nhóm COMPETENCY_TYPE_ORDER"]
+        direction LR
+        T1[CT_LANG] --> T2[CT_FRAM] --> T3[CT_PLAT] --> T4[CT_TOOL]
+        T4 --> T5[CT_KNOW] --> T6[CT_SOFT] --> T7[CT_CERT]
+    end

@@ -1,0 +1,20 @@
+{
+  "build_script": "scripts/build_answer_gold_from_retrieval.py",
+  "build_version": "v2",
+  "built_at": "2026-06-12T14:40:20.708087+00:00",
+  "retrieval_source": "D:\\Doantotnghiep\\data\\eval\\retrieval_gold.jsonl",
+  "neo4j_uri_hash": "6764a870b92c61ab",
+  "counts": {
+    "hint_total": 80,
+    "hint_pathfinding": 50,
+    "hint_course_rec": 30,
+    "hint_careers_unique": 50,
+    "no_hint_total": 25,
+    "generative_subset": 15
+  },
+  "outputs": {
+    "hint": "D:\\Doantotnghiep\\data\\eval\\answer_gold_v2.jsonl",
+    "no_hint": "D:\\Doantotnghiep\\data\\eval\\answer_gold_no_hint_v2.jsonl",
+    "generative": "D:\\Doantotnghiep\\data\\eval\\answer_gold_ablation_gen_v2.jsonl"
+  }
+}

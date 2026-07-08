@@ -1,0 +1,72 @@
+%% Hình 3.16 — ERD PostgreSQL (session, profile, feedback)
+erDiagram
+    user_profiles ||--o{ chat_sessions : "profile_id FK"
+    user_profiles ||--o{ advice_results : "profile_id FK"
+    chat_sessions ||--|{ chat_messages : "session_id FK CASCADE"
+    chat_sessions ||--o{ advice_results : "session_id FK CASCADE"
+    chat_messages ||--o| message_feedback : "message_id FK UNIQUE"
+
+    user_profiles {
+        uuid id PK
+        timestamptz created_at
+        timestamptz updated_at
+        enum background
+        enum role
+        text role_note
+        text_array known_skills
+        enum weekly_time
+        text_array goals
+        text initial_question
+        bool profile_completed
+    }
+
+    chat_sessions {
+        uuid id PK
+        timestamptz created_at
+        timestamptz updated_at
+        uuid profile_id FK
+        varchar last_intent
+        jsonb missing_slots
+        jsonb last_route
+        bool last_domain_out
+        text pending_message
+        text competency
+        text career
+        int competency_type_index
+        jsonb known_by_type
+        varchar phase
+    }
+
+    chat_messages {
+        bigint id PK
+        uuid session_id FK
+        varchar role
+        text content
+        timestamptz created_at
+        varchar intent
+        varchar domain
+        jsonb route
+    }
+
+    message_feedback {
+        bigint id PK
+        bigint message_id FK
+        int rating
+        text comment
+        enum review_status
+        varchar reviewer
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    advice_results {
+        uuid id PK
+        uuid session_id FK
+        uuid profile_id FK
+        timestamptz created_at
+        jsonb skills_gap
+        jsonb roadmap
+        jsonb recommended_courses
+        int estimated_months
+        text raw_response
+    }

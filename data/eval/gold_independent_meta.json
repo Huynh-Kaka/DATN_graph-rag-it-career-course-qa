@@ -1,0 +1,10 @@
+{
+  "build_script": "scripts/build_answer_gold_independent.py",
+  "gold_source": "excel_derived",
+  "gold_source_legacy": "human_verified_from_excel",
+  "provenance_note": "Gold labels derived from the same Excel workbook used for Neo4j ingest; independent of GraphRepository at evaluation runtime.",
+  "built_at": "2026-06-17T10:38:26.678060+00:00",
+  "xlsx_source": "D:\\Doantotnghiep\\data\\bộ dữ liệu.xlsx",
+  "count": 45,
+  "output": "D:\\Doantotnghiep\\data\\eval\\answer_gold_independent.jsonl"
+}

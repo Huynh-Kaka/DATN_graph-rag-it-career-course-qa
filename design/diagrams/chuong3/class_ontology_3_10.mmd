@@ -1,0 +1,100 @@
+%% Hình 3.10 — Class diagram ontology Career / Competency / Course
+classDiagram
+    class Career {
+        +String career_code
+        +String name
+        +String industry
+    }
+
+    class CompetencyType {
+        +String type_code
+        «CT_LANG..CT_CERT»
+    }
+
+    class ProgrammingLanguage {
+        +String item_code
+        +String name
+        +int priority
+    }
+
+    class Framework {
+        +String item_code
+        +String name
+    }
+
+    class Platform {
+        +String item_code
+        +String name
+    }
+
+    class Tool {
+        +String item_code
+        +String name
+    }
+
+    class Knowledge {
+        +String item_code
+        +String name
+    }
+
+    class Softskill {
+        +String item_code
+        +String name
+    }
+
+    class Certification {
+        +String item_code
+        +String name
+    }
+
+    class Course {
+        +String course_code
+        +String name
+        +String organization
+        +int coverage_level
+        +String url
+    }
+
+    class Subject {
+        +String subject_code
+        +String name
+    }
+
+    class CompetencyRelation {
+        +String rel_type
+        «BUILT_ON, SUPPORTS, …»
+        +String from_code
+        +String to_code
+    }
+
+    CompetencyType <|-- ProgrammingLanguage
+    CompetencyType <|-- Framework
+    CompetencyType <|-- Platform
+    CompetencyType <|-- Tool
+    CompetencyType <|-- Knowledge
+    CompetencyType <|-- Softskill
+    CompetencyType <|-- Certification
+
+    Career "1" --> "0..*" ProgrammingLanguage : NEED_LANG
+    Career "1" --> "0..*" Framework : NEED_FRAM
+    Career "1" --> "0..*" Platform : NEED_PLAT
+    Career "1" --> "0..*" Tool : NEED_TOOL
+    Career "1" --> "0..*" Knowledge : NEED_KNOW
+    Career "1" --> "0..*" Softskill : NEED_SOFT
+    Career "1" --> "0..*" Certification : NEED_CERT
+
+    Course "1" --> "0..*" ProgrammingLanguage : TEACH_LANG
+    Course "1" --> "0..*" Framework : TEACH_FRAM
+    Course "1" --> "0..*" Platform : TEACH_PLAT
+    Course "1" --> "0..*" Tool : TEACH_TOOL
+    Course "1" --> "0..*" Knowledge : TEACH_KNOW
+    Course "1" --> "0..*" Softskill : TEACH_SOFT
+    Course "1" --> "0..*" Certification : TEACH_CERT
+
+    Subject "1" --> "0..*" Course : IN_SUBJECT
+    ProgrammingLanguage --> Framework : BUILT_ON
+    Knowledge --> ProgrammingLanguage : SUPPORTS
+    Framework --> Knowledge : REQUIRES_KNOWLEDGE
+
+    note for Career "Neo4j node label Career"
+    note for Course "Vector payload doc_type=course"

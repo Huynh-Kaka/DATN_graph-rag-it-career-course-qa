@@ -1,0 +1,3952 @@
+{
+  "careers": {
+    "Software Engineer": {
+      "vi": [
+        "kỹ sư phần mềm",
+        "lập trình viên phần mềm",
+        "phát triển phần mềm",
+        "kỹ sư lập trình"
+      ],
+      "abbrev": [
+        "SWE",
+        "SE"
+      ]
+    },
+    "Frontend Developer": {
+      "vi": [
+        "lập trình viên frontend",
+        "dev frontend",
+        "làm frontend",
+        "nghề frontend",
+        "phát triển giao diện web",
+        "lập trình giao diện"
+      ],
+      "abbrev": [
+        "FE",
+        "front-end",
+        "frontend dev"
+      ]
+    },
+    "Backend Developer": {
+      "vi": [
+        "lập trình viên backend",
+        "dev backend",
+        "nhân viên backend",
+        "làm backend",
+        "nghề backend",
+        "phát triển backend",
+        "lập trình server"
+      ],
+      "abbrev": [
+        "BE",
+        "back-end",
+        "backend dev"
+      ]
+    },
+    "Fullstack Developer": {
+      "vi": [
+        "lập trình viên fullstack",
+        "dev fullstack",
+        "full stack",
+        "làm fullstack",
+        "vừa frontend vừa backend",
+        "lập trình toàn stack"
+      ],
+      "abbrev": [
+        "FS",
+        "full-stack"
+      ]
+    },
+    "Mobile Developer": {
+      "vi": [
+        "lập trình viên mobile",
+        "dev mobile",
+        "làm app di động",
+        "phát triển ứng dụng di động",
+        "lập trình di động",
+        "lập trình iOS Android"
+      ],
+      "abbrev": [
+        "MOB",
+        "mobile dev",
+        "iOS dev",
+        "Android dev"
+      ]
+    },
+    "Game Developer": {
+      "vi": [
+        "lập trình viên game",
+        "phát triển game",
+        "làm game",
+        "thiết kế game",
+        "lập trình game"
+      ],
+      "abbrev": [
+        "GAME",
+        "game dev"
+      ]
+    },
+    "Embedded Software Engineer": {
+      "vi": [
+        "kỹ sư phần mềm nhúng",
+        "lập trình hệ thống nhúng",
+        "phát triển phần mềm nhúng",
+        "lập trình nhúng"
+      ],
+      "abbrev": [
+        "EMB",
+        "embedded engineer"
+      ]
+    },
+    "Firmware Engineer": {
+      "vi": [
+        "kỹ sư firmware",
+        "lập trình firmware",
+        "phát triển firmware"
+      ],
+      "abbrev": [
+        "FIRM"
+      ]
+    },
+    "Blockchain Developer": {
+      "vi": [
+        "lập trình viên blockchain",
+        "phát triển blockchain",
+        "lập trình chuỗi khối",
+        "kỹ sư blockchain",
+        "lập trình smart contract"
+      ],
+      "abbrev": [
+        "BCDEV"
+      ]
+    },
+    "AR/VR Developer": {
+      "vi": [
+        "lập trình viên AR/VR",
+        "phát triển thực tế ảo",
+        "lập trình thực tế ảo tăng cường",
+        "lập trình AR VR"
+      ],
+      "abbrev": [
+        "ARVR",
+        "AR/VR"
+      ]
+    },
+    "Data Analyst": {
+      "vi": [
+        "phân tích dữ liệu",
+        "nhà phân tích dữ liệu",
+        "làm data analyst",
+        "nghề data analyst",
+        "chuyên viên phân tích dữ liệu"
+      ],
+      "abbrev": [
+        "DA"
+      ]
+    },
+    "BI Analyst": {
+      "vi": [
+        "nhà phân tích BI",
+        "phân tích trí tuệ doanh nghiệp",
+        "business intelligence analyst",
+        "chuyên viên BI"
+      ],
+      "abbrev": [
+        "BI"
+      ]
+    },
+    "Data Engineer": {
+      "vi": [
+        "kỹ sư dữ liệu",
+        "phát triển hệ thống dữ liệu",
+        "làm data engineer",
+        "xây dựng pipeline dữ liệu"
+      ],
+      "abbrev": [
+        "DE"
+      ]
+    },
+    "Analytics Engineer": {
+      "vi": [
+        "kỹ sư phân tích dữ liệu",
+        "kỹ sư dữ liệu phân tích",
+        "analytics engineer"
+      ],
+      "abbrev": [
+        "AE"
+      ]
+    },
+    "Data Scientist": {
+      "vi": [
+        "nhà khoa học dữ liệu",
+        "làm data scientist",
+        "nghề data science",
+        "chuyên gia khoa học dữ liệu"
+      ],
+      "abbrev": [
+        "DS"
+      ]
+    },
+    "Machine Learning Engineer": {
+      "vi": [
+        "kỹ sư học máy",
+        "kỹ sư machine learning",
+        "phát triển thuật toán học máy",
+        "kỹ sư ML"
+      ],
+      "abbrev": [
+        "MLE"
+      ]
+    },
+    "AI Engineer": {
+      "vi": [
+        "kỹ sư trí tuệ nhân tạo",
+        "kỹ sư AI",
+        "phát triển trí tuệ nhân tạo",
+        "làm AI engineer"
+      ],
+      "abbrev": [
+        "AIE"
+      ]
+    },
+    "NLP Engineer": {
+      "vi": [
+        "kỹ sư xử lý ngôn ngữ tự nhiên",
+        "kỹ sư NLP",
+        "chuyên gia NLP"
+      ],
+      "abbrev": [
+        "NLP"
+      ]
+    },
+    "Computer Vision Engineer": {
+      "vi": [
+        "kỹ sư thị giác máy tính",
+        "lập trình thị giác máy tính",
+        "computer vision engineer"
+      ],
+      "abbrev": [
+        "CVE",
+        "CV engineer"
+      ]
+    },
+    "MLOps Engineer": {
+      "vi": [
+        "kỹ sư mlops",
+        "vận hành mô hình học máy",
+        "quy trình hóa machine learning",
+        "kỹ sư MLOps"
+      ],
+      "abbrev": [
+        "MLOPS",
+        "mlops"
+      ]
+    },
+    "DevOps Engineer": {
+      "vi": [
+        "kỹ sư devops",
+        "làm devops",
+        "vận hành hệ thống",
+        "cloud engineer",
+        "kỹ sư CI/CD"
+      ],
+      "abbrev": [
+        "DEVOPS",
+        "DevOps"
+      ]
+    },
+    "Site Reliability Engineer": {
+      "vi": [
+        "kỹ sư đảm bảo độ tin cậy hệ thống",
+        "kỹ sư vận hành tin cậy",
+        "site reliability engineer"
+      ],
+      "abbrev": [
+        "SRE"
+      ]
+    },
+    "Cloud Engineer": {
+      "vi": [
+        "kỹ sư đám mây",
+        "kỹ sư điện toán đám mây",
+        "kỹ sư cloud",
+        "làm cloud"
+      ],
+      "abbrev": [
+        "CLOUD"
+      ]
+    },
+    "Cloud Architect": {
+      "vi": [
+        "kiến trúc sư đám mây",
+        "kiến trúc sư cloud",
+        "thiết kế hạ tầng đám mây"
+      ],
+      "abbrev": [
+        "CLAR"
+      ]
+    },
+    "Platform Engineer": {
+      "vi": [
+        "kỹ sư nền tảng",
+        "phát triển nền tảng kỹ thuật",
+        "platform engineer"
+      ],
+      "abbrev": [
+        "PLAT"
+      ]
+    },
+    "System Administrator": {
+      "vi": [
+        "quản trị hệ thống",
+        "sysadmin",
+        "quản trị máy chủ",
+        "quản lý hệ thống"
+      ],
+      "abbrev": [
+        "SYSADMIN"
+      ]
+    },
+    "Network Engineer": {
+      "vi": [
+        "kỹ sư mạng",
+        "quản trị hạ tầng mạng",
+        "thiết kế mạng máy tính",
+        "kỹ sư hạ tầng mạng"
+      ],
+      "abbrev": [
+        "NETENG"
+      ]
+    },
+    "Database Administrator": {
+      "vi": [
+        "quản trị cơ sở dữ liệu",
+        "quản lý cơ sở dữ liệu",
+        "quản trị database",
+        "admin database"
+      ],
+      "abbrev": [
+        "DBA"
+      ]
+    },
+    "Infrastructure Engineer": {
+      "vi": [
+        "kỹ sư hạ tầng",
+        "kỹ sư hạ tầng công nghệ thông tin",
+        "infra engineer"
+      ],
+      "abbrev": [
+        "INFRA"
+      ]
+    },
+    "IT Operations Engineer": {
+      "vi": [
+        "kỹ sư vận hành IT",
+        "kỹ sư vận hành hệ thống thông tin",
+        "vận hành công nghệ thông tin"
+      ],
+      "abbrev": [
+        "ITOPS",
+        "IT Ops"
+      ]
+    },
+    "Security Engineer": {
+      "vi": [
+        "kỹ sư bảo mật",
+        "kỹ sư an toàn thông tin",
+        "kỹ sư an ninh mạng",
+        "làm bảo mật"
+      ],
+      "abbrev": [
+        "SECENG"
+      ]
+    },
+    "Cybersecurity Analyst": {
+      "vi": [
+        "chuyên viên phân tích an ninh mạng",
+        "chuyên viên bảo mật hệ thống",
+        "phân tích an toàn thông tin"
+      ],
+      "abbrev": [
+        "CSA"
+      ]
+    },
+    "SOC Analyst": {
+      "vi": [
+        "chuyên viên giám sát an ninh mạng",
+        "nhân viên vận hành phòng SOC",
+        "giám sát an toàn thông tin",
+        "làm SOC"
+      ],
+      "abbrev": [
+        "SOC"
+      ]
+    },
+    "Penetration Tester": {
+      "vi": [
+        "chuyên viên kiểm thử xâm nhập",
+        "đánh giá an ninh mạng",
+        "hacker mũ trắng",
+        "kiểm thử bảo mật",
+        "pentester"
+      ],
+      "abbrev": [
+        "PENTEST",
+        "Pentester"
+      ]
+    },
+    "Application Security Engineer": {
+      "vi": [
+        "kỹ sư bảo mật ứng dụng",
+        "an toàn thông tin ứng dụng",
+        "appsec engineer"
+      ],
+      "abbrev": [
+        "APPSEC"
+      ]
+    },
+    "Cloud Security Engineer": {
+      "vi": [
+        "kỹ sư bảo mật đám mây",
+        "bảo mật hạ tầng cloud",
+        "cloud security"
+      ],
+      "abbrev": [
+        "CLDSEC"
+      ]
+    },
+    "Security Operations Engineer": {
+      "vi": [
+        "kỹ sư vận hành an ninh mạng",
+        "kỹ sư vận hành bảo mật",
+        "secops engineer"
+      ],
+      "abbrev": [
+        "SECOPS"
+      ]
+    },
+    "GRC Specialist": {
+      "vi": [
+        "chuyên viên tuân thủ bảo mật",
+        "chuyên viên quản trị rủi ro và tuân thủ",
+        "chuyên viên GRC",
+        "quản trị rủi ro tuân thủ"
+      ],
+      "abbrev": [
+        "GRC"
+      ]
+    },
+    "QA Engineer": {
+      "vi": [
+        "kỹ sư đảm bảo chất lượng",
+        "kiểm soát chất lượng phần mềm",
+        "nhân viên QA",
+        "kỹ sư QA"
+      ],
+      "abbrev": [
+        "QA"
+      ]
+    },
+    "Software Tester": {
+      "vi": [
+        "nhân viên kiểm thử phần mềm",
+        "kiểm thử viên",
+        "người test phần mềm",
+        "tester phần mềm"
+      ],
+      "abbrev": [
+        "TEST",
+        "Tester"
+      ]
+    },
+    "Automation Test Engineer": {
+      "vi": [
+        "kỹ sư kiểm thử tự động",
+        "lập trình kiểm thử tự động",
+        "automation tester",
+        "kỹ sư automation"
+      ],
+      "abbrev": [
+        "AUTOQA",
+        "Automation QC"
+      ]
+    },
+    "Performance Test Engineer": {
+      "vi": [
+        "kỹ sư kiểm thử hiệu năng",
+        "kiểm thử tải phần mềm",
+        "performance tester"
+      ],
+      "abbrev": [
+        "PERF"
+      ]
+    },
+    "Quality Engineer": {
+      "vi": [
+        "kỹ sư chất lượng",
+        "quản lý chất lượng kỹ thuật",
+        "quality engineer"
+      ],
+      "abbrev": [
+        "QE"
+      ]
+    },
+    "Product Manager": {
+      "vi": [
+        "quản lý sản phẩm",
+        "giám đốc sản phẩm",
+        "phát triển sản phẩm",
+        "làm product manager"
+      ],
+      "abbrev": [
+        "PM",
+        "PdM"
+      ]
+    },
+    "Product Owner": {
+      "vi": [
+        "chủ sở hữu sản phẩm",
+        "quản lý yêu cầu sản phẩm",
+        "chủ nhiệm sản phẩm",
+        "product owner"
+      ],
+      "abbrev": [
+        "PO"
+      ]
+    },
+    "Business Analyst": {
+      "vi": [
+        "phân tích nghiệp vụ",
+        "BA IT",
+        "business analyst IT",
+        "chuyên viên BA",
+        "làm BA"
+      ],
+      "abbrev": [
+        "BA"
+      ]
+    },
+    "System Analyst": {
+      "vi": [
+        "phân tích hệ thống",
+        "system analyst",
+        "chuyên viên phân tích hệ thống",
+        "làm SA"
+      ],
+      "abbrev": [
+        "SA_ROLE"
+      ]
+    },
+    "UI/UX Designer": {
+      "vi": [
+        "thiết kế giao diện người dùng",
+        "thiết kế trải nghiệm người dùng",
+        "thiết kế UI/UX",
+        "designer UI UX"
+      ],
+      "abbrev": [
+        "UIUX",
+        "UI/UX"
+      ]
+    },
+    "UX Researcher": {
+      "vi": [
+        "nhà nghiên cứu trải nghiệm người dùng",
+        "nghiên cứu hành vi người dùng",
+        "nghiên cứu UX"
+      ],
+      "abbrev": [
+        "UXR"
+      ]
+    },
+    "Technical Writer": {
+      "vi": [
+        "người viết tài liệu kỹ thuật",
+        "soạn thảo tài liệu CNTT",
+        "phát triển tài liệu kỹ thuật",
+        "technical writer"
+      ],
+      "abbrev": [
+        "TW"
+      ]
+    },
+    "Scrum Master": {
+      "vi": [
+        "quản lý quy trình scrum",
+        "điều phối viên scrum",
+        "scrum master",
+        "làm scrum master"
+      ],
+      "abbrev": [
+        "SM"
+      ]
+    },
+    "IT Support Specialist": {
+      "vi": [
+        "nhân viên hỗ trợ công nghệ thông tin",
+        "hỗ trợ kỹ thuật IT",
+        "chuyên viên hỗ trợ IT",
+        "IT support"
+      ],
+      "abbrev": [
+        "ITSUP",
+        "IT Support"
+      ]
+    },
+    "Helpdesk Engineer": {
+      "vi": [
+        "kỹ sư helpdesk",
+        "hỗ trợ kỹ thuật helpdesk",
+        "nhân viên hỗ trợ kỹ thuật"
+      ],
+      "abbrev": [
+        "HELP",
+        "Helpdesk"
+      ]
+    },
+    "Solutions Architect": {
+      "vi": [
+        "kiến trúc sư giải pháp",
+        "thiết kế kiến trúc hệ thống",
+        "kiến trúc sư giải pháp công nghệ"
+      ],
+      "abbrev": [
+        "SOLAR",
+        "SA"
+      ]
+    },
+    "Solutions Engineer": {
+      "vi": [
+        "kỹ sư giải pháp",
+        "kỹ sư tư vấn giải pháp công nghệ",
+        "pre-sales engineer"
+      ],
+      "abbrev": [
+        "SOLE"
+      ]
+    },
+    "ERP Consultant": {
+      "vi": [
+        "tư vấn giải pháp ERP",
+        "triển khai hệ thống ERP",
+        "chuyên viên ERP",
+        "tư vấn ERP"
+      ],
+      "abbrev": [
+        "ERP"
+      ]
+    },
+    "CRM Consultant": {
+      "vi": [
+        "tư vấn giải pháp CRM",
+        "triển khai hệ thống CRM",
+        "chuyên viên CRM"
+      ],
+      "abbrev": [
+        "CRM"
+      ]
+    },
+    "Engineering Manager": {
+      "vi": [
+        "quản lý kỹ thuật",
+        "quản lý đội ngũ kỹ sư",
+        "trưởng phòng phát triển phần mềm",
+        "engineering manager"
+      ],
+      "abbrev": [
+        "EMGR",
+        "EM"
+      ]
+    },
+    "Head of Engineering": {
+      "vi": [
+        "trưởng bộ phận kỹ thuật",
+        "giám đốc kỹ thuật công nghệ",
+        "trưởng phòng kỹ thuật công nghệ"
+      ],
+      "abbrev": [
+        "HOE"
+      ]
+    },
+    "IT Manager": {
+      "vi": [
+        "trưởng phòng IT",
+        "quản lý công nghệ thông tin",
+        "giám đốc IT"
+      ],
+      "abbrev": [
+        "ITM"
+      ]
+    },
+    "Chief Technology Officer": {
+      "vi": [
+        "giám đốc công nghệ",
+        "giám đốc kỹ thuật",
+        "CTO công ty"
+      ],
+      "abbrev": [
+        "CTO"
+      ]
+    },
+    "Database Architect": {
+      "vi": [
+        "kiến trúc sư cơ sở dữ liệu",
+        "thiết kế cơ sở dữ liệu",
+        "database architect"
+      ],
+      "abbrev": [
+        "DBARCH"
+      ]
+    },
+    "Project Assistant Internship": {
+      "vi": [
+        "thực tập sinh trợ lý dự án",
+        "trợ lý dự án thực tập",
+        "thực tập trợ lý dự án",
+        "intern project assistant"
+      ],
+      "abbrev": [
+        "PA_INT",
+        "Project Assistant Intern"
+      ]
+    }
+  },
+  "competencies": {
+    "JavaScript": {
+      "vi": [
+        "javascript",
+        "js",
+        "lập trình javascript",
+        "học javascript",
+        "ngôn ngữ js"
+      ],
+      "abbrev": [
+        "JS",
+        "L_JS"
+      ]
+    },
+    "TypeScript": {
+      "vi": [
+        "typescript",
+        "ts",
+        "lập trình typescript",
+        "học typescript"
+      ],
+      "abbrev": [
+        "TS",
+        "L_TS"
+      ]
+    },
+    "Python": {
+      "vi": [
+        "python",
+        "ngôn ngữ python",
+        "lập trình python",
+        "học python",
+        "viết python"
+      ],
+      "abbrev": [
+        "py",
+        "L_PY"
+      ]
+    },
+    "Java": {
+      "vi": [
+        "java",
+        "lập trình java",
+        "ngôn ngữ java",
+        "học java"
+      ],
+      "abbrev": [
+        "L_JAVA"
+      ]
+    },
+    "C#": {
+      "vi": [
+        "c#",
+        "csharp",
+        "lập trình c#",
+        "c sharp",
+        "dotnet c#"
+      ],
+      "abbrev": [
+        "CS",
+        "L_CS"
+      ]
+    },
+    "C++": {
+      "vi": [
+        "c++",
+        "cpp",
+        "lập trình c++",
+        "c plus plus"
+      ],
+      "abbrev": [
+        "CPP",
+        "L_CPP"
+      ]
+    },
+    "C": {
+      "vi": [
+        "ngôn ngữ c",
+        "lập trình c",
+        "lập trình c thuần",
+        "ngôn ngữ lập trình c"
+      ],
+      "abbrev": [
+        "L_C"
+      ]
+    },
+    "Go": {
+      "vi": [
+        "golang",
+        "ngôn ngữ go",
+        "lập trình go",
+        "học golang"
+      ],
+      "abbrev": [
+        "L_GO"
+      ]
+    },
+    "Rust": {
+      "vi": [
+        "rust",
+        "lập trình rust",
+        "ngôn ngữ rust",
+        "học rust"
+      ],
+      "abbrev": [
+        "L_RUST"
+      ]
+    },
+    "PHP": {
+      "vi": [
+        "php",
+        "lập trình php",
+        "ngôn ngữ php",
+        "học php"
+      ],
+      "abbrev": [
+        "L_PHP"
+      ]
+    },
+    "Ruby": {
+      "vi": [
+        "ruby",
+        "lập trình ruby",
+        "ngôn ngữ ruby",
+        "học ruby"
+      ],
+      "abbrev": [
+        "L_RUBY"
+      ]
+    },
+    "Swift": {
+      "vi": [
+        "swift",
+        "lập trình swift",
+        "ngôn ngữ swift",
+        "swift ios"
+      ],
+      "abbrev": [
+        "L_SWIFT"
+      ]
+    },
+    "Kotlin": {
+      "vi": [
+        "kotlin",
+        "lập trình kotlin",
+        "ngôn ngữ kotlin",
+        "kotlin android"
+      ],
+      "abbrev": [
+        "L_KOTLIN"
+      ]
+    },
+    "Dart": {
+      "vi": [
+        "dart",
+        "lập trình dart",
+        "ngôn ngữ dart",
+        "dart flutter"
+      ],
+      "abbrev": [
+        "L_DART"
+      ]
+    },
+    "SQL": {
+      "vi": [
+        "sql",
+        "cơ sở dữ liệu sql",
+        "truy vấn sql",
+        "học sql",
+        "viết sql",
+        "câu lệnh sql"
+      ],
+      "abbrev": [
+        "L_SQL"
+      ]
+    },
+    "Bash/Shell": {
+      "vi": [
+        "bash",
+        "shell script",
+        "lập trình bash",
+        "bash shell",
+        "viết shell script",
+        "kịch bản bash"
+      ],
+      "abbrev": [
+        "bash",
+        "shell",
+        "L_BASH"
+      ]
+    },
+    "PowerShell": {
+      "vi": [
+        "powershell",
+        "ps script",
+        "lập trình powershell",
+        "kịch bản powershell"
+      ],
+      "abbrev": [
+        "PS",
+        "L_PS"
+      ]
+    },
+    "R": {
+      "vi": [
+        "ngôn ngữ r",
+        "lập trình r",
+        "r cho data",
+        "r thống kê",
+        "học r"
+      ],
+      "abbrev": [
+        "L_R"
+      ]
+    },
+    "Scala": {
+      "vi": [
+        "scala",
+        "lập trình scala",
+        "ngôn ngữ scala",
+        "scala spark"
+      ],
+      "abbrev": [
+        "L_SCALA"
+      ]
+    },
+    "Solidity": {
+      "vi": [
+        "solidity",
+        "lập trình solidity",
+        "smart contract solidity",
+        "solidity blockchain"
+      ],
+      "abbrev": [
+        "L_SOLIDITY"
+      ]
+    },
+    "Transact-SQL": {
+      "vi": [
+        "t-sql",
+        "transact sql",
+        "tsql",
+        "sql server tsql",
+        "lập trình tsql"
+      ],
+      "abbrev": [
+        "T-SQL",
+        "TSQL",
+        "L_TSQL"
+      ]
+    },
+    "Oracle PL/SQL": {
+      "vi": [
+        "pl/sql",
+        "plsql",
+        "oracle plsql",
+        "lập trình plsql",
+        "oracle pl sql"
+      ],
+      "abbrev": [
+        "PLSQL",
+        "L_PLSQL"
+      ]
+    },
+    "Advanced SQL": {
+      "vi": [
+        "sql nâng cao",
+        "advanced sql",
+        "sql phức tạp",
+        "tối ưu sql",
+        "window function sql"
+      ],
+      "abbrev": [
+        "L_SQL_ADV"
+      ]
+    },
+    "React": {
+      "vi": [
+        "react",
+        "reactjs",
+        "thư viện react",
+        "học react",
+        "react js",
+        "lập trình react"
+      ],
+      "abbrev": [
+        "F_REACT"
+      ]
+    },
+    "Angular": {
+      "vi": [
+        "angular",
+        "framework angular",
+        "học angular",
+        "angular js",
+        "lập trình angular"
+      ],
+      "abbrev": [
+        "F_ANGULAR"
+      ]
+    },
+    "Vue.js": {
+      "vi": [
+        "vue",
+        "vuejs",
+        "vue.js",
+        "học vue",
+        "lập trình vue",
+        "vue framework"
+      ],
+      "abbrev": [
+        "Vue",
+        "F_VUE"
+      ]
+    },
+    "Next.js": {
+      "vi": [
+        "next.js",
+        "nextjs",
+        "next js",
+        "framework next",
+        "lập trình nextjs"
+      ],
+      "abbrev": [
+        "Next",
+        "F_NEXT"
+      ]
+    },
+    "Express.js": {
+      "vi": [
+        "express",
+        "expressjs",
+        "express.js",
+        "nodejs express",
+        "backend express"
+      ],
+      "abbrev": [
+        "Express",
+        "F_EXPRESS"
+      ]
+    },
+    "NestJS": {
+      "vi": [
+        "nestjs",
+        "nest.js",
+        "nest js",
+        "framework nest",
+        "backend nestjs"
+      ],
+      "abbrev": [
+        "Nest",
+        "F_NEST"
+      ]
+    },
+    "Fastify": {
+      "vi": [
+        "fastify",
+        "framework fastify",
+        "nodejs fastify"
+      ],
+      "abbrev": [
+        "F_FASTIFY"
+      ]
+    },
+    "Django": {
+      "vi": [
+        "django",
+        "framework django",
+        "python django",
+        "học django",
+        "web django"
+      ],
+      "abbrev": [
+        "F_DJANGO"
+      ]
+    },
+    "FastAPI": {
+      "vi": [
+        "fastapi",
+        "fast api",
+        "python fastapi",
+        "api fastapi",
+        "framework fastapi"
+      ],
+      "abbrev": [
+        "F_FASTAPI"
+      ]
+    },
+    "Flask": {
+      "vi": [
+        "flask",
+        "python flask",
+        "framework flask",
+        "web flask",
+        "học flask"
+      ],
+      "abbrev": [
+        "F_FLASK"
+      ]
+    },
+    "Spring Boot": {
+      "vi": [
+        "spring boot",
+        "spring",
+        "java spring",
+        "springboot",
+        "framework spring",
+        "học spring"
+      ],
+      "abbrev": [
+        "Spring",
+        "F_SPRING"
+      ]
+    },
+    "ASP.NET Core": {
+      "vi": [
+        "asp.net",
+        "asp net core",
+        "dotnet web",
+        "c# web framework",
+        "aspnet"
+      ],
+      "abbrev": [
+        "ASP.NET",
+        "F_DOTNET"
+      ]
+    },
+    "Laravel": {
+      "vi": [
+        "laravel",
+        "php laravel",
+        "framework laravel",
+        "học laravel"
+      ],
+      "abbrev": [
+        "F_LARAVEL"
+      ]
+    },
+    "Ruby on Rails": {
+      "vi": [
+        "ruby on rails",
+        "rails",
+        "framework rails",
+        "ror",
+        "ruby rails"
+      ],
+      "abbrev": [
+        "Rails",
+        "RoR",
+        "F_RAILS"
+      ]
+    },
+    "Gin": {
+      "vi": [
+        "gin",
+        "gin golang",
+        "go gin framework",
+        "framework gin"
+      ],
+      "abbrev": [
+        "F_GIN"
+      ]
+    },
+    "Echo": {
+      "vi": [
+        "echo",
+        "go echo framework",
+        "framework echo golang"
+      ],
+      "abbrev": [
+        "F_ECHO"
+      ]
+    },
+    "Actix Web": {
+      "vi": [
+        "actix",
+        "actix web",
+        "rust actix",
+        "web actix"
+      ],
+      "abbrev": [
+        "F_ACTIX"
+      ]
+    },
+    "Axum": {
+      "vi": [
+        "axum",
+        "rust axum",
+        "framework axum"
+      ],
+      "abbrev": [
+        "F_AXUM"
+      ]
+    },
+    "Flutter": {
+      "vi": [
+        "flutter",
+        "dart flutter",
+        "lập trình flutter",
+        "mobile flutter",
+        "học flutter"
+      ],
+      "abbrev": [
+        "F_FLUTTER"
+      ]
+    },
+    "React Native": {
+      "vi": [
+        "react native",
+        "rn",
+        "lập trình react native",
+        "mobile react native",
+        "framework react native"
+      ],
+      "abbrev": [
+        "RN",
+        "F_RN"
+      ]
+    },
+    "SwiftUI": {
+      "vi": [
+        "swiftui",
+        "swift ui",
+        "lập trình swiftui",
+        "ios swiftui"
+      ],
+      "abbrev": [
+        "F_SWIFTUI"
+      ]
+    },
+    "Android Jetpack": {
+      "vi": [
+        "jetpack",
+        "android jetpack",
+        "jetpack compose",
+        "lập trình jetpack",
+        "android compose"
+      ],
+      "abbrev": [
+        "Jetpack",
+        "F_JETPACK"
+      ]
+    },
+    "Unity": {
+      "vi": [
+        "unity",
+        "unity game",
+        "lập trình unity",
+        "game unity",
+        "unity engine"
+      ],
+      "abbrev": [
+        "F_UNITY"
+      ]
+    },
+    "Unreal Engine": {
+      "vi": [
+        "unreal",
+        "unreal engine",
+        "ue5",
+        "ue4",
+        "game unreal",
+        "lập trình unreal"
+      ],
+      "abbrev": [
+        "Unreal",
+        "UE",
+        "F_UNREAL"
+      ]
+    },
+    "Godot": {
+      "vi": [
+        "godot",
+        "godot engine",
+        "game godot",
+        "lập trình godot"
+      ],
+      "abbrev": [
+        "F_GODOT"
+      ]
+    },
+    "Transformers": {
+      "vi": [
+        "transformers",
+        "hugging face",
+        "huggingface",
+        "transformers huggingface",
+        "thư viện transformers",
+        "nlp transformers"
+      ],
+      "abbrev": [
+        "HF",
+        "F_HF"
+      ]
+    },
+    "TensorFlow": {
+      "vi": [
+        "tensorflow",
+        "tf",
+        "học máy tensorflow",
+        "deep learning tensorflow",
+        "framework tf"
+      ],
+      "abbrev": [
+        "TF",
+        "F_TF"
+      ]
+    },
+    "PyTorch": {
+      "vi": [
+        "pytorch",
+        "torch",
+        "deep learning pytorch",
+        "học máy pytorch",
+        "framework pytorch"
+      ],
+      "abbrev": [
+        "Torch",
+        "F_TORCH"
+      ]
+    },
+    "scikit-learn": {
+      "vi": [
+        "scikit-learn",
+        "sklearn",
+        "scikit learn",
+        "machine learning sklearn",
+        "thư viện sklearn"
+      ],
+      "abbrev": [
+        "sklearn",
+        "F_SKLEARN"
+      ]
+    },
+    "Apache Spark": {
+      "vi": [
+        "spark",
+        "apache spark",
+        "pyspark",
+        "big data spark",
+        "xử lý dữ liệu spark"
+      ],
+      "abbrev": [
+        "Spark",
+        "F_SPARK"
+      ]
+    },
+    "Apache Flink": {
+      "vi": [
+        "flink",
+        "apache flink",
+        "stream processing flink",
+        "xử lý luồng flink"
+      ],
+      "abbrev": [
+        "Flink",
+        "F_FLINK"
+      ]
+    },
+    "Apache Airflow": {
+      "vi": [
+        "airflow",
+        "apache airflow",
+        "workflow airflow",
+        "pipeline airflow",
+        "data pipeline airflow"
+      ],
+      "abbrev": [
+        "Airflow",
+        "F_AIRFLOW"
+      ]
+    },
+    "Ray": {
+      "vi": [
+        "ray",
+        "ray framework",
+        "distributed ml ray",
+        "ray tune",
+        "phân tán ray"
+      ],
+      "abbrev": [
+        "F_RAY"
+      ]
+    },
+    "Dask": {
+      "vi": [
+        "dask",
+        "parallel python dask",
+        "big data dask",
+        "dask dataframe"
+      ],
+      "abbrev": [
+        "F_DASK"
+      ]
+    },
+    "Terraform": {
+      "vi": [
+        "terraform",
+        "iac terraform",
+        "infrastructure as code terraform",
+        "hạ tầng terraform"
+      ],
+      "abbrev": [
+        "F_TERRAFORM"
+      ]
+    },
+    "Pulumi": {
+      "vi": [
+        "pulumi",
+        "iac pulumi",
+        "infrastructure as code pulumi"
+      ],
+      "abbrev": [
+        "F_PULUMI"
+      ]
+    },
+    "Ansible": {
+      "vi": [
+        "ansible",
+        "tự động hóa ansible",
+        "automation ansible",
+        "cấu hình ansible"
+      ],
+      "abbrev": [
+        "F_ANSIBLE"
+      ]
+    },
+    "Jest": {
+      "vi": [
+        "jest",
+        "unit test jest",
+        "javascript test jest",
+        "kiểm thử jest"
+      ],
+      "abbrev": [
+        "F_JEST"
+      ]
+    },
+    "Playwright": {
+      "vi": [
+        "playwright",
+        "e2e test playwright",
+        "kiểm thử playwright",
+        "automation playwright"
+      ],
+      "abbrev": [
+        "F_PLAYWRIGHT"
+      ]
+    },
+    "Cypress": {
+      "vi": [
+        "cypress",
+        "e2e test cypress",
+        "kiểm thử cypress",
+        "automation cypress"
+      ],
+      "abbrev": [
+        "F_CYPRESS"
+      ]
+    },
+    "pytest": {
+      "vi": [
+        "pytest",
+        "python test",
+        "unit test python",
+        "kiểm thử python pytest"
+      ],
+      "abbrev": [
+        "F_PYTEST"
+      ]
+    },
+    "JUnit": {
+      "vi": [
+        "junit",
+        "java test junit",
+        "unit test java",
+        "kiểm thử java junit"
+      ],
+      "abbrev": [
+        "F_JUNIT"
+      ]
+    },
+    "xUnit/NUnit": {
+      "vi": [
+        "xunit",
+        "nunit",
+        "c# test",
+        "unit test dotnet",
+        "kiểm thử c# xunit"
+      ],
+      "abbrev": [
+        "xUnit",
+        "NUnit",
+        "F_XUNIT"
+      ]
+    },
+    "Agile/Scrum": {
+      "vi": [
+        "agile",
+        "scrum",
+        "agile scrum",
+        "phương pháp agile",
+        "quy trình scrum",
+        "làm việc agile"
+      ],
+      "abbrev": [
+        "F_AGILE"
+      ]
+    },
+    "Kanban": {
+      "vi": [
+        "kanban",
+        "phương pháp kanban",
+        "bảng kanban",
+        "quản lý kanban"
+      ],
+      "abbrev": [
+        "F_KANBAN"
+      ]
+    },
+    "BABOK": {
+      "vi": [
+        "babok",
+        "business analysis body of knowledge",
+        "khung phân tích nghiệp vụ babok"
+      ],
+      "abbrev": [
+        "F_BABOK"
+      ]
+    },
+    "BPMN 2.0": {
+      "vi": [
+        "bpmn",
+        "bpmn 2.0",
+        "mô hình hóa quy trình bpmn",
+        "vẽ bpmn",
+        "business process model"
+      ],
+      "abbrev": [
+        "BPMN",
+        "F_BPMN"
+      ]
+    },
+    "UML": {
+      "vi": [
+        "uml",
+        "unified modeling language",
+        "biểu đồ uml",
+        "vẽ uml",
+        "sơ đồ uml"
+      ],
+      "abbrev": [
+        "F_UML"
+      ]
+    },
+    "User Story Mapping": {
+      "vi": [
+        "user story mapping",
+        "story map",
+        "bản đồ user story",
+        "lập bản đồ câu chuyện người dùng"
+      ],
+      "abbrev": [
+        "F_USMAP"
+      ]
+    },
+    "RACI": {
+      "vi": [
+        "raci",
+        "ma trận raci",
+        "phân công trách nhiệm raci",
+        "raci matrix"
+      ],
+      "abbrev": [
+        "F_RACI"
+      ]
+    },
+    "OKR/KPI": {
+      "vi": [
+        "okr",
+        "kpi",
+        "okr kpi",
+        "mục tiêu và kết quả then chốt",
+        "quản lý theo okr"
+      ],
+      "abbrev": [
+        "OKR",
+        "KPI",
+        "F_OKR"
+      ]
+    },
+    "Design Thinking": {
+      "vi": [
+        "design thinking",
+        "tư duy thiết kế",
+        "phương pháp design thinking",
+        "thiết kế lấy người dùng làm trung tâm"
+      ],
+      "abbrev": [
+        "F_DTHINK"
+      ]
+    },
+    "SAFe": {
+      "vi": [
+        "safe",
+        "scaled agile framework",
+        "scaled agile",
+        "khung agile mở rộng safe"
+      ],
+      "abbrev": [
+        "F_SAFE"
+      ]
+    },
+    "Spring Cloud": {
+      "vi": [
+        "spring cloud",
+        "microservices spring cloud",
+        "java spring cloud",
+        "framework spring cloud"
+      ],
+      "abbrev": [
+        "F_SPRINGCLOUD"
+      ]
+    },
+    "gRPC": {
+      "vi": [
+        "grpc",
+        "remote procedure call",
+        "giao tiếp grpc",
+        "grpc api"
+      ],
+      "abbrev": [
+        "gRPC",
+        "F_GRPC"
+      ]
+    },
+    "Dapr": {
+      "vi": [
+        "dapr",
+        "distributed application runtime dapr",
+        "microservices dapr"
+      ],
+      "abbrev": [
+        "F_DAPR"
+      ]
+    },
+    "Hardhat": {
+      "vi": [
+        "hardhat",
+        "blockchain hardhat",
+        "ethereum hardhat",
+        "smart contract hardhat",
+        "framework hardhat"
+      ],
+      "abbrev": [
+        "F_HARDHAT"
+      ]
+    },
+    "DAMA-DMBOK": {
+      "vi": [
+        "dmbok",
+        "dama dmbok",
+        "data management body of knowledge",
+        "khung quản trị dữ liệu dmbok"
+      ],
+      "abbrev": [
+        "DMBOK",
+        "F_DMBOK"
+      ]
+    },
+    "TOGAF Data Architecture": {
+      "vi": [
+        "togaf data",
+        "togaf kiến trúc dữ liệu",
+        "data architecture togaf"
+      ],
+      "abbrev": [
+        "F_TOGAF_DATA"
+      ]
+    },
+    "Data Governance Framework": {
+      "vi": [
+        "data governance",
+        "quản trị dữ liệu",
+        "data governance framework",
+        "khung quản trị dữ liệu"
+      ],
+      "abbrev": [
+        "F_DATA_GOV"
+      ]
+    },
+    "Data Modeling Methodology": {
+      "vi": [
+        "data modeling",
+        "mô hình hóa dữ liệu",
+        "phương pháp mô hình dữ liệu",
+        "thiết kế mô hình dữ liệu"
+      ],
+      "abbrev": [
+        "F_DATA_MODELING"
+      ]
+    },
+    "pandas": {
+      "vi": [
+        "pandas",
+        "thư viện pandas",
+        "python pandas",
+        "dataframe pandas",
+        "xử lý dữ liệu pandas"
+      ],
+      "abbrev": [
+        "F_PANDAS"
+      ]
+    },
+    "NumPy": {
+      "vi": [
+        "numpy",
+        "thư viện numpy",
+        "python numpy",
+        "mảng numpy",
+        "tính toán numpy"
+      ],
+      "abbrev": [
+        "np",
+        "F_NUMPY"
+      ]
+    },
+    "XGBoost": {
+      "vi": [
+        "xgboost",
+        "gradient boosting xgboost",
+        "thuật toán xgboost",
+        "machine learning xgboost"
+      ],
+      "abbrev": [
+        "F_XGBOOST"
+      ]
+    },
+    "AWS": {
+      "vi": [
+        "aws",
+        "amazon web services",
+        "cloud aws",
+        "dịch vụ aws",
+        "điện toán đám mây aws",
+        "học aws"
+      ],
+      "abbrev": [
+        "P_AWS"
+      ]
+    },
+    "Microsoft Azure": {
+      "vi": [
+        "azure",
+        "microsoft azure",
+        "cloud azure",
+        "dịch vụ azure",
+        "điện toán đám mây azure"
+      ],
+      "abbrev": [
+        "Azure",
+        "P_AZURE"
+      ]
+    },
+    "Google Cloud": {
+      "vi": [
+        "gcp",
+        "google cloud",
+        "google cloud platform",
+        "cloud gcp",
+        "dịch vụ google cloud"
+      ],
+      "abbrev": [
+        "GCP",
+        "P_GCP"
+      ]
+    },
+    "Kubernetes": {
+      "vi": [
+        "kubernetes",
+        "k8s",
+        "điều phối container kubernetes",
+        "quản lý container k8s",
+        "học kubernetes"
+      ],
+      "abbrev": [
+        "K8s",
+        "k8s",
+        "P_K8S"
+      ]
+    },
+    "Docker": {
+      "vi": [
+        "docker",
+        "container docker",
+        "học docker",
+        "đóng gói container",
+        "docker compose"
+      ],
+      "abbrev": [
+        "P_DOCKER"
+      ]
+    },
+    "GitHub": {
+      "vi": [
+        "github",
+        "git hub",
+        "nền tảng github",
+        "quản lý code github",
+        "lưu trữ github"
+      ],
+      "abbrev": [
+        "P_GITHUB"
+      ]
+    },
+    "GitLab": {
+      "vi": [
+        "gitlab",
+        "git lab",
+        "nền tảng gitlab",
+        "ci cd gitlab",
+        "quản lý code gitlab"
+      ],
+      "abbrev": [
+        "P_GITLAB"
+      ]
+    },
+    "Jira": {
+      "vi": [
+        "jira",
+        "quản lý dự án jira",
+        "jira software",
+        "theo dõi issue jira",
+        "ticket jira"
+      ],
+      "abbrev": [
+        "P_JIRA"
+      ]
+    },
+    "Confluence": {
+      "vi": [
+        "confluence",
+        "wiki confluence",
+        "tài liệu confluence",
+        "nền tảng confluence",
+        "atlassian confluence"
+      ],
+      "abbrev": [
+        "P_CONF"
+      ]
+    },
+    "Azure DevOps": {
+      "vi": [
+        "azure devops",
+        "ado",
+        "microsoft devops",
+        "ci cd azure devops",
+        "pipeline azure devops"
+      ],
+      "abbrev": [
+        "ADO",
+        "P_ADO"
+      ]
+    },
+    "Salesforce": {
+      "vi": [
+        "salesforce",
+        "crm salesforce",
+        "nền tảng salesforce",
+        "salesforce platform"
+      ],
+      "abbrev": [
+        "P_SALESFORCE"
+      ]
+    },
+    "SAP": {
+      "vi": [
+        "sap",
+        "erp sap",
+        "nền tảng sap",
+        "hệ thống sap",
+        "triển khai sap"
+      ],
+      "abbrev": [
+        "P_SAP"
+      ]
+    },
+    "Microsoft Dynamics": {
+      "vi": [
+        "dynamics",
+        "microsoft dynamics",
+        "crm dynamics",
+        "erp dynamics",
+        "dynamics 365"
+      ],
+      "abbrev": [
+        "Dynamics",
+        "P_DYNAMICS"
+      ]
+    },
+    "Tableau": {
+      "vi": [
+        "tableau",
+        "trực quan hóa tableau",
+        "dashboard tableau",
+        "báo cáo tableau",
+        "tableau desktop"
+      ],
+      "abbrev": [
+        "P_TABLEAU"
+      ]
+    },
+    "Power BI": {
+      "vi": [
+        "power bi",
+        "powerbi",
+        "microsoft power bi",
+        "báo cáo power bi",
+        "dashboard power bi",
+        "pbi"
+      ],
+      "abbrev": [
+        "PBI",
+        "P_PBI"
+      ]
+    },
+    "Figma": {
+      "vi": [
+        "figma",
+        "thiết kế figma",
+        "ui figma",
+        "prototype figma",
+        "nền tảng figma"
+      ],
+      "abbrev": [
+        "P_FIGMA"
+      ]
+    },
+    "ServiceNow": {
+      "vi": [
+        "servicenow",
+        "service now",
+        "itsm servicenow",
+        "nền tảng servicenow"
+      ],
+      "abbrev": [
+        "P_SERVICE_NOW"
+      ]
+    },
+    "Linux": {
+      "vi": [
+        "linux",
+        "hệ điều hành linux",
+        "ubuntu",
+        "centos",
+        "debian",
+        "dùng linux",
+        "quản trị linux"
+      ],
+      "abbrev": [
+        "P_LINUX"
+      ]
+    },
+    "Windows Server": {
+      "vi": [
+        "windows server",
+        "máy chủ windows",
+        "server windows",
+        "microsoft windows server"
+      ],
+      "abbrev": [
+        "WinServer",
+        "P_WINDOWS"
+      ]
+    },
+    "Microsoft SQL Server": {
+      "vi": [
+        "sql server",
+        "microsoft sql server",
+        "mssql",
+        "ms sql",
+        "cơ sở dữ liệu sql server"
+      ],
+      "abbrev": [
+        "MSSQL",
+        "SQL Server",
+        "P_SQLSERVER"
+      ]
+    },
+    "Oracle Database": {
+      "vi": [
+        "oracle",
+        "oracle database",
+        "oracle db",
+        "cơ sở dữ liệu oracle",
+        "oracle rdbms"
+      ],
+      "abbrev": [
+        "Oracle",
+        "P_ORACLE"
+      ]
+    },
+    "PostgreSQL": {
+      "vi": [
+        "postgresql",
+        "postgres",
+        "cơ sở dữ liệu postgres",
+        "pg",
+        "postgresql database"
+      ],
+      "abbrev": [
+        "PG",
+        "P_POSTGRES"
+      ]
+    },
+    "MongoDB": {
+      "vi": [
+        "mongodb",
+        "mongo",
+        "cơ sở dữ liệu mongo",
+        "nosql mongo",
+        "mongodb database"
+      ],
+      "abbrev": [
+        "P_MONGODB"
+      ]
+    },
+    "Amazon DynamoDB": {
+      "vi": [
+        "dynamodb",
+        "amazon dynamodb",
+        "dynamo db",
+        "aws dynamodb",
+        "nosql dynamodb"
+      ],
+      "abbrev": [
+        "DynamoDB",
+        "P_DYNAMODB"
+      ]
+    },
+    "Elasticsearch": {
+      "vi": [
+        "elasticsearch",
+        "elastic search",
+        "elastic",
+        "tìm kiếm elasticsearch",
+        "elk elasticsearch"
+      ],
+      "abbrev": [
+        "Elastic",
+        "ES",
+        "P_ELASTIC"
+      ]
+    },
+    "Snowflake": {
+      "vi": [
+        "snowflake",
+        "data warehouse snowflake",
+        "cloud data warehouse snowflake",
+        "nền tảng snowflake"
+      ],
+      "abbrev": [
+        "P_SNOWFLAKE"
+      ]
+    },
+    "Apache Hive": {
+      "vi": [
+        "hive",
+        "apache hive",
+        "big data hive",
+        "hadoop hive",
+        "data warehouse hive"
+      ],
+      "abbrev": [
+        "Hive",
+        "P_HIVE"
+      ]
+    },
+    "Amazon RDS": {
+      "vi": [
+        "aws rds",
+        "amazon rds",
+        "rds",
+        "managed database aws",
+        "cơ sở dữ liệu quản lý aws"
+      ],
+      "abbrev": [
+        "RDS",
+        "P_AWS_RDS"
+      ]
+    },
+    "MLflow": {
+      "vi": [
+        "mlflow",
+        "ml flow",
+        "quản lý model mlflow",
+        "experiment tracking mlflow",
+        "mlops mlflow"
+      ],
+      "abbrev": [
+        "P_MLFLOW"
+      ]
+    },
+    "Kubeflow": {
+      "vi": [
+        "kubeflow",
+        "ml pipeline kubeflow",
+        "kubernetes ml kubeflow",
+        "mlops kubeflow"
+      ],
+      "abbrev": [
+        "P_KUBEFLOW"
+      ]
+    },
+    "Postman": {
+      "vi": [
+        "postman",
+        "test api postman",
+        "công cụ postman",
+        "kiểm thử api postman"
+      ],
+      "abbrev": [
+        "T_POSTMAN"
+      ]
+    },
+    "Swagger/OpenAPI": {
+      "vi": [
+        "swagger",
+        "openapi",
+        "swagger api",
+        "tài liệu api swagger",
+        "đặc tả api swagger"
+      ],
+      "abbrev": [
+        "Swagger",
+        "OpenAPI",
+        "T_SWAGGER"
+      ]
+    },
+    "VS Code": {
+      "vi": [
+        "vscode",
+        "vs code",
+        "visual studio code",
+        "code editor vscode",
+        "ide vscode"
+      ],
+      "abbrev": [
+        "VSCode",
+        "T_VSCODE"
+      ]
+    },
+    "IntelliJ IDEA": {
+      "vi": [
+        "intellij",
+        "intellij idea",
+        "ide intellij",
+        "java ide intellij"
+      ],
+      "abbrev": [
+        "IntelliJ",
+        "T_INTELLIJ"
+      ]
+    },
+    "PyCharm": {
+      "vi": [
+        "pycharm",
+        "ide pycharm",
+        "python ide pycharm",
+        "pycharm python"
+      ],
+      "abbrev": [
+        "T_PYCHARM"
+      ]
+    },
+    "Visual Studio": {
+      "vi": [
+        "visual studio",
+        "ide visual studio",
+        "microsoft visual studio",
+        "vs 2022"
+      ],
+      "abbrev": [
+        "VS",
+        "T_VISUAL_STUDIO"
+      ]
+    },
+    "DBeaver": {
+      "vi": [
+        "dbeaver",
+        "công cụ dbeaver",
+        "quản lý database dbeaver",
+        "sql client dbeaver"
+      ],
+      "abbrev": [
+        "T_DBEAVER"
+      ]
+    },
+    "MySQL Workbench": {
+      "vi": [
+        "mysql workbench",
+        "workbench mysql",
+        "công cụ mysql workbench",
+        "thiết kế mysql workbench"
+      ],
+      "abbrev": [
+        "T_MYSQLW"
+      ]
+    },
+    "FigJam/Miro": {
+      "vi": [
+        "figjam",
+        "miro",
+        "whiteboard miro",
+        "workshop miro",
+        "vẽ sơ đồ miro",
+        "figjam workshop"
+      ],
+      "abbrev": [
+        "Miro",
+        "FigJam",
+        "T_FIGJAM"
+      ]
+    },
+    "Draw.io": {
+      "vi": [
+        "draw.io",
+        "drawio",
+        "vẽ sơ đồ drawio",
+        "diagrams.net",
+        "công cụ vẽ drawio"
+      ],
+      "abbrev": [
+        "drawio",
+        "T_DRAWIO"
+      ]
+    },
+    "Bizagi Modeler": {
+      "vi": [
+        "bizagi",
+        "bizagi modeler",
+        "bpmn bizagi",
+        "mô hình hóa bizagi"
+      ],
+      "abbrev": [
+        "T_BIZAGI"
+      ]
+    },
+    "Excel": {
+      "vi": [
+        "excel",
+        "microsoft excel",
+        "bảng tính excel",
+        "excel phân tích",
+        "làm việc excel",
+        "dùng excel"
+      ],
+      "abbrev": [
+        "T_EXCEL"
+      ]
+    },
+    "Power BI Desktop": {
+      "vi": [
+        "power bi desktop",
+        "công cụ power bi",
+        "pbi desktop",
+        "báo cáo power bi desktop"
+      ],
+      "abbrev": [
+        "PBI Desktop",
+        "T_PBI"
+      ]
+    },
+    "Tableau Desktop": {
+      "vi": [
+        "tableau desktop",
+        "công cụ tableau",
+        "phân tích tableau desktop",
+        "trực quan tableau"
+      ],
+      "abbrev": [
+        "T_TABLEAU"
+      ]
+    },
+    "Jenkins": {
+      "vi": [
+        "jenkins",
+        "ci cd jenkins",
+        "pipeline jenkins",
+        "tự động hóa jenkins",
+        "build jenkins"
+      ],
+      "abbrev": [
+        "T_JENKINS"
+      ]
+    },
+    "GitHub Actions": {
+      "vi": [
+        "github actions",
+        "gha",
+        "ci cd github actions",
+        "workflow github actions",
+        "pipeline github"
+      ],
+      "abbrev": [
+        "GHA",
+        "T_GHA"
+      ]
+    },
+    "Prometheus": {
+      "vi": [
+        "prometheus",
+        "giám sát prometheus",
+        "monitoring prometheus",
+        "metrics prometheus"
+      ],
+      "abbrev": [
+        "T_PROM"
+      ]
+    },
+    "Grafana": {
+      "vi": [
+        "grafana",
+        "dashboard grafana",
+        "monitoring grafana",
+        "trực quan giám sát grafana"
+      ],
+      "abbrev": [
+        "T_GRAF"
+      ]
+    },
+    "Kibana": {
+      "vi": [
+        "kibana",
+        "log kibana",
+        "elk kibana",
+        "phân tích log kibana",
+        "dashboard kibana"
+      ],
+      "abbrev": [
+        "T_KIBANA"
+      ]
+    },
+    "Burp Suite": {
+      "vi": [
+        "burp suite",
+        "burp",
+        "kiểm thử bảo mật burp",
+        "web security burp",
+        "pentest burp"
+      ],
+      "abbrev": [
+        "Burp",
+        "T_BURP"
+      ]
+    },
+    "Nmap": {
+      "vi": [
+        "nmap",
+        "quét mạng nmap",
+        "network scan nmap",
+        "công cụ nmap"
+      ],
+      "abbrev": [
+        "T_NMAP"
+      ]
+    },
+    "Metasploit": {
+      "vi": [
+        "metasploit",
+        "framework pentest metasploit",
+        "kiểm thử xâm nhập metasploit"
+      ],
+      "abbrev": [
+        "T_METASPLOIT"
+      ]
+    },
+    "Splunk/SIEM": {
+      "vi": [
+        "splunk",
+        "siem",
+        "splunk siem",
+        "giám sát bảo mật splunk",
+        "phân tích sự kiện splunk"
+      ],
+      "abbrev": [
+        "Splunk",
+        "SIEM",
+        "T_SPLUNK"
+      ]
+    },
+    "JMeter": {
+      "vi": [
+        "jmeter",
+        "apache jmeter",
+        "kiểm thử tải jmeter",
+        "performance test jmeter"
+      ],
+      "abbrev": [
+        "T_JMETER"
+      ]
+    },
+    "Git": {
+      "vi": [
+        "git",
+        "quản lý mã nguồn git",
+        "version control git",
+        "git version",
+        "học git"
+      ],
+      "abbrev": [
+        "T_GIT"
+      ]
+    },
+    "SQL Server Integration Services (SSIS)": {
+      "vi": [
+        "ssis",
+        "sql server integration services",
+        "etl ssis",
+        "tích hợp dữ liệu ssis"
+      ],
+      "abbrev": [
+        "SSIS",
+        "T_SSIS"
+      ]
+    },
+    "SQL Server Reporting Services (SSRS)": {
+      "vi": [
+        "ssrs",
+        "sql server reporting services",
+        "báo cáo ssrs",
+        "report ssrs"
+      ],
+      "abbrev": [
+        "SSRS",
+        "T_SSRS"
+      ]
+    },
+    "SQL Server Analysis Services (SSAS)": {
+      "vi": [
+        "ssas",
+        "sql server analysis services",
+        "olap ssas",
+        "phân tích ssas"
+      ],
+      "abbrev": [
+        "SSAS",
+        "T_SSAS"
+      ]
+    },
+    "Oracle Recovery Manager (RMAN)": {
+      "vi": [
+        "rman",
+        "oracle rman",
+        "backup oracle rman",
+        "phục hồi oracle rman"
+      ],
+      "abbrev": [
+        "RMAN",
+        "T_ORACLE_RMAN"
+      ]
+    },
+    "Veritas NetBackup": {
+      "vi": [
+        "veritas",
+        "netbackup",
+        "veritas netbackup",
+        "backup veritas",
+        "sao lưu veritas"
+      ],
+      "abbrev": [
+        "T_VERITAS"
+      ]
+    },
+    "Redgate SQL Toolbelt": {
+      "vi": [
+        "redgate",
+        "sql toolbelt redgate",
+        "công cụ redgate sql"
+      ],
+      "abbrev": [
+        "T_REDGATE"
+      ]
+    },
+    "erwin Data Modeler": {
+      "vi": [
+        "erwin",
+        "erwin data modeler",
+        "mô hình dữ liệu erwin",
+        "thiết kế db erwin"
+      ],
+      "abbrev": [
+        "erwin",
+        "T_ERWIN"
+      ]
+    },
+    "SAP PowerDesigner": {
+      "vi": [
+        "powerdesigner",
+        "sap powerdesigner",
+        "mô hình kiến trúc powerdesigner"
+      ],
+      "abbrev": [
+        "PowerDesigner",
+        "T_POWERDESIGNER"
+      ]
+    },
+    "Informatica Data Management": {
+      "vi": [
+        "informatica",
+        "quản lý dữ liệu informatica",
+        "etl informatica",
+        "tích hợp dữ liệu informatica"
+      ],
+      "abbrev": [
+        "T_INFORMATICA"
+      ]
+    },
+    "Talend Data Fabric": {
+      "vi": [
+        "talend",
+        "talend data fabric",
+        "etl talend",
+        "tích hợp dữ liệu talend"
+      ],
+      "abbrev": [
+        "T_TALEND"
+      ]
+    },
+    "Microsoft Visio": {
+      "vi": [
+        "visio",
+        "microsoft visio",
+        "vẽ sơ đồ visio",
+        "biểu đồ visio",
+        "thiết kế visio"
+      ],
+      "abbrev": [
+        "Visio",
+        "T_VISIO"
+      ]
+    },
+    "Oracle SQL Developer": {
+      "vi": [
+        "sql developer",
+        "oracle sql developer",
+        "công cụ oracle sql developer",
+        "ide oracle"
+      ],
+      "abbrev": [
+        "SQL Developer",
+        "T_SQLDEV"
+      ]
+    },
+    "UiPath": {
+      "vi": [
+        "uipath",
+        "rpa uipath",
+        "tự động hóa uipath",
+        "robot uipath",
+        "thiết kế workflow uipath"
+      ],
+      "abbrev": [
+        "T_UIPATH"
+      ]
+    },
+    "Microsoft Power Automate": {
+      "vi": [
+        "power automate",
+        "microsoft power automate",
+        "tự động hóa power automate",
+        "workflow power automate"
+      ],
+      "abbrev": [
+        "Power Automate",
+        "T_POWER_AUTOMATE"
+      ]
+    },
+    "SDLC": {
+      "vi": [
+        "sdlc",
+        "vòng đời phát triển phần mềm",
+        "software development life cycle",
+        "quy trình sdlc",
+        "chu kỳ phát triển phần mềm"
+      ],
+      "abbrev": [
+        "K_SDLC"
+      ]
+    },
+    "OOP and Design Principles": {
+      "vi": [
+        "oop",
+        "lập trình hướng đối tượng",
+        "object oriented programming",
+        "solid principles",
+        "design pattern",
+        "nguyên tắc thiết kế oop"
+      ],
+      "abbrev": [
+        "OOP",
+        "K_OOP"
+      ]
+    },
+    "Data Structures and Algorithms": {
+      "vi": [
+        "cấu trúc dữ liệu",
+        "giải thuật",
+        "dsa",
+        "data structures and algorithms",
+        "cấu trúc dữ liệu giải thuật",
+        "ctdl gt"
+      ],
+      "abbrev": [
+        "DSA",
+        "K_DSA"
+      ]
+    },
+    "System Design": {
+      "vi": [
+        "thiết kế hệ thống",
+        "system design",
+        "kiến trúc hệ thống",
+        "thiết kế kiến trúc phần mềm",
+        "phân tích thiết kế hệ thống"
+      ],
+      "abbrev": [
+        "K_SYSDES"
+      ]
+    },
+    "API Design and Integration": {
+      "vi": [
+        "thiết kế api",
+        "api design",
+        "tích hợp api",
+        "rest api",
+        "api integration",
+        "giao tiếp api"
+      ],
+      "abbrev": [
+        "API",
+        "REST API",
+        "K_API"
+      ]
+    },
+    "Database Design": {
+      "vi": [
+        "thiết kế cơ sở dữ liệu",
+        "database design",
+        "mô hình hóa dữ liệu",
+        "thiết kế database",
+        "schema database"
+      ],
+      "abbrev": [
+        "K_DB"
+      ]
+    },
+    "Networking Basics": {
+      "vi": [
+        "mạng máy tính",
+        "kiến thức mạng",
+        "networking",
+        "tcp ip",
+        "giao thức mạng",
+        "cơ bản mạng"
+      ],
+      "abbrev": [
+        "K_NET"
+      ]
+    },
+    "Cloud Architecture": {
+      "vi": [
+        "kiến trúc cloud",
+        "cloud architecture",
+        "kiến trúc điện toán đám mây",
+        "thiết kế cloud"
+      ],
+      "abbrev": [
+        "K_CLOUD"
+      ]
+    },
+    "Security Fundamentals": {
+      "vi": [
+        "bảo mật cơ bản",
+        "kiến thức bảo mật",
+        "an toàn thông tin",
+        "security fundamentals",
+        "cơ sở bảo mật"
+      ],
+      "abbrev": [
+        "K_SEC"
+      ]
+    },
+    "Testing Strategy": {
+      "vi": [
+        "chiến lược kiểm thử",
+        "testing strategy",
+        "kế hoạch kiểm thử",
+        "phương pháp kiểm thử",
+        "quy trình test"
+      ],
+      "abbrev": [
+        "K_TEST"
+      ]
+    },
+    "Requirement Elicitation": {
+      "vi": [
+        "thu thập yêu cầu",
+        "elicitation yêu cầu",
+        "phân tích yêu cầu",
+        "requirement analysis",
+        "lấy yêu cầu khách hàng"
+      ],
+      "abbrev": [
+        "K_REQ"
+      ]
+    },
+    "Process Analysis": {
+      "vi": [
+        "phân tích quy trình",
+        "process analysis",
+        "phân tích nghiệp vụ",
+        "quy trình doanh nghiệp",
+        "phân tích process"
+      ],
+      "abbrev": [
+        "K_PROC"
+      ]
+    },
+    "UAT Management": {
+      "vi": [
+        "uat",
+        "user acceptance testing",
+        "kiểm thử chấp nhận người dùng",
+        "quản lý uat",
+        "tổ chức uat"
+      ],
+      "abbrev": [
+        "UAT",
+        "K_UAT"
+      ]
+    },
+    "Domain Knowledge": {
+      "vi": [
+        "kiến thức nghiệp vụ",
+        "domain knowledge",
+        "hiểu nghiệp vụ",
+        "kiến thức ngành",
+        "domain expertise"
+      ],
+      "abbrev": [
+        "K_DOMAIN"
+      ]
+    },
+    "Data Modeling and Analytics": {
+      "vi": [
+        "mô hình hóa và phân tích dữ liệu",
+        "data modeling analytics",
+        "phân tích mô hình dữ liệu",
+        "data analytics modeling"
+      ],
+      "abbrev": [
+        "K_DATA"
+      ]
+    },
+    "Statistics Fundamentals": {
+      "vi": [
+        "thống kê",
+        "xác suất thống kê",
+        "statistics",
+        "kiến thức thống kê",
+        "toán thống kê",
+        "thống kê cơ bản"
+      ],
+      "abbrev": [
+        "K_STATS"
+      ]
+    },
+    "Machine Learning Basics": {
+      "vi": [
+        "học máy cơ bản",
+        "machine learning cơ bản",
+        "ml basics",
+        "kiến thức ml",
+        "thuật toán học máy",
+        "nhập môn học máy"
+      ],
+      "abbrev": [
+        "K_ML"
+      ]
+    },
+    "MLOps Concepts": {
+      "vi": [
+        "mlops",
+        "khái niệm mlops",
+        "vận hành mô hình ml",
+        "ci cd ml",
+        "mlops cơ bản"
+      ],
+      "abbrev": [
+        "K_MLOPS"
+      ]
+    },
+    "IT Service Management": {
+      "vi": [
+        "quản lý dịch vụ it",
+        "itsm",
+        "itil",
+        "it service management",
+        "quản trị dịch vụ cntt"
+      ],
+      "abbrev": [
+        "ITSM",
+        "ITIL",
+        "K_ITIL"
+      ]
+    },
+    "Enterprise Architecture": {
+      "vi": [
+        "kiến trúc doanh nghiệp",
+        "enterprise architecture",
+        "ea",
+        "togaf",
+        "thiết kế kiến trúc doanh nghiệp"
+      ],
+      "abbrev": [
+        "EA",
+        "TOGAF",
+        "K_EA"
+      ]
+    },
+    "UX Principles": {
+      "vi": [
+        "nguyên tắc ux",
+        "ux principles",
+        "thiết kế ux",
+        "trải nghiệm người dùng",
+        "user experience cơ bản"
+      ],
+      "abbrev": [
+        "K_UX"
+      ]
+    },
+    "Technical Documentation": {
+      "vi": [
+        "viết tài liệu kỹ thuật",
+        "technical documentation",
+        "soạn tài liệu kỹ thuật",
+        "tài liệu phần mềm"
+      ],
+      "abbrev": [
+        "K_DOC"
+      ]
+    },
+    "Data Architecture": {
+      "vi": [
+        "kiến trúc dữ liệu",
+        "data architecture",
+        "thiết kế kiến trúc dữ liệu",
+        "tổng quan kiến trúc dữ liệu"
+      ],
+      "abbrev": [
+        "K_DATA_ARCHITECTURE"
+      ]
+    },
+    "Advanced Data Modeling": {
+      "vi": [
+        "mô hình hóa dữ liệu nâng cao",
+        "advanced data modeling",
+        "data modeling phức tạp",
+        "dimensional modeling"
+      ],
+      "abbrev": [
+        "K_DATA_MODELING_ADV"
+      ]
+    },
+    "Database Performance Tuning": {
+      "vi": [
+        "tối ưu cơ sở dữ liệu",
+        "database performance tuning",
+        "tuning database",
+        "tối ưu truy vấn",
+        "query optimization"
+      ],
+      "abbrev": [
+        "K_DB_PERF_TUNING"
+      ]
+    },
+    "High Availability and Disaster Recovery": {
+      "vi": [
+        "high availability",
+        "disaster recovery",
+        "ha dr",
+        "tính sẵn sàng cao",
+        "phục hồi thảm họa",
+        "ha/dr"
+      ],
+      "abbrev": [
+        "HA/DR",
+        "K_HA_DR"
+      ]
+    },
+    "AWS Certified Cloud Practitioner": {
+      "vi": [
+        "chứng chỉ aws cloud practitioner",
+        "aws cp",
+        "aws cloud practitioner",
+        "chứng chỉ aws cơ bản"
+      ],
+      "abbrev": [
+        "AWS CP",
+        "C_AWS_CP"
+      ]
+    },
+    "AWS Solutions Architect Associate": {
+      "vi": [
+        "chứng chỉ aws solutions architect",
+        "aws saa",
+        "aws solutions architect associate",
+        "aws saa-c03"
+      ],
+      "abbrev": [
+        "AWS SAA",
+        "SAA",
+        "C_AWS_SAA"
+      ]
+    },
+    "Azure Fundamentals AZ-900": {
+      "vi": [
+        "chứng chỉ azure fundamentals",
+        "az-900",
+        "azure az900",
+        "chứng chỉ azure cơ bản"
+      ],
+      "abbrev": [
+        "AZ-900",
+        "C_AZ900"
+      ]
+    },
+    "Azure Administrator AZ-104": {
+      "vi": [
+        "chứng chỉ azure administrator",
+        "az-104",
+        "azure az104",
+        "quản trị azure"
+      ],
+      "abbrev": [
+        "AZ-104",
+        "C_AZ104"
+      ]
+    },
+    "Google Associate Cloud Engineer": {
+      "vi": [
+        "chứng chỉ google cloud engineer",
+        "gcp ace",
+        "google associate cloud engineer",
+        "cloud engineer google"
+      ],
+      "abbrev": [
+        "GCP ACE",
+        "C_GCP_ACE"
+      ]
+    },
+    "Certified Kubernetes Administrator": {
+      "vi": [
+        "chứng chỉ kubernetes administrator",
+        "cka",
+        "certified kubernetes administrator",
+        "k8s admin cert"
+      ],
+      "abbrev": [
+        "CKA",
+        "C_CKA"
+      ]
+    },
+    "Certified Kubernetes Application Developer": {
+      "vi": [
+        "chứng chỉ kubernetes developer",
+        "ckad",
+        "certified kubernetes application developer"
+      ],
+      "abbrev": [
+        "CKAD",
+        "C_CKAD"
+      ]
+    },
+    "CompTIA Security+": {
+      "vi": [
+        "chứng chỉ comptia security+",
+        "security plus",
+        "comptia security",
+        "chứng chỉ bảo mật comptia"
+      ],
+      "abbrev": [
+        "Security+",
+        "C_SECURITY_PLUS"
+      ]
+    },
+    "Certified Ethical Hacker": {
+      "vi": [
+        "chứng chỉ ceh",
+        "certified ethical hacker",
+        "ceh",
+        "hacker đạo đức có chứng chỉ"
+      ],
+      "abbrev": [
+        "CEH",
+        "C_CEH"
+      ]
+    },
+    "CISSP": {
+      "vi": [
+        "chứng chỉ cissp",
+        "cissp",
+        "certified information systems security professional"
+      ],
+      "abbrev": [
+        "C_CISSP"
+      ]
+    },
+    "ISTQB CTFL": {
+      "vi": [
+        "chứng chỉ istqb",
+        "istqb ctfl",
+        "istqb foundation",
+        "chứng chỉ kiểm thử phần mềm istqb"
+      ],
+      "abbrev": [
+        "ISTQB",
+        "C_ISTQB"
+      ]
+    },
+    "ECBA": {
+      "vi": [
+        "chứng chỉ ecba",
+        "ecba",
+        "entry certificate in business analysis",
+        "chứng chỉ ba cơ bản ecba"
+      ],
+      "abbrev": [
+        "C_ECBA"
+      ]
+    },
+    "CCBA": {
+      "vi": [
+        "chứng chỉ ccba",
+        "ccba",
+        "certificate of capability in business analysis"
+      ],
+      "abbrev": [
+        "C_CCBA"
+      ]
+    },
+    "CBAP": {
+      "vi": [
+        "chứng chỉ cbap",
+        "cbap",
+        "business analysis professional",
+        "chứng chỉ ba cao cấp"
+      ],
+      "abbrev": [
+        "C_CBAP"
+      ]
+    },
+    "PMI-PBA": {
+      "vi": [
+        "chứng chỉ pmi-pba",
+        "pmi pba",
+        "professional in business analysis pmi"
+      ],
+      "abbrev": [
+        "PMI-PBA",
+        "C_PMI_PBA"
+      ]
+    },
+    "PSM I": {
+      "vi": [
+        "chứng chỉ psm",
+        "psm i",
+        "professional scrum master",
+        "scrum master cert psm"
+      ],
+      "abbrev": [
+        "PSM",
+        "PSM I",
+        "C_PSM1"
+      ]
+    },
+    "CSM": {
+      "vi": [
+        "chứng chỉ csm",
+        "csm",
+        "certified scrum master",
+        "chứng chỉ scrum master csm"
+      ],
+      "abbrev": [
+        "C_CSM"
+      ]
+    },
+    "PSPO I": {
+      "vi": [
+        "chứng chỉ pspo",
+        "pspo i",
+        "professional scrum product owner",
+        "chứng chỉ product owner"
+      ],
+      "abbrev": [
+        "PSPO",
+        "C_PSPO1"
+      ]
+    },
+    "ITIL 4 Foundation": {
+      "vi": [
+        "chứng chỉ itil",
+        "itil 4 foundation",
+        "itil foundation",
+        "chứng chỉ quản lý dịch vụ it itil"
+      ],
+      "abbrev": [
+        "ITIL 4",
+        "C_ITIL4"
+      ]
+    },
+    "PMP": {
+      "vi": [
+        "chứng chỉ pmp",
+        "pmp",
+        "project management professional",
+        "chứng chỉ quản lý dự án pmp"
+      ],
+      "abbrev": [
+        "C_PMP"
+      ]
+    },
+    "TOGAF Foundation": {
+      "vi": [
+        "chứng chỉ togaf",
+        "togaf foundation",
+        "togaf",
+        "kiến trúc doanh nghiệp togaf"
+      ],
+      "abbrev": [
+        "TOGAF",
+        "C_TOGAF"
+      ]
+    },
+    "Salesforce Administrator": {
+      "vi": [
+        "chứng chỉ salesforce admin",
+        "salesforce administrator",
+        "salesforce admin cert"
+      ],
+      "abbrev": [
+        "SF Admin",
+        "C_SALESFORCE"
+      ]
+    },
+    "SAP Associate Certification": {
+      "vi": [
+        "chứng chỉ sap",
+        "sap associate certification",
+        "chứng chỉ sap associate"
+      ],
+      "abbrev": [
+        "SAP Cert",
+        "C_SAP"
+      ]
+    },
+    "AWS Certified Database - Specialty": {
+      "vi": [
+        "chứng chỉ aws database",
+        "aws dbs",
+        "aws certified database specialty"
+      ],
+      "abbrev": [
+        "AWS DBS",
+        "C_AWS_DBS"
+      ]
+    },
+    "Microsoft Azure DP-300": {
+      "vi": [
+        "chứng chỉ azure dp-300",
+        "dp-300",
+        "azure database administrator",
+        "azure dp300"
+      ],
+      "abbrev": [
+        "DP-300",
+        "C_AZURE_DP300"
+      ]
+    },
+    "Oracle Database OCP": {
+      "vi": [
+        "chứng chỉ oracle ocp",
+        "ocp",
+        "oracle certified professional",
+        "oracle database ocp"
+      ],
+      "abbrev": [
+        "OCP",
+        "C_ORACLE_OCP"
+      ]
+    },
+    "SnowPro Core Certification": {
+      "vi": [
+        "chứng chỉ snowpro",
+        "snowpro core",
+        "snowflake certification",
+        "chứng chỉ snowflake"
+      ],
+      "abbrev": [
+        "SnowPro",
+        "C_SNOWPRO"
+      ]
+    },
+    "CDMP (DAMA)": {
+      "vi": [
+        "chứng chỉ cdmp",
+        "cdmp",
+        "certified data management professional",
+        "chứng chỉ quản trị dữ liệu cdmp"
+      ],
+      "abbrev": [
+        "CDMP",
+        "C_CDMP"
+      ]
+    }
+  },
+  "soft_skills": {
+    "Communication": {
+      "vi": [
+        "kỹ năng giao tiếp",
+        "giao tiếp hiệu quả",
+        "kỹ năng trình bày",
+        "khả năng giao tiếp",
+        "communication"
+      ],
+      "abbrev": [
+        "S_COMM"
+      ]
+    },
+    "Collaboration": {
+      "vi": [
+        "làm việc nhóm",
+        "kỹ năng phối hợp",
+        "hợp tác nhóm",
+        "teamwork",
+        "kỹ năng làm việc nhóm"
+      ],
+      "abbrev": [
+        "S_COLLAB"
+      ]
+    },
+    "Interpersonal Skills": {
+      "vi": [
+        "kỹ năng quan hệ",
+        "kỹ năng xây dựng mối quan hệ",
+        "ứng xử công sở",
+        "giao tiếp liên cá nhân"
+      ],
+      "abbrev": [
+        "S_INTER"
+      ]
+    },
+    "English Communication": {
+      "vi": [
+        "giao tiếp tiếng anh",
+        "tiếng anh giao tiếp",
+        "kỹ năng tiếng anh",
+        "english",
+        "tiếng anh trong it",
+        "tiếng anh chuyên ngành"
+      ],
+      "abbrev": [
+        "S_ENG"
+      ]
+    },
+    "Problem Solving": {
+      "vi": [
+        "giải quyết vấn đề",
+        "kỹ năng xử lý vấn đề",
+        "tư duy giải quyết vấn đề",
+        "problem solving"
+      ],
+      "abbrev": [
+        "S_PROB"
+      ]
+    },
+    "Critical Thinking": {
+      "vi": [
+        "tư duy phản biện",
+        "tư duy phân tích",
+        "suy nghĩ phản biện",
+        "kỹ năng tư duy phản biện",
+        "critical thinking"
+      ],
+      "abbrev": [
+        "S_CRIT"
+      ]
+    },
+    "Adaptability": {
+      "vi": [
+        "khả năng thích nghi",
+        "linh hoạt trong công việc",
+        "thích nghi với thay đổi",
+        "tính linh hoạt",
+        "adaptability"
+      ],
+      "abbrev": [
+        "S_ADAPT"
+      ]
+    },
+    "Time Management": {
+      "vi": [
+        "quản lý thời gian",
+        "kỹ năng quản lý thời gian",
+        "sắp xếp công việc đúng hạn",
+        "phân bổ thời gian"
+      ],
+      "abbrev": [
+        "S_TIME"
+      ]
+    },
+    "Documentation": {
+      "vi": [
+        "viết tài liệu",
+        "kỹ năng tài liệu hóa",
+        "lập tài liệu kỹ thuật",
+        "soạn thảo tài liệu",
+        "documentation"
+      ],
+      "abbrev": [
+        "S_DOC"
+      ]
+    },
+    "Stakeholder Management": {
+      "vi": [
+        "quản lý các bên liên quan",
+        "làm việc với stakeholder",
+        "quản lý kỳ vọng các bên",
+        "quản trị stakeholder"
+      ],
+      "abbrev": [
+        "S_STAKE"
+      ]
+    },
+    "Facilitation": {
+      "vi": [
+        "điều phối cuộc họp",
+        "kỹ năng điều phối",
+        "facilitation workshop",
+        "dẫn dắt buổi làm việc nhóm"
+      ],
+      "abbrev": [
+        "S_FACIL"
+      ]
+    },
+    "Negotiation": {
+      "vi": [
+        "đàm phán",
+        "kỹ năng đàm phán",
+        "thương lượng",
+        "kỹ năng thương lượng"
+      ],
+      "abbrev": [
+        "S_NEGO"
+      ]
+    },
+    "Leadership": {
+      "vi": [
+        "kỹ năng lãnh đạo",
+        "năng lực lãnh đạo",
+        "dẫn dắt đội nhóm",
+        "khả năng dẫn dắt",
+        "leadership"
+      ],
+      "abbrev": [
+        "S_LEAD"
+      ]
+    },
+    "Coaching": {
+      "vi": [
+        "kỹ năng huấn luyện",
+        "hướng dẫn và phát triển người khác",
+        "coaching nhân viên",
+        "mentoring"
+      ],
+      "abbrev": [
+        "S_COACH"
+      ]
+    },
+    "Risk Management": {
+      "vi": [
+        "quản lý rủi ro",
+        "đánh giá rủi ro",
+        "quản trị rủi ro dự án",
+        "xử lý rủi ro"
+      ],
+      "abbrev": [
+        "S_RISK"
+      ]
+    },
+    "Proactiveness": {
+      "vi": [
+        "chủ động trong công việc",
+        "tính chủ động",
+        "chủ động đề xuất",
+        "làm việc chủ động"
+      ],
+      "abbrev": [
+        "S_PRO"
+      ]
+    },
+    "Outcome Focus": {
+      "vi": [
+        "định hướng kết quả",
+        "tập trung vào kết quả",
+        "hướng đến mục tiêu",
+        "làm việc hướng kết quả"
+      ],
+      "abbrev": [
+        "S_OUT"
+      ]
+    },
+    "Attention to Detail": {
+      "vi": [
+        "chú ý đến chi tiết",
+        "cẩn thận tỉ mỉ",
+        "tư duy chi tiết",
+        "làm việc kỹ lưỡng"
+      ],
+      "abbrev": [
+        "S_DET"
+      ]
+    },
+    "Technical Leadership": {
+      "vi": [
+        "lãnh đạo kỹ thuật",
+        "dẫn dắt đội kỹ thuật",
+        "tech lead",
+        "trưởng nhóm kỹ thuật"
+      ],
+      "abbrev": [
+        "S_TECHLEAD",
+        "Tech Lead"
+      ]
+    },
+    "Requirement Translation": {
+      "vi": [
+        "chuyển đổi yêu cầu nghiệp vụ",
+        "phân tích và dịch yêu cầu",
+        "chuyển business requirement thành technical"
+      ],
+      "abbrev": [
+        "S_REQTR"
+      ]
+    },
+    "Cross-team Coordination": {
+      "vi": [
+        "phối hợp đa phòng ban",
+        "làm việc xuyên nhóm",
+        "phối hợp liên team",
+        "điều phối giữa các team"
+      ],
+      "abbrev": [
+        "S_CROSS"
+      ]
+    },
+    "Consulting and Advisory": {
+      "vi": [
+        "tư vấn giải pháp",
+        "kỹ năng tư vấn",
+        "advisory trong it",
+        "tư vấn công nghệ"
+      ],
+      "abbrev": [
+        "S_CONSULT"
+      ]
+    },
+    "Project Coordination": {
+      "vi": [
+        "điều phối dự án",
+        "phối hợp trong dự án",
+        "hỗ trợ quản lý dự án",
+        "kỹ năng điều phối dự án"
+      ],
+      "abbrev": [
+        "S_PROJ"
+      ]
+    },
+    "Client-facing Communication": {
+      "vi": [
+        "giao tiếp với khách hàng",
+        "kỹ năng làm việc với client",
+        "tiếp xúc khách hàng",
+        "communication với khách"
+      ],
+      "abbrev": [
+        "S_CLIENT"
+      ]
+    }
+  },
+  "subjects": {
+    "Lap trinh huong doi tuong": {
+      "vi": [
+        "lập trình hướng đối tượng",
+        "oop",
+        "object oriented programming",
+        "môn lập trình oop",
+        "lthdt"
+      ],
+      "abbrev": [
+        "OOP",
+        "LTHDT"
+      ],
+      "maps_to_competencies": [
+        "Python",
+        "Java",
+        "C#",
+        "C++",
+        "C",
+        "OOP and Design Principles"
+      ]
+    },
+    "Co so du lieu": {
+      "vi": [
+        "cơ sở dữ liệu",
+        "database cơ bản",
+        "nhập môn cơ sở dữ liệu",
+        "môn cơ sở dữ liệu",
+        "môn csdl"
+      ],
+      "abbrev": [
+        "CSDL",
+        "DB"
+      ],
+      "maps_to_competencies": [
+        "SQL",
+        "PostgreSQL",
+        "MongoDB",
+        "Database Design"
+      ]
+    },
+    "He quan tri co so du lieu": {
+      "vi": [
+        "hệ quản trị cơ sở dữ liệu",
+        "dbms",
+        "quản trị database",
+        "môn hệ quản trị csdl",
+        "hqtcsdl"
+      ],
+      "abbrev": [
+        "HQTCSDL",
+        "DBMS"
+      ],
+      "maps_to_competencies": [
+        "SQL",
+        "Microsoft SQL Server",
+        "Oracle Database",
+        "PostgreSQL",
+        "Database Design"
+      ]
+    },
+    "Mang may tinh": {
+      "vi": [
+        "mạng máy tính",
+        "computer networks",
+        "networking cơ bản",
+        "môn mạng máy tính",
+        "môn mmt"
+      ],
+      "abbrev": [
+        "MMT",
+        "CN"
+      ],
+      "maps_to_competencies": [
+        "Linux",
+        "Networking Basics"
+      ]
+    },
+    "Cau truc du lieu va giai thuat": {
+      "vi": [
+        "cấu trúc dữ liệu và giải thuật",
+        "dsa",
+        "data structures and algorithms",
+        "môn dsa",
+        "ctdlgt"
+      ],
+      "abbrev": [
+        "DSA",
+        "CTDLGT"
+      ],
+      "maps_to_competencies": [
+        "Data Structures and Algorithms",
+        "Python",
+        "Java",
+        "C++"
+      ]
+    },
+    "Cong nghe phan mem": {
+      "vi": [
+        "công nghệ phần mềm",
+        "software engineering cơ bản",
+        "nguyên lý công nghệ phần mềm",
+        "môn cnpm"
+      ],
+      "abbrev": [
+        "CNPM"
+      ],
+      "maps_to_competencies": [
+        "SDLC",
+        "Testing Strategy",
+        "Agile/Scrum"
+      ]
+    },
+    "Phat trien ung dung web": {
+      "vi": [
+        "phát triển ứng dụng web",
+        "lập trình web",
+        "web development",
+        "môn phát triển web",
+        "web dev"
+      ],
+      "abbrev": [
+        "Web Dev"
+      ],
+      "maps_to_competencies": [
+        "JavaScript",
+        "TypeScript",
+        "HTML",
+        "CSS",
+        "React",
+        "Node.js",
+        "API Design and Integration"
+      ]
+    },
+    "Tri tue nhan tao": {
+      "vi": [
+        "trí tuệ nhân tạo",
+        "artificial intelligence",
+        "ai cơ bản",
+        "môn trí tuệ nhân tạo",
+        "môn ai"
+      ],
+      "abbrev": [
+        "AI",
+        "TTNT"
+      ],
+      "maps_to_competencies": [
+        "Machine Learning Basics",
+        "Python",
+        "Data Structures and Algorithms"
+      ]
+    },
+    "Hoc may": {
+      "vi": [
+        "học máy",
+        "machine learning",
+        "ml cơ bản",
+        "môn học máy",
+        "nhập môn ml"
+      ],
+      "abbrev": [
+        "ML"
+      ],
+      "maps_to_competencies": [
+        "Machine Learning Basics",
+        "Python",
+        "scikit-learn",
+        "Statistics Fundamentals"
+      ]
+    },
+    "Phan tich thiet ke he thong": {
+      "vi": [
+        "phân tích thiết kế hệ thống",
+        "system analysis and design",
+        "pttkht",
+        "môn pttkht",
+        "sad"
+      ],
+      "abbrev": [
+        "PTTKHT",
+        "SAD"
+      ],
+      "maps_to_competencies": [
+        "System Design",
+        "Requirement Elicitation",
+        "UML",
+        "BPMN 2.0"
+      ]
+    },
+    "Kien truc phan mem": {
+      "vi": [
+        "kiến trúc phần mềm",
+        "software architecture",
+        "thiết kế kiến trúc phần mềm",
+        "môn kiến trúc phần mềm"
+      ],
+      "abbrev": [
+        "KTPM"
+      ],
+      "maps_to_competencies": [
+        "System Design",
+        "OOP and Design Principles",
+        "API Design and Integration"
+      ]
+    },
+    "An toan thong tin": {
+      "vi": [
+        "an toàn thông tin",
+        "information security",
+        "bảo mật thông tin cơ bản",
+        "môn an toàn thông tin",
+        "attt"
+      ],
+      "abbrev": [
+        "ATTT",
+        "InfoSec"
+      ],
+      "maps_to_competencies": [
+        "Security Fundamentals",
+        "Networking Basics"
+      ]
+    },
+    "Kiem thu phan mem": {
+      "vi": [
+        "kiểm thử phần mềm",
+        "software testing",
+        "test phần mềm",
+        "môn kiểm thử phần mềm",
+        "môn testing"
+      ],
+      "abbrev": [
+        "Testing"
+      ],
+      "maps_to_competencies": [
+        "Testing Strategy",
+        "Jest",
+        "pytest",
+        "JUnit"
+      ]
+    },
+    "Phan tich nghiep vu BA": {
+      "vi": [
+        "phân tích nghiệp vụ",
+        "business analysis",
+        "ba cơ bản",
+        "môn phân tích nghiệp vụ",
+        "môn ba"
+      ],
+      "abbrev": [
+        "BA"
+      ],
+      "maps_to_competencies": [
+        "Requirement Elicitation",
+        "Process Analysis",
+        "BPMN 2.0",
+        "UML",
+        "BABOK"
+      ]
+    },
+    "Dien toan dam may": {
+      "vi": [
+        "điện toán đám mây",
+        "cloud computing",
+        "dịch vụ đám mây",
+        "môn điện toán đám mây",
+        "cloud"
+      ],
+      "abbrev": [
+        "Cloud"
+      ],
+      "maps_to_competencies": [
+        "AWS",
+        "Microsoft Azure",
+        "Google Cloud",
+        "Cloud Architecture"
+      ]
+    },
+    "Xac suat thong ke": {
+      "vi": [
+        "xác suất thống kê",
+        "probability and statistics",
+        "thống kê cơ bản",
+        "môn xác suất thống kê",
+        "xstk"
+      ],
+      "abbrev": [
+        "XSTK"
+      ],
+      "maps_to_competencies": [
+        "Statistics Fundamentals",
+        "R",
+        "Python"
+      ]
+    },
+    "He phan tan": {
+      "vi": [
+        "hệ phân tán",
+        "distributed systems",
+        "hệ thống phân tán",
+        "môn hệ phân tán",
+        "hpt"
+      ],
+      "abbrev": [
+        "HPT"
+      ],
+      "maps_to_competencies": [
+        "System Design",
+        "Networking Basics",
+        "Cloud Architecture"
+      ]
+    },
+    "Quan ly du an phan mem": {
+      "vi": [
+        "quản lý dự án phần mềm",
+        "project management it",
+        "quản lý dự án cntt",
+        "môn qlda"
+      ],
+      "abbrev": [
+        "QLDAPM"
+      ],
+      "maps_to_competencies": [
+        "Agile/Scrum",
+        "SDLC",
+        "OKR/KPI",
+        "RACI"
+      ]
+    },
+    "DevOps co ban": {
+      "vi": [
+        "devops cơ bản",
+        "nhập môn devops",
+        "ci/cd cơ bản",
+        "môn devops"
+      ],
+      "abbrev": [
+        "DevOps"
+      ],
+      "maps_to_competencies": [
+        "Docker",
+        "Jenkins",
+        "GitHub Actions",
+        "Linux",
+        "Git"
+      ]
+    },
+    "Phan tich du lieu": {
+      "vi": [
+        "phân tích dữ liệu",
+        "data analysis",
+        "phân tích và xử lý dữ liệu",
+        "môn phân tích dữ liệu"
+      ],
+      "abbrev": [
+        "DA"
+      ],
+      "maps_to_competencies": [
+        "SQL",
+        "Python",
+        "pandas",
+        "Power BI",
+        "Tableau",
+        "Statistics Fundamentals"
+      ]
+    },
+    "Business Intelligence": {
+      "vi": [
+        "business intelligence",
+        "bi",
+        "trí tuệ doanh nghiệp",
+        "phân tích bi",
+        "môn bi"
+      ],
+      "abbrev": [
+        "BI"
+      ],
+      "maps_to_competencies": [
+        "Power BI",
+        "Tableau",
+        "SQL",
+        "Data Modeling and Analytics"
+      ]
+    }
+  },
+  "abbrev_to_career": {
+    "BE": "Backend Developer",
+    "FE": "Frontend Developer",
+    "FS": "Fullstack Developer",
+    "DA": "Data Analyst",
+    "DS": "Data Scientist",
+    "SWE": "Software Engineer",
+    "SE": "Software Engineer",
+    "DE": "Data Engineer",
+    "BI": "BI Analyst",
+    "MLE": "Machine Learning Engineer",
+    "SRE": "Site Reliability Engineer",
+    "DBA": "Database Administrator",
+    "QA": "QA Engineer",
+    "PO": "Product Owner",
+    "CTO": "Chief Technology Officer",
+    "SM": "Scrum Master",
+    "AIE": "AI Engineer",
+    "NLP": "NLP Engineer",
+    "CVE": "Computer Vision Engineer",
+    "GRC": "GRC Specialist",
+    "SOC": "SOC Analyst",
+    "TW": "Technical Writer",
+    "UXR": "UX Researcher",
+    "AE": "Analytics Engineer",
+    "MLOPS": "MLOps Engineer",
+    "DEVOPS": "DevOps Engineer",
+    "SECENG": "Security Engineer",
+    "BA": "Business Analyst",
+    "UIUX": "UI/UX Designer",
+    "QE": "Quality Engineer",
+    "PENTEST": "Penetration Tester",
+    "ERP": "ERP Consultant",
+    "CRM": "CRM Consultant",
+    "EMGR": "Engineering Manager",
+    "PM": {
+      "candidates": [
+        "Product Manager",
+        "IT Project Manager"
+      ],
+      "disambiguate_by": "context",
+      "default": "Product Manager"
+    },
+    "SA": {
+      "candidates": [
+        "Solutions Architect",
+        "System Analyst"
+      ],
+      "disambiguate_by": "context",
+      "default": "Solutions Architect"
+    }
+  }
+}

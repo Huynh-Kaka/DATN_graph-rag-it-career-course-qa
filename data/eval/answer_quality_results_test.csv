@@ -1,0 +1,2 @@
+case_id,intent,route_intent,faithfulness,skill_completeness,no_hallucination,n_citations,n_valid_citations,error
+pf_ds_01,pathfinding,,0.0,0.0,False,0,0,"403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your project has been denied access. Please contact support.', 'status': 'PERMISSION_DENIED'}}"

@@ -1,0 +1,155 @@
+# =========================
+# Sensitive files & secrets
+# =========================
+.env
+.env.*
+!.env.example
+!*.env.example
+!.env.sample
+!*.env.sample.*
+
+# Credentials / API keys / secret blobs
+*credential*
+*credentials*
+*secret*
+*secrets*
+*apikey*
+*api_key*
+credentials.json
+credentials.yaml
+credentials.yml
+secrets.json
+secrets.yaml
+secrets.yml
+secret.key
+secret.txt
+apikeys.json
+api-keys.json
+service-account*.json
+
+# Private keys / certs
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.csr
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# Database dumps / snapshots
+*.sql
+*.sql.gz
+*.dump
+*.bak
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+
+.venv/
+venv/
+env/
+ENV/
+
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.pyre/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+dist/
+build/
+site/
+
+# =========================
+# Node / frontend tooling
+# =========================
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+.next/
+.nuxt/
+.svelte-kit/
+.parcel-cache/
+coverage/
+*.tsbuildinfo
+
+# =========================
+# Build outputs, caches, logs, temp
+# =========================
+*.log
+debug-*.log
+*.pid
+*.pid.lock
+*.seed
+*.stackdump
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+.cache/
+cache/
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Local DB backups (large / machine-specific)
+backups/
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.iml
+*.suo
+*.user
+*.userossc
+*.sln.docstates
+*.swp
+*.swo
+*~
+
+# =========================
+# OS files (Windows/macOS/Linux)
+# =========================
+.DS_Store
+.DS_Store?
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100/
+.Trashes/
+._*
+
+# =========================
+# Office / lock temporary files
+# =========================
+~$*.xlsx
+**/~$*.xlsx
+~$*.docx
+**/~$*.docx

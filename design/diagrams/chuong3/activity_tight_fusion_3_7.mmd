@@ -1,0 +1,40 @@
+%% Hình 3.7 — Activity: luồng tight fusion (pathfinding / course_rec / competency_relation)
+flowchart TD
+    A([Bắt đầu]) --> B[Người dùng gửi tin nhắn]
+    B --> C[ChatService._process_turn]
+    C --> D[IntentRouterService.route<br/>+ maybe_adjust_outcome]
+    D --> E{Lưu session}
+
+    E --> F{domain == out?}
+    F -->|Có| F1[OUT_OF_DOMAIN_MESSAGE] --> Z([Kết thúc])
+    F -->|Không| G{outcome.stop?}
+    G -->|Có| G1[slot_fill / greeting] --> Z
+
+    G -->|Không| H{intent?}
+
+    H -->|pathfinding| P1[VectorRetriever.retrieve_docs<br/>Qdrant + BM25 + RRF]
+    P1 --> P2[map_hits_to_graph_nodes<br/>→ seed career/competency codes]
+    P2 --> P3[GraphRepository.pathfinding<br/>Cypher NEED_* + seed boost]
+    P3 --> P4[extract_relevant_ids_from_graph]
+    P4 --> P5[retrieve_docs với relevant_ids<br/>graph-aware rerank]
+    P5 --> P6[FusionService.aggregate]
+    P6 --> P7[ResponseGenerator.pathfinding<br/>confidence gate → LLM / formatter]
+    P7 --> P8[Validator: lọc citation ảo]
+    P8 --> Z
+
+    H -->|course_rec| C1[retrieve_docs → seed course codes]
+    C1 --> C2[course_recommendation Neo4j<br/>TEACH_*]
+    C2 --> C3[graph-aware rerank + fusion]
+    C3 --> C4[ResponseGenerator.course_rec<br/>+ Validator]
+    C4 --> Z
+
+    H -->|competency_relation| R1[GraphRepository.competency_relations]
+    R1 --> R2{coverage == full?}
+    R2 -->|Không| R3[format_competency_relation tĩnh] --> Z
+    R2 -->|Có| R4[fusion + generator + Validator] --> Z
+
+    H -->|roadmap_followup| RF[RoadmapFollowupService] --> Z
+    H -->|subject_career| SC[subject_to_careers multi-hop] --> Z
+
+    P1 -.->|Qdrant Index required| P1R[retry không filter<br/>+ lọc doc_type local]
+    P1R --> P2

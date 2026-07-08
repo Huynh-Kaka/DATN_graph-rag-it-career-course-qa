@@ -1,0 +1,42 @@
+%% CHANGELOG v2:
+%% - Đồng bộ endpoint runtime: dùng /api/chat (không còn /advise).
+%% - Bổ sung lớp Session/Followup orchestration: maybe_adjust_outcome + competency flow state.
+%% - Làm rõ generator backend thực tế: Gemini/Local + fallback formatter (không có Prediction Agent riêng trong code hiện tại).
+%% - Bổ sung chi tiết Qdrant retry khi thiếu payload index doc_type.
+flowchart LR
+    U[User]
+    FE[Frontend chat.html/form.html]
+    API[FastAPI Routers<br/>/api/chat, /api/advisory, /api/intent, /api/health]
+    CHAT[ChatService]
+
+    ROUTER[IntentRouterService<br/>Gemini Router + rules]
+    FOLLOW[Session Followup/Context<br/>maybe_adjust_outcome + apply_route_to_state]
+    ORCH[CompetencyTypeOrchestrator<br/>phase: idle/collecting/gap_summary/course]
+
+    GRAPH[GraphRepository]
+    VRET[VectorRetriever]
+    FUSE[FusionService<br/>vector->graph seed + evidence]
+    GEN[ResponseGenerator<br/>Gemini/Local + static formatter fallback]
+
+    NEO[(Neo4j)]
+    QDR[(Qdrant)]
+    DB[(PostgreSQL session/profile/messages)]
+
+    U --> FE --> API --> CHAT
+    CHAT --> ROUTER
+    CHAT --> FOLLOW
+    FOLLOW --> ROUTER
+    CHAT --> ORCH
+    CHAT --> GRAPH --> NEO
+    CHAT --> VRET --> QDR
+    VRET --> FUSE
+    GRAPH --> FUSE
+    FUSE --> GEN
+    CHAT --> GEN
+
+    API <--> DB
+    CHAT <--> DB
+
+    IDX[scripts/index_qdrant.py<br/>ensure payload index doc_type] --> QDR
+    QDR -. missing payload index .-> VRET
+    VRET -. retry without filter + local filter doc_type .-> QDR

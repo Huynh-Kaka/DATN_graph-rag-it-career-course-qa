@@ -1,0 +1,241 @@
+================================================================================
+BÁO CÁO PHƯƠNG PHÁP & KẾT QUẢ — D-01 ABLATION V2 (PHƯƠNG ÁN B)
+================================================================================
+
+Phiên bản: V2 (suffix _v2). Không ghi đè artifact V1.
+Gold build: 2026-06-12 | snapshot_date ablation: 2026-06-12
+Neo4j + Qdrant: Docker (doantotnghiep-neo4j-1, doantotnghiep-qdrant-1)
+
+--------------------------------------------------------------------------------
+1. TÓM TẮT V2 vs V1
+--------------------------------------------------------------------------------
+
+| Hạng mục              | V1                          | V2                                      |
+|-----------------------|-----------------------------|-----------------------------------------|
+| Gold hint             | 25 case (build_answer_gold) | 80 case (retrieval_gold dedupe)         |
+| Gold no-hint          | Không có                    | 25 case (entity_hint=false)             |
+| Generative subset     | 10 case                     | 15 case                                 |
+| Metric chính          | skill_accuracy (graph list) | answer_entity_f1 (entity trong reply)   |
+| Tách nguồn Graph      | Không                       | exclusive_graph_rate                    |
+| Validate gold         | Không                       | scripts/validate_gold.py                |
+| cypher_matched        | Không                       | Easy/Hard no-hint                       |
+| Reproducibility       | Không                       | --snapshot-date + gold_sha256           |
+| Báo cáo               | d01_eval_report_snippet.txt | File này (mới)                          |
+
+Claim được phép sau V2:
+  - Hint-mode: Graph* >> VectorOnly về ontology_f1 và answer_entity_f1.
+  - Hint-mode: KHÔNG claim Tight > Late về ontology (cùng entry point đúng).
+  - No-hint: TightFusion vượt LateFusion và GraphOnly trên answer_entity_f1,
+    ontology_f1 (đặc biệt subset Hard khi Cypher không match).
+  - Generative (n=15): minh họa E2E; Graph >> Vector; Tight ≈ Late (hint đủ).
+
+--------------------------------------------------------------------------------
+2. HAI CHẾ ĐỘ THÍ NGHIỆM (PHẢN BIỆN NHÓM 1)
+--------------------------------------------------------------------------------
+
+A. Hint-mode (80 case) — `data/eval/answer_gold_v2.jsonl`
+   - Mục đích: đo chất lượng duyệt đồ thị khi career/competency đã đúng.
+   - Pipeline nhận entity_hint=true → truyền career/competency vào graph.
+   - Kỳ vọng: GraphOnly ≈ Late ≈ Tight về ontology_f1; Tight seed không đổi graph
+     khi hint đã chính xác.
+
+B. No-hint-mode (25 case) — `data/eval/answer_gold_no_hint_v2.jsonl`
+   - Mục đích: E2E disambiguation — chỉ có query tự nhiên, không leak career.
+   - expected_career / expected_competency chỉ dùng để chấm và cypher_matched.
+   - ĐÂY là nơi chứng minh giá trị TightFusion (vector seed → graph).
+
+--------------------------------------------------------------------------------
+3. ĐỊNH NGHĨA METRIC V2 (PHẢN BIỆN NHÓM 2)
+--------------------------------------------------------------------------------
+
+ontology_f1
+  F1 giữa danh sách entity từ graph dump (predicted) và gold.
+  Tương đương skill_accuracy V1 — đo tầng retrieval/traversal graph.
+
+answer_entity_f1  [CỘT CHÍNH]
+  F1 giữa entity trích từ reply (extract_mentions_from_reply) và gold.
+
+full_grounding_rate
+  % mention trong reply thuộc graph ∪ vector context.
+
+graph_grounding_rate
+  % mention trong reply thuộc graph context.
+
+exclusive_graph_rate
+  % mention trong reply thuộc graph NHƯNG KHÔNG có trong vector context.
+  → Đo đóng góp độc lập của Graph, tránh lẫn với entity trùng ở cả hai nguồn.
+
+vector_only_mention_rate
+  % mention chỉ có trong vector (giải thích Late append vector vào reply).
+
+hallucination_rate (V2)
+  % mention trong reply KHÔNG thuộc graph context (graph-only; vector không cứu).
+
+Edge case |mentions|=0: các rate trên = None, loại khỏi mean aggregate.
+
+Alias tương thích JSON: faithfulness ≈ full_grounding_rate;
+skill_accuracy ≈ ontology_f1 (khi metrics_profile=v2).
+
+--------------------------------------------------------------------------------
+4. QUY TRÌNH VALIDATE GOLD (PHẢN BIỆN NHÓM 3)
+--------------------------------------------------------------------------------
+
+Trước mọi ablation:
+  python scripts/validate_gold.py data/eval/answer_gold_v2.jsonl
+  python scripts/validate_gold.py data/eval/answer_gold_no_hint_v2.jsonl
+
+Kiểm tra: gold rỗng, id trùng, no-hint thiếu expected_*, career taxonomy.
+Gold enrich một lần từ Neo4j lúc build — ablation KHÔNG dùng --bootstrap-gold.
+
+Metadata: data/eval/gold_build_meta.json
+  - hint: 80 (50 pathfinding + 30 course_rec), 50 career unique
+  - no-hint: 25
+  - generative subset: 15
+  - neo4j_uri_hash: 6764a870b92c61ab
+
+--------------------------------------------------------------------------------
+5. NO-HINT: EASY vs HARD + cypher_matched (PHẢN BIỆN NHÓM 4)
+--------------------------------------------------------------------------------
+
+cypher_matched (pathfinding):
+  pf.found AND normalize(resolved_career) == normalize(expected_career)
+
+Phân nhóm (từ results/ablation_d01_v2_no_hint.json):
+  - Easy (cypher_matched=true): n=15
+  - Hard (cypher_matched=false): n=17
+  (VectorOnly không có cypher_matched → nhóm unknown)
+
+Hard ≥ 5 → có thể báo cáo định tính; vẫn ghi n nhỏ, không over-claim Q1 paper.
+
+Bảng C-easy (answer_entity_f1):
+  GraphOnly 0.813 | LateFusion 0.436 | TightFusion 0.662
+
+Bảng C-hard (answer_entity_f1):
+  GraphOnly 0.000 | LateFusion 0.000 | TightFusion 0.383
+
+→ Hard: chỉ TightFusion (nhờ vector seed) phục hồi được ontology/entity;
+   trả lời phản biện "TightFusion đóng góp gì khi Graph tự tìm được entry?":
+   trên Easy, graph đủ; trên Hard, seed vector là yếu tố then chốt.
+
+--------------------------------------------------------------------------------
+6. REPRODUCIBILITY (PHẢN BIỆN NHÓM 5)
+--------------------------------------------------------------------------------
+
+Mọi run dùng: --snapshot-date 2026-06-12 --metrics-profile v2
+
+| Run   | JSON                                      | gold_sha256 (prefix) |
+|-------|-------------------------------------------|----------------------|
+| B4    | results/ablation_d01_v2_static.json       | 97826e53...          |
+| B5    | results/ablation_d01_v2_generative.json   | af66b632...          |
+| B6    | results/ablation_d01_v2_no_hint.json      | 49e7aef3...          |
+
+LaTeX: results/ablation_d01_v2_*.tex
+
+Lưu ý: một số case có Qdrant timeout (fallback samples) trong session này —
+ghi vào hạn chế; nên re-run khi Qdrant ổn định nếu cần số chính xác tuyệt đối.
+
+--------------------------------------------------------------------------------
+7. TẠI SAO V2 KHÔNG THAY D-02 (PHẢN BIỆN NHÓM 6)
+--------------------------------------------------------------------------------
+
+| Thí nghiệm      | Đo gì                                      | Câu hỏi                          |
+|-----------------|--------------------------------------------|----------------------------------|
+| D-01 V2         | Fusion + format/sinh khi có retrieval      | Graph fusion > vector-only?      |
+| D-02            | Retrieval accuracy (231 query)             | Ranker tìm đúng career/course?   |
+| D-03            | E2E chat đa lượt (LLM judge)               | Trả lời người dùng hữu ích?      |
+
+D-01 cô lập lớp fusion/generator; D-02 đo tầng truy hồi độc lập trên retrieval_gold.
+Hai số liệu bổ sung, không thay thế.
+
+--------------------------------------------------------------------------------
+8. BẢNG KẾT QUẢ A / B / C
+--------------------------------------------------------------------------------
+
+BẢNG A — Hint static 80×4 (B4)
+| Cấu hình    | Answer Entity F1 | Exclusive Graph | Ontology F1 | Halluc. % |
+|-------------|------------------|-----------------|-------------|-----------|
+| VectorOnly  | 0.018            | 0.000           | 0.119       | 100.0     |
+| GraphOnly   | 0.476            | 1.000           | 0.867       | 0.0       |
+| LateFusion  | 0.271            | 0.279           | 0.867       | 69.0      |
+| TightFusion | 0.396            | 0.498           | 0.867       | 45.2      |
+
+Nhận xét A: ontology_f1 Graph/Late/Tight bằng nhau (0.867) — đúng kỳ vọng hint.
+Late/Tight thấp hơn Graph về answer_entity_f1 do vector append làm loãng reply.
+VectorOnly thấp — chỉ 3 chunk, không đủ ontology.
+
+BẢNG B — Generative 15×4 (B5)
+| Cấu hình    | Ans. Entity F1 | Excl. Graph | Ontology F1 | Halluc. % | Cosine |
+|-------------|----------------|-------------|-------------|-----------|--------|
+| VectorOnly  | 0.016          | 0.000       | 0.033       | 100.0     | 0.774  |
+| GraphOnly   | 0.687          | 1.000       | 0.846       | 0.0       | 0.867  |
+| LateFusion  | 0.480          | 0.494       | 0.846       | 47.1      | 0.870  |
+| TightFusion | 0.477          | 0.488       | 0.846       | 47.6      | 0.862  |
+
+Nhận xét B: subset nhỏ, hint đủ → Tight ≈ Late; cosine Graph cao nhất.
+
+BẢNG C — No-hint static 25×4 (B6) — Tổng
+| Cấu hình    | Answer Entity F1 | Exclusive Graph | Ontology F1 | Halluc. % |
+|-------------|------------------|-----------------|-------------|-----------|
+| VectorOnly  | 0.015            | 0.000           | 0.000       | 100.0     |
+| GraphOnly   | 0.260            | 1.000           | 0.270       | 0.0       |
+| LateFusion  | 0.140            | 0.125           | 0.270       | 86.5      |
+| TightFusion | 0.550            | 0.706           | 0.683       | 25.0      |
+
+Significance (Tight vs Late, n=25): answer_entity_f1 p≈0; ontology_f1 p≈1.5e-5.
+
+--------------------------------------------------------------------------------
+9. COMPETENCY TYPED TRONG KG
+--------------------------------------------------------------------------------
+
+Neo4j dùng 7 label (ProgrammingLanguage, Framework, Platform, Tool, Knowledge,
+Softskill, Certification) với NEED_*/TEACH_*.
+Gold eval dùng flat list gold_skills — hạn chế eval, không phản ánh full schema.
+
+--------------------------------------------------------------------------------
+10. HẠN CHẾ & HƯỚNG MỞ
+--------------------------------------------------------------------------------
+
+- n=80/25/15 nhỏ so paper quốc tế; bổ sung D-02 (231) + D-03.
+- Qdrant timeout trong session build → một số vector_doc_count dùng fallback.
+- Generative phụ thuộc Gemini/local API availability.
+- Hard no-hint n=17: đủ báo cáo định tính; mở rộng gold no-hint trong future work.
+- skills_gap routing (production) chưa nằm trong ablation V2.
+
+--------------------------------------------------------------------------------
+11. LỆNH TÁI TẠO
+--------------------------------------------------------------------------------
+
+python scripts/build_answer_gold_from_retrieval.py
+python scripts/validate_gold.py data/eval/answer_gold_v2.jsonl
+python scripts/validate_gold.py data/eval/answer_gold_no_hint_v2.jsonl
+
+set SNAP=2026-06-12
+
+python scripts/run_quality_ablation.py ^
+  --gold data/eval/answer_gold_v2.jsonl ^
+  --eval-mode static --metrics-profile v2 --snapshot-date %SNAP% ^
+  --json-out results/ablation_d01_v2_static.json ^
+  --latex-out results/ablation_d01_v2_static.tex
+
+python scripts/run_quality_ablation.py ^
+  --gold data/eval/answer_gold_ablation_gen_v2.jsonl ^
+  --eval-mode generative --metrics-profile v2 --snapshot-date %SNAP% ^
+  --json-out results/ablation_d01_v2_generative.json ^
+  --latex-out results/ablation_d01_v2_generative.tex
+
+python scripts/run_quality_ablation.py ^
+  --gold data/eval/answer_gold_no_hint_v2.jsonl ^
+  --eval-mode static --metrics-profile v2 --snapshot-date %SNAP% ^
+  --json-out results/ablation_d01_v2_no_hint.json ^
+  --latex-out results/ablation_d01_v2_no_hint.tex
+
+pytest tests/test_validate_gold.py tests/test_quality_metrics.py -q
+
+================================================================================
+Kết thúc D-01 V2 methodology report. Xem V1 tại docs/d01_eval_report_snippet.txt
+
+Rerun post-CR (2026-06-13, graph 47 cạnh, suffix _v2_r2):
+  docs/d01_eval_report_v2_rerun_post_cr.txt
+  results/ablation_d01_v2_r2_{static,no_hint,generative}.json
+  Bảng số V2 gốc (mục 8–9 phía trên) giữ nguyên làm baseline đóng băng.
+================================================================================

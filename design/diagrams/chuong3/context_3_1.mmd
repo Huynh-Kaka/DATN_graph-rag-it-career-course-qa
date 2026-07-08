@@ -1,0 +1,29 @@
+%% Hình 3.1 — Sơ đồ ngữ cảnh hệ thống IT Career Goal Advisor
+flowchart TB
+    subgraph actors["Tác nhân"]
+        U["👤 Người học / Sinh viên IT"]
+        A["👤 Quản trị / Nghiên cứu viên"]
+    end
+
+    subgraph system["Hệ thống IT Career Goal Advisor"]
+        APP["Ứng dụng Web<br/>FastAPI + frontend HTML/JS"]
+    end
+
+    subgraph external["Dịch vụ bên ngoài"]
+        NEO[("Neo4j<br/>Đồ thị Career–Competency–Course")]
+        QDR[("Qdrant<br/>Vector store 768 chiều")]
+        PG[("PostgreSQL<br/>Session, profile, feedback")]
+        GEM["Google Gemini API<br/>Router + Generator + Embedding"]
+        OLL["Ollama (tùy chọn)<br/>LLM fine-tune local"]
+        GROQ["Groq API (tùy chọn)<br/>LLM-as-a-Judge"]
+    end
+
+    U -->|"Chat hỏi đáp, form tư vấn"| APP
+    A -->|"Ingest, index, đánh giá, duyệt feedback"| APP
+
+    APP <-->|"Cypher NEED_*/TEACH_*"| NEO
+    APP <-->|"Hybrid retrieval + RRF"| QDR
+    APP <-->|"Lưu phiên, lịch sử, HITL"| PG
+    APP <-->|"Intent routing, sinh câu trả lời"| GEM
+    APP -.->|"USE_LOCAL_GENERATOR"| OLL
+    APP -.->|"Đánh giá E2E"| GROQ

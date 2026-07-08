@@ -1,0 +1,248 @@
+{"query": "Làm backend cần học gì?", "doc_type": "career", "gold_ids": ["Backend Developer"], "gold_field": "career_name"}
+{"query": "dev BE cần skill gì", "doc_type": "career", "gold_ids": ["Backend Developer"], "gold_field": "career_name"}
+{"query": "lập trình viên frontend học gì", "doc_type": "career", "gold_ids": ["Frontend Developer"], "gold_field": "career_name"}
+{"query": "muốn làm fullstack", "doc_type": "career", "gold_ids": ["Fullstack Developer"], "gold_field": "career_name"}
+{"query": "nghề data analyst", "doc_type": "career", "gold_ids": ["Data Analyst"], "gold_field": "career_name"}
+{"query": "học devops", "doc_type": "career", "gold_ids": ["DevOps Engineer"], "gold_field": "career_name"}
+{"query": "làm mobile app developer", "doc_type": "career", "gold_ids": ["Mobile Developer"], "gold_field": "career_name"}
+{"query": "Khóa Python nào phù hợp?", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Python"}
+{"query": "gợi ý khóa học SQL cho người mới", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "SQL"}
+{"query": "khóa React", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "React"}
+{"query": "học Java thì chọn khóa nào", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Java"}
+{"query": "course Docker beginner", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Docker"}
+{"query": "Backend Developer roadmap", "doc_type": "career", "gold_ids": ["Backend Developer"], "gold_field": "career_name"}
+{"query": "FE developer skills", "doc_type": "career", "gold_ids": ["Frontend Developer"], "gold_field": "career_name"}
+{"query": "muốn theo nghề DS", "doc_type": "career", "gold_ids": ["Data Scientist"], "gold_field": "career_name"}
+{"query": "kỹ sư phần mềm cần học gì", "doc_type": "career", "gold_ids": ["Software Engineer"], "gold_field": "career_name"}
+{"query": "muốn làm software engineer", "doc_type": "career", "gold_ids": ["Software Engineer"], "gold_field": "career_name"}
+{"query": "SWE fresher bắt đầu từ đâu", "doc_type": "career", "gold_ids": ["Software Engineer"], "gold_field": "career_name"}
+{"query": "làm game dev thì học gì", "doc_type": "career", "gold_ids": ["Game Developer"], "gold_field": "career_name"}
+{"query": "muốn phát triển game", "doc_type": "career", "gold_ids": ["Game Developer"], "gold_field": "career_name"}
+{"query": "lộ trình game developer", "doc_type": "career", "gold_ids": ["Game Developer"], "gold_field": "career_name"}
+{"query": "lập trình nhúng cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Embedded Software Engineer"], "gold_field": "career_name"}
+{"query": "embedded engineer học gì", "doc_type": "career", "gold_ids": ["Embedded Software Engineer"], "gold_field": "career_name"}
+{"query": "muốn làm embedded software", "doc_type": "career", "gold_ids": ["Embedded Software Engineer"], "gold_field": "career_name"}
+{"query": "firmware engineer là gì học gì", "doc_type": "career", "gold_ids": ["Firmware Engineer"], "gold_field": "career_name"}
+{"query": "lập trình firmware cần gì", "doc_type": "career", "gold_ids": ["Firmware Engineer"], "gold_field": "career_name"}
+{"query": "nghề blockchain developer", "doc_type": "career", "gold_ids": ["Blockchain Developer"], "gold_field": "career_name"}
+{"query": "muốn làm blockchain", "doc_type": "career", "gold_ids": ["Blockchain Developer"], "gold_field": "career_name"}
+{"query": "lộ trình blockchain developer", "doc_type": "career", "gold_ids": ["Blockchain Developer"], "gold_field": "career_name"}
+{"query": "làm AR/VR developer cần gì", "doc_type": "career", "gold_ids": ["AR/VR Developer"], "gold_field": "career_name"}
+{"query": "phát triển ứng dụng thực tế ảo", "doc_type": "career", "gold_ids": ["AR/VR Developer"], "gold_field": "career_name"}
+{"query": "BI analyst cần học gì", "doc_type": "career", "gold_ids": ["BI Analyst"], "gold_field": "career_name"}
+{"query": "làm báo cáo business intelligence", "doc_type": "career", "gold_ids": ["BI Analyst"], "gold_field": "career_name"}
+{"query": "muốn trở thành BI analyst", "doc_type": "career", "gold_ids": ["BI Analyst"], "gold_field": "career_name"}
+{"query": "data engineer học gì", "doc_type": "career", "gold_ids": ["Data Engineer"], "gold_field": "career_name"}
+{"query": "xây pipeline dữ liệu làm nghề gì", "doc_type": "career", "gold_ids": ["Data Engineer"], "gold_field": "career_name"}
+{"query": "kỹ sư dữ liệu cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Data Engineer"], "gold_field": "career_name"}
+{"query": "analytics engineer là nghề gì", "doc_type": "career", "gold_ids": ["Analytics Engineer"], "gold_field": "career_name"}
+{"query": "muốn làm analytics engineer", "doc_type": "career", "gold_ids": ["Analytics Engineer"], "gold_field": "career_name"}
+{"query": "machine learning engineer lộ trình", "doc_type": "career", "gold_ids": ["Machine Learning Engineer"], "gold_field": "career_name"}
+{"query": "kỹ sư ML cần học gì", "doc_type": "career", "gold_ids": ["Machine Learning Engineer"], "gold_field": "career_name"}
+{"query": "MLE fresher bắt đầu thế nào", "doc_type": "career", "gold_ids": ["Machine Learning Engineer"], "gold_field": "career_name"}
+{"query": "AI engineer cần kỹ năng gì", "doc_type": "career", "gold_ids": ["AI Engineer"], "gold_field": "career_name"}
+{"query": "muốn làm AI engineer", "doc_type": "career", "gold_ids": ["AI Engineer"], "gold_field": "career_name"}
+{"query": "lộ trình trở thành kỹ sư AI", "doc_type": "career", "gold_ids": ["AI Engineer"], "gold_field": "career_name"}
+{"query": "NLP engineer học gì", "doc_type": "career", "gold_ids": ["NLP Engineer"], "gold_field": "career_name"}
+{"query": "xử lý ngôn ngữ tự nhiên làm nghề gì", "doc_type": "career", "gold_ids": ["NLP Engineer"], "gold_field": "career_name"}
+{"query": "computer vision engineer cần gì", "doc_type": "career", "gold_ids": ["Computer Vision Engineer"], "gold_field": "career_name"}
+{"query": "kỹ sư thị giác máy tính học gì", "doc_type": "career", "gold_ids": ["Computer Vision Engineer"], "gold_field": "career_name"}
+{"query": "MLOps engineer là gì", "doc_type": "career", "gold_ids": ["MLOps Engineer"], "gold_field": "career_name"}
+{"query": "vận hành mô hình ML nghề gì", "doc_type": "career", "gold_ids": ["MLOps Engineer"], "gold_field": "career_name"}
+{"query": "lộ trình MLOps", "doc_type": "career", "gold_ids": ["MLOps Engineer"], "gold_field": "career_name"}
+{"query": "SRE cần học gì", "doc_type": "career", "gold_ids": ["Site Reliability Engineer"], "gold_field": "career_name"}
+{"query": "site reliability engineer lộ trình", "doc_type": "career", "gold_ids": ["Site Reliability Engineer"], "gold_field": "career_name"}
+{"query": "kỹ sư độ tin cậy hệ thống học gì", "doc_type": "career", "gold_ids": ["Site Reliability Engineer"], "gold_field": "career_name"}
+{"query": "cloud engineer lộ trình", "doc_type": "career", "gold_ids": ["Cloud Engineer"], "gold_field": "career_name"}
+{"query": "muốn làm kỹ sư đám mây", "doc_type": "career", "gold_ids": ["Cloud Engineer"], "gold_field": "career_name"}
+{"query": "cloud engineer cần skill gì", "doc_type": "career", "gold_ids": ["Cloud Engineer"], "gold_field": "career_name"}
+{"query": "cloud architect là gì học gì", "doc_type": "career", "gold_ids": ["Cloud Architect"], "gold_field": "career_name"}
+{"query": "kiến trúc sư cloud cần gì", "doc_type": "career", "gold_ids": ["Cloud Architect"], "gold_field": "career_name"}
+{"query": "platform engineer cần gì", "doc_type": "career", "gold_ids": ["Platform Engineer"], "gold_field": "career_name"}
+{"query": "muốn làm platform engineering", "doc_type": "career", "gold_ids": ["Platform Engineer"], "gold_field": "career_name"}
+{"query": "quản trị hệ thống Linux học gì", "doc_type": "career", "gold_ids": ["System Administrator"], "gold_field": "career_name"}
+{"query": "sysadmin cần kỹ năng gì", "doc_type": "career", "gold_ids": ["System Administrator"], "gold_field": "career_name"}
+{"query": "system administrator lộ trình", "doc_type": "career", "gold_ids": ["System Administrator"], "gold_field": "career_name"}
+{"query": "network engineer học gì", "doc_type": "career", "gold_ids": ["Network Engineer"], "gold_field": "career_name"}
+{"query": "kỹ sư mạng cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Network Engineer"], "gold_field": "career_name"}
+{"query": "thiết kế hạ tầng mạng làm nghề gì", "doc_type": "career", "gold_ids": ["Network Engineer"], "gold_field": "career_name"}
+{"query": "DBA cần học gì", "doc_type": "career", "gold_ids": ["Database Administrator"], "gold_field": "career_name"}
+{"query": "quản trị cơ sở dữ liệu nghề gì", "doc_type": "career", "gold_ids": ["Database Administrator"], "gold_field": "career_name"}
+{"query": "database administrator lộ trình", "doc_type": "career", "gold_ids": ["Database Administrator"], "gold_field": "career_name"}
+{"query": "infrastructure engineer học gì", "doc_type": "career", "gold_ids": ["Infrastructure Engineer"], "gold_field": "career_name"}
+{"query": "kỹ sư hạ tầng cần gì", "doc_type": "career", "gold_ids": ["Infrastructure Engineer"], "gold_field": "career_name"}
+{"query": "IT ops engineer cần học gì", "doc_type": "career", "gold_ids": ["IT Operations Engineer"], "gold_field": "career_name"}
+{"query": "vận hành hệ thống IT nghề gì", "doc_type": "career", "gold_ids": ["IT Operations Engineer"], "gold_field": "career_name"}
+{"query": "security engineer học gì", "doc_type": "career", "gold_ids": ["Security Engineer"], "gold_field": "career_name"}
+{"query": "kỹ sư bảo mật cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Security Engineer"], "gold_field": "career_name"}
+{"query": "muốn làm an toàn thông tin", "doc_type": "career", "gold_ids": ["Security Engineer"], "gold_field": "career_name"}
+{"query": "cybersecurity analyst lộ trình", "doc_type": "career", "gold_ids": ["Cybersecurity Analyst"], "gold_field": "career_name"}
+{"query": "phân tích an ninh mạng học gì", "doc_type": "career", "gold_ids": ["Cybersecurity Analyst"], "gold_field": "career_name"}
+{"query": "muốn làm cyber security", "doc_type": "career", "gold_ids": ["Cybersecurity Analyst"], "gold_field": "career_name"}
+{"query": "SOC analyst là gì", "doc_type": "career", "gold_ids": ["SOC Analyst"], "gold_field": "career_name"}
+{"query": "làm việc tại SOC cần gì", "doc_type": "career", "gold_ids": ["SOC Analyst"], "gold_field": "career_name"}
+{"query": "giám sát an ninh mạng nghề gì", "doc_type": "career", "gold_ids": ["SOC Analyst"], "gold_field": "career_name"}
+{"query": "pentest cần học gì", "doc_type": "career", "gold_ids": ["Penetration Tester"], "gold_field": "career_name"}
+{"query": "kiểm thử xâm nhập lộ trình", "doc_type": "career", "gold_ids": ["Penetration Tester"], "gold_field": "career_name"}
+{"query": "muốn làm pentester", "doc_type": "career", "gold_ids": ["Penetration Tester"], "gold_field": "career_name"}
+{"query": "bảo mật ứng dụng học gì", "doc_type": "career", "gold_ids": ["Application Security Engineer"], "gold_field": "career_name"}
+{"query": "appsec engineer cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Application Security Engineer"], "gold_field": "career_name"}
+{"query": "cloud security engineer học gì", "doc_type": "career", "gold_ids": ["Cloud Security Engineer"], "gold_field": "career_name"}
+{"query": "bảo mật hạ tầng đám mây nghề gì", "doc_type": "career", "gold_ids": ["Cloud Security Engineer"], "gold_field": "career_name"}
+{"query": "security operations engineer cần gì", "doc_type": "career", "gold_ids": ["Security Operations Engineer"], "gold_field": "career_name"}
+{"query": "secops lộ trình", "doc_type": "career", "gold_ids": ["Security Operations Engineer"], "gold_field": "career_name"}
+{"query": "GRC specialist là gì học gì", "doc_type": "career", "gold_ids": ["GRC Specialist"], "gold_field": "career_name"}
+{"query": "tuân thủ bảo mật làm nghề gì", "doc_type": "career", "gold_ids": ["GRC Specialist"], "gold_field": "career_name"}
+{"query": "QA engineer cần học gì", "doc_type": "career", "gold_ids": ["QA Engineer"], "gold_field": "career_name"}
+{"query": "kiểm soát chất lượng phần mềm học gì", "doc_type": "career", "gold_ids": ["QA Engineer"], "gold_field": "career_name"}
+{"query": "muốn làm QA", "doc_type": "career", "gold_ids": ["QA Engineer"], "gold_field": "career_name"}
+{"query": "software tester lộ trình", "doc_type": "career", "gold_ids": ["Software Tester"], "gold_field": "career_name"}
+{"query": "kiểm thử phần mềm học gì", "doc_type": "career", "gold_ids": ["Software Tester"], "gold_field": "career_name"}
+{"query": "nghề tester cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Software Tester"], "gold_field": "career_name"}
+{"query": "automation test engineer học gì", "doc_type": "career", "gold_ids": ["Automation Test Engineer"], "gold_field": "career_name"}
+{"query": "kiểm thử tự động cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Automation Test Engineer"], "gold_field": "career_name"}
+{"query": "muốn làm QA automation", "doc_type": "career", "gold_ids": ["Automation Test Engineer"], "gold_field": "career_name"}
+{"query": "performance testing engineer là gì", "doc_type": "career", "gold_ids": ["Performance Test Engineer"], "gold_field": "career_name"}
+{"query": "kiểm thử hiệu năng học gì", "doc_type": "career", "gold_ids": ["Performance Test Engineer"], "gold_field": "career_name"}
+{"query": "quality engineer cần học gì", "doc_type": "career", "gold_ids": ["Quality Engineer"], "gold_field": "career_name"}
+{"query": "kỹ sư chất lượng IT làm gì", "doc_type": "career", "gold_ids": ["Quality Engineer"], "gold_field": "career_name"}
+{"query": "product manager học gì", "doc_type": "career", "gold_ids": ["Product Manager"], "gold_field": "career_name"}
+{"query": "quản lý sản phẩm IT cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Product Manager"], "gold_field": "career_name"}
+{"query": "muốn làm PM", "doc_type": "career", "gold_ids": ["Product Manager"], "gold_field": "career_name"}
+{"query": "product owner cần học gì", "doc_type": "career", "gold_ids": ["Product Owner"], "gold_field": "career_name"}
+{"query": "PO trong scrum là gì học gì", "doc_type": "career", "gold_ids": ["Product Owner"], "gold_field": "career_name"}
+{"query": "business analyst IT học gì", "doc_type": "career", "gold_ids": ["Business Analyst"], "gold_field": "career_name"}
+{"query": "BA cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Business Analyst"], "gold_field": "career_name"}
+{"query": "phân tích nghiệp vụ IT lộ trình", "doc_type": "career", "gold_ids": ["Business Analyst"], "gold_field": "career_name"}
+{"query": "system analyst học gì", "doc_type": "career", "gold_ids": ["System Analyst"], "gold_field": "career_name"}
+{"query": "phân tích hệ thống cần kỹ năng gì", "doc_type": "career", "gold_ids": ["System Analyst"], "gold_field": "career_name"}
+{"query": "UI UX designer học gì", "doc_type": "career", "gold_ids": ["UI/UX Designer"], "gold_field": "career_name"}
+{"query": "thiết kế giao diện người dùng cần gì", "doc_type": "career", "gold_ids": ["UI/UX Designer"], "gold_field": "career_name"}
+{"query": "muốn làm UI/UX", "doc_type": "career", "gold_ids": ["UI/UX Designer"], "gold_field": "career_name"}
+{"query": "UX researcher cần học gì", "doc_type": "career", "gold_ids": ["UX Researcher"], "gold_field": "career_name"}
+{"query": "nghiên cứu trải nghiệm người dùng nghề gì", "doc_type": "career", "gold_ids": ["UX Researcher"], "gold_field": "career_name"}
+{"query": "technical writer học gì", "doc_type": "career", "gold_ids": ["Technical Writer"], "gold_field": "career_name"}
+{"query": "viết tài liệu kỹ thuật làm nghề gì", "doc_type": "career", "gold_ids": ["Technical Writer"], "gold_field": "career_name"}
+{"query": "scrum master cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Scrum Master"], "gold_field": "career_name"}
+{"query": "làm scrum master học gì", "doc_type": "career", "gold_ids": ["Scrum Master"], "gold_field": "career_name"}
+{"query": "điều phối agile làm nghề gì", "doc_type": "career", "gold_ids": ["Scrum Master"], "gold_field": "career_name"}
+{"query": "IT support học gì", "doc_type": "career", "gold_ids": ["IT Support Specialist"], "gold_field": "career_name"}
+{"query": "hỗ trợ kỹ thuật IT cần gì", "doc_type": "career", "gold_ids": ["IT Support Specialist"], "gold_field": "career_name"}
+{"query": "muốn làm IT support", "doc_type": "career", "gold_ids": ["IT Support Specialist"], "gold_field": "career_name"}
+{"query": "helpdesk engineer học gì", "doc_type": "career", "gold_ids": ["Helpdesk Engineer"], "gold_field": "career_name"}
+{"query": "làm helpdesk cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Helpdesk Engineer"], "gold_field": "career_name"}
+{"query": "solutions architect cần gì", "doc_type": "career", "gold_ids": ["Solutions Architect"], "gold_field": "career_name"}
+{"query": "kiến trúc sư giải pháp học gì", "doc_type": "career", "gold_ids": ["Solutions Architect"], "gold_field": "career_name"}
+{"query": "lộ trình solutions architect", "doc_type": "career", "gold_ids": ["Solutions Architect"], "gold_field": "career_name"}
+{"query": "solutions engineer là gì", "doc_type": "career", "gold_ids": ["Solutions Engineer"], "gold_field": "career_name"}
+{"query": "kỹ sư tư vấn giải pháp học gì", "doc_type": "career", "gold_ids": ["Solutions Engineer"], "gold_field": "career_name"}
+{"query": "ERP consultant cần học gì", "doc_type": "career", "gold_ids": ["ERP Consultant"], "gold_field": "career_name"}
+{"query": "tư vấn triển khai ERP làm nghề gì", "doc_type": "career", "gold_ids": ["ERP Consultant"], "gold_field": "career_name"}
+{"query": "CRM consultant học gì", "doc_type": "career", "gold_ids": ["CRM Consultant"], "gold_field": "career_name"}
+{"query": "tư vấn hệ thống CRM cần gì", "doc_type": "career", "gold_ids": ["CRM Consultant"], "gold_field": "career_name"}
+{"query": "engineering manager cần học gì", "doc_type": "career", "gold_ids": ["Engineering Manager"], "gold_field": "career_name"}
+{"query": "quản lý đội ngũ kỹ sư IT học gì", "doc_type": "career", "gold_ids": ["Engineering Manager"], "gold_field": "career_name"}
+{"query": "lộ trình engineering manager", "doc_type": "career", "gold_ids": ["Engineering Manager"], "gold_field": "career_name"}
+{"query": "head of engineering là gì", "doc_type": "career", "gold_ids": ["Head of Engineering"], "gold_field": "career_name"}
+{"query": "trưởng bộ phận kỹ thuật học gì", "doc_type": "career", "gold_ids": ["Head of Engineering"], "gold_field": "career_name"}
+{"query": "IT manager cần gì", "doc_type": "career", "gold_ids": ["IT Manager"], "gold_field": "career_name"}
+{"query": "trưởng phòng IT học gì", "doc_type": "career", "gold_ids": ["IT Manager"], "gold_field": "career_name"}
+{"query": "CTO cần kỹ năng gì", "doc_type": "career", "gold_ids": ["Chief Technology Officer"], "gold_field": "career_name"}
+{"query": "giám đốc công nghệ học gì", "doc_type": "career", "gold_ids": ["Chief Technology Officer"], "gold_field": "career_name"}
+{"query": "lộ trình lên CTO", "doc_type": "career", "gold_ids": ["Chief Technology Officer"], "gold_field": "career_name"}
+{"query": "database architect học gì", "doc_type": "career", "gold_ids": ["Database Architect"], "gold_field": "career_name"}
+{"query": "kiến trúc sư cơ sở dữ liệu cần gì", "doc_type": "career", "gold_ids": ["Database Architect"], "gold_field": "career_name"}
+{"query": "thực tập IT làm gì", "doc_type": "career", "gold_ids": ["Project Assistant Internship"], "gold_field": "career_name"}
+{"query": "intern IT cần học gì", "doc_type": "career", "gold_ids": ["Project Assistant Internship"], "gold_field": "career_name"}
+{"query": "project assistant internship là gì", "doc_type": "career", "gold_ids": ["Project Assistant Internship"], "gold_field": "career_name"}
+{"query": "khóa học JavaScript cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "JavaScript"}
+{"query": "học JS cho người mới bắt đầu", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "JavaScript"}
+{"query": "TypeScript course nào tốt", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "TypeScript"}
+{"query": "học TypeScript từ đầu", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "TypeScript"}
+{"query": "khóa học Go cho backend", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Go"}
+{"query": "học Golang cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Go"}
+{"query": "khóa Rust cho người mới", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Rust"}
+{"query": "học C++ cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "C++"}
+{"query": "khóa lập trình C", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "C"}
+{"query": "học PHP cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "PHP"}
+{"query": "khóa Ruby on Rails", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Ruby on Rails"}
+{"query": "học Kotlin android", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Kotlin"}
+{"query": "khóa học Swift iOS", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Swift"}
+{"query": "học Dart Flutter", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Dart"}
+{"query": "Python nâng cao", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Python"}
+{"query": "khóa học R cho data", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "R"}
+{"query": "học Scala cho data engineering", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Scala"}
+{"query": "khóa Django web framework", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Django"}
+{"query": "học FastAPI cho Python", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "FastAPI"}
+{"query": "khóa Flask Python", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Flask"}
+{"query": "học Spring Boot Java", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Spring Boot"}
+{"query": "khóa NestJS Node.js", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "NestJS"}
+{"query": "học Express.js", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Express.js"}
+{"query": "khóa Laravel PHP", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Laravel"}
+{"query": "học ASP.NET Core", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "ASP.NET Core"}
+{"query": "khóa học Angular", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Angular"}
+{"query": "học Vue.js từ đầu", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Vue.js"}
+{"query": "Next.js course cho React developer", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Next.js"}
+{"query": "khóa học Flutter cho mobile", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Flutter"}
+{"query": "học React Native", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "React Native"}
+{"query": "khóa SwiftUI iOS", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "SwiftUI"}
+{"query": "học Android Jetpack", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Android Jetpack"}
+{"query": "khóa PostgreSQL cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "PostgreSQL"}
+{"query": "học MongoDB cho NoSQL", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "MongoDB"}
+{"query": "khóa MySQL cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "SQL"}
+{"query": "học SQL nâng cao", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Advanced SQL"}
+{"query": "khóa Elasticsearch", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Elasticsearch"}
+{"query": "khóa học Kubernetes", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Kubernetes"}
+{"query": "học Terraform cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Terraform"}
+{"query": "khóa Ansible automation", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Ansible"}
+{"query": "học Jenkins CI/CD", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Jenkins"}
+{"query": "khóa GitHub Actions", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "GitHub Actions"}
+{"query": "học Prometheus Grafana monitoring", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Grafana"}
+{"query": "khóa Linux cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Linux"}
+{"query": "học Bash shell scripting", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Bash/Shell"}
+{"query": "khóa AWS cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "AWS"}
+{"query": "học Microsoft Azure", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Microsoft Azure"}
+{"query": "khóa Google Cloud", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Google Cloud"}
+{"query": "AWS Solutions Architect course", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "AWS Solutions Architect Associate"}
+{"query": "khóa Azure Fundamentals AZ-900", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Azure Fundamentals AZ-900"}
+{"query": "khóa học Machine Learning cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Machine Learning Basics"}
+{"query": "học TensorFlow deep learning", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "TensorFlow"}
+{"query": "khóa PyTorch cho AI", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "PyTorch"}
+{"query": "học scikit-learn cho ML", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "scikit-learn"}
+{"query": "khóa pandas data analysis", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "pandas"}
+{"query": "học Apache Spark", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Apache Spark"}
+{"query": "khóa Airflow data pipeline", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Apache Airflow"}
+{"query": "học Tableau visualization", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Tableau"}
+{"query": "khóa Power BI", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Power BI"}
+{"query": "khóa học Git cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Git"}
+{"query": "học Figma UI design", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Figma"}
+{"query": "khóa Jira project management", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Jira"}
+{"query": "học Docker nâng cao", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Docker"}
+{"query": "khóa Postman API testing", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Postman"}
+{"query": "khóa CompTIA Security+", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "CompTIA Security+"}
+{"query": "học Burp Suite web security", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Burp Suite"}
+{"query": "khóa Certified Ethical Hacker", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Certified Ethical Hacker"}
+{"query": "học Metasploit pentest", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Metasploit"}
+{"query": "khóa CISSP", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "CISSP"}
+{"query": "khóa PMP project management", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "PMP"}
+{"query": "học Agile Scrum cơ bản", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "Agile/Scrum"}
+{"query": "khóa BABOK business analyst", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "BABOK"}
+{"query": "học ITIL Foundation", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "ITIL 4 Foundation"}
+{"query": "khóa SAFe agile", "doc_type": "course", "gold_ids": [], "gold_field": "competency", "gold_competency": "SAFe"}
+{"query": "React cần học JavaScript trước không", "doc_type": "competency", "gold_ids": ["L_JS"], "gold_field": "item_code", "gold_competency": "F_REACT", "tags": ["post_cr", "prerequisite"]}
+{"query": "Django prerequisite Python", "doc_type": "competency", "gold_ids": ["L_PY"], "gold_field": "item_code", "gold_competency": "F_DJANGO", "tags": ["post_cr", "prerequisite"]}
+{"query": "Next.js cần TypeScript JavaScript", "doc_type": "competency", "gold_ids": ["L_JS", "L_TS"], "gold_field": "item_code", "gold_competency": "F_NEXT", "tags": ["post_cr", "prerequisite"]}
+{"query": "Spring built on Java", "doc_type": "competency", "gold_ids": ["L_JAVA"], "gold_field": "item_code", "gold_competency": "F_SPRING", "tags": ["post_cr", "prerequisite"]}
+{"query": "chứng chỉ validate AWS", "doc_type": "competency", "gold_ids": ["C_AWS_CP", "C_AWS_SAA"], "gold_field": "item_code", "gold_competency": "P_AWS", "tags": ["post_cr", "prerequisite"]}
+{"query": "CKA Kubernetes cert quan hệ", "doc_type": "competency", "gold_ids": ["P_K8S"], "gold_field": "item_code", "gold_competency": "C_CKA", "tags": ["post_cr", "prerequisite"]}
+{"query": "Azure cert AZ-900 AZ-104", "doc_type": "competency", "gold_ids": ["C_AZ900", "C_AZ104"], "gold_field": "item_code", "gold_competency": "P_AZURE", "tags": ["post_cr", "prerequisite"]}
+{"query": "OOP hỗ trợ Java Python", "doc_type": "competency", "gold_ids": ["L_JAVA", "L_PY"], "gold_field": "item_code", "gold_competency": "K_OOP", "tags": ["post_cr", "prerequisite"]}
+{"query": "Leadership cần Communication", "doc_type": "competency", "gold_ids": ["S_COMM"], "gold_field": "item_code", "gold_competency": "S_LEAD", "tags": ["post_cr", "prerequisite"]}
+{"query": "Agile cần hiểu SDLC", "doc_type": "competency", "gold_ids": ["K_SDLC"], "gold_field": "item_code", "gold_competency": "F_AGILE", "tags": ["post_cr", "prerequisite"]}
+{"query": "UML cần OOP", "doc_type": "competency", "gold_ids": ["K_OOP"], "gold_field": "item_code", "gold_competency": "F_UML", "tags": ["post_cr", "prerequisite"]}
+{"query": "Coaching requires leadership communication", "doc_type": "competency", "gold_ids": ["S_COMM", "S_LEAD"], "gold_field": "item_code", "gold_competency": "S_COACH", "tags": ["post_cr", "prerequisite"]}
+{"query": "FastAPI built on Python", "doc_type": "competency", "gold_ids": ["L_PY"], "gold_field": "item_code", "gold_competency": "F_FASTAPI", "tags": ["post_cr", "prerequisite"]}
+{"query": "NestJS prerequisite TypeScript", "doc_type": "competency", "gold_ids": ["L_TS"], "gold_field": "item_code", "gold_competency": "F_NEST", "tags": ["post_cr", "prerequisite"]}
+{"query": "Vue.js cần JavaScript", "doc_type": "competency", "gold_ids": ["L_JS"], "gold_field": "item_code", "gold_competency": "F_VUE", "tags": ["post_cr", "prerequisite"]}
+{"query": "GCP associate cert platform", "doc_type": "competency", "gold_ids": ["C_GCP_ACE"], "gold_field": "item_code", "gold_competency": "P_GCP", "tags": ["post_cr", "prerequisite"]}
+{"query": "Stakeholder management requires negotiation", "doc_type": "competency", "gold_ids": ["S_COMM", "S_NEGO"], "gold_field": "item_code", "gold_competency": "S_STAKE", "tags": ["post_cr", "prerequisite"]}

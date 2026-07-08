@@ -1,0 +1,17 @@
+%% Hình 3.4 — Wireframe form tư vấn 4 bước (form.html + form.js)
+flowchart TD
+    subgraph form["Form tư vấn — frontend/form.html"]
+        HDR["Header: ← quay lại | chat | theme"]
+        TITLE["Hồ sơ tư vấn IT"]
+        PROG["Thanh tiến độ: Bước 1/4 … 4/4"]
+        STEP1["Bước 1 — Xuất phát điểm<br/>(student, grad, fresher, …)"]
+        STEP2["Bước 2 — Mục tiêu nghề<br/>(backend, frontend, data, …)"]
+        STEP3["Bước 3 — Kỹ năng theo 7 nhóm<br/>(ProgrammingLanguage … Certification)"]
+        STEP4["Bước 4 — Mục tiêu & thời gian học"]
+        ERR["#formError — thông báo lỗi"]
+        API["POST /api/advisory/start → profile + advice JSON"]
+    end
+
+    HDR --> TITLE --> PROG
+    PROG --> STEP1 --> STEP2 --> STEP3 --> STEP4 --> API
+    STEP4 -.-> ERR

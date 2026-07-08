@@ -1,0 +1,40 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.git/
+.github/
+.gitignore
+
+# Secrets: KHÔNG đưa .env vào image. Compose đọc .env qua env_file lúc runtime (an toàn).
+.env
+.env.*
+!.env.example
+
+# Logs / caches / kết quả eval (không cần trong image)
+*.log
+debug-*.log
+logs/
+results/
+backups/
+.idea/
+.vscode/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Tài liệu / notebook / tài sản nặng không cần khi chạy app hay ingest
+colab_LLM/
+docs/
+design/
+lib/
+bài báo khoa học/
+*.pdf
+graph_rag_network.html
+it_consultant_form_redesign.html
+tests/
+
+# Dữ liệu nặng / chỉ dùng cho fine-tune (giữ lại xlsx + corpus + eval để ingest/index/D01-D03)
+data/ft_*
+data/index_corpus_v2_baseline.jsonl

@@ -1,0 +1,22 @@
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart
+pydantic
+python-dotenv
+openai
+google-genai
+neo4j
+qdrant-client
+pyvis
+openpyxl
+pyyaml
+rapidfuzz
+rank_bm25
+unidecode
+underthesea  # B-03: Vietnamese word segmentation for BM25 (optional fallback to regex)
+sqlalchemy[asyncio]>=2.0.36
+asyncpg>=0.30.0
+greenlet>=3.0.0
+httpx>=0.27.0
+scipy>=1.11.0

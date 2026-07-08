@@ -1,0 +1,51 @@
+# Relation type registry — direction, ordering, intent exposure derive from here.
+relation_types:
+  BUILT_ON:
+    from_types: [CT_FRAM]
+    to_types: [CT_LANG]
+    direction_for_anchor: outgoing
+    participates_in_ordering: true
+    anchor_type_primary: [CT_FRAM]
+    expose_in_intent: true
+
+  VALIDATES:
+    from_types: [CT_CERT]
+    to_types: [CT_PLAT]
+    direction_for_anchor:
+      CT_CERT: outgoing
+      CT_PLAT: incoming
+    participates_in_ordering: false
+    anchor_type_primary: [CT_CERT, CT_PLAT]
+    expose_in_intent: true
+
+  SUPPORTS:
+    from_types: [CT_KNOW]
+    to_types: [CT_LANG]
+    direction_for_anchor: outgoing
+    participates_in_ordering: true
+    anchor_type_primary: [CT_KNOW]
+    expose_in_intent: true
+
+  REQUIRES:
+    from_types: [CT_SOFT]
+    to_types: [CT_SOFT]
+    direction_for_anchor: outgoing
+    participates_in_ordering: true
+    anchor_type_primary: [CT_SOFT]
+    expose_in_intent: true
+
+  REQUIRES_KNOWLEDGE:
+    from_types: [CT_FRAM]
+    to_types: [CT_KNOW]
+    direction_for_anchor: outgoing
+    participates_in_ordering: true
+    anchor_type_primary: [CT_FRAM]
+    expose_in_intent: true
+
+  PREFERS_LANG:
+    from_types: [CT_PLAT]
+    to_types: [CT_LANG]
+    direction_for_anchor: outgoing
+    participates_in_ordering: false
+    anchor_type_primary: [CT_PLAT]
+    expose_in_intent: false

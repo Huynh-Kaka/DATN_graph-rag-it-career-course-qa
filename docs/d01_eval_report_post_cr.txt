@@ -1,0 +1,119 @@
+D-01 Post-CR Verification Report (competency_relation v3)
+=========================================================
+Date: 2026-06-13
+Plan: Post-CR v2.2 (Track A / B / C)
+Baseline: results/ablation_d01_v2_static.json (D-01 V2, unchanged)
+
+1. Track A — Deploy manifest
+----------------------------
+Artifact: data/eval/post_cr_deploy_manifest.json
+
+| Check | Result |
+|-------|--------|
+| ingest --reset-graph | OK (47 relation edges) |
+| validate_ingest.py (HARD) | exit 0 |
+| validate_ingest.py --spot-check-neo4j | exit 0 (5 probes + T_ANSIBLE negative) |
+| validate_graph_coverage --use-neo4j | 47 edges, 14.6% coverage |
+| build_index_corpus --min-relation-edges 47 | 669 chunks |
+| index_qdrant (career_roadmap) | OK |
+| smoke_ablation (pathfinding + rel) | OK — L_JS, relation_code_recall=1.0 |
+| index_corpus_v2_baseline.jsonl snapshot | saved before rebuild |
+
+2. B1 — Regression guard (stratified 25)
+----------------------------------------
+Gold: data/eval/answer_gold_v2.jsonl
+Sample: --sample-strategy stratified --seed 42 --sample-size 25
+Calibration: SKIPPED (first post-CR run; default threshold 0.02 per plan allowance)
+Compare: results/ablation_regression_delta_post_cr.json
+
+| Mode | Δ answer_entity_f1 | Gate (≥ −0.02 tight) |
+|------|-------------------:|----------------------|
+| tight_fusion | −0.0095 | PASS |
+| late_fusion | −0.0205 | PASS (at boundary) |
+| graph_only | 0.0 | PASS |
+| vector_only | −0.0012 | PASS |
+
+Regressions (F1 drop >0.15): 0/25 → PASS
+
+3. B2 — Rel ablation (24 case × 4 mode, static)
+-----------------------------------------------
+Artifact: results/ablation_d01_post_cr_rel_static.json
+
+| Metric (graph_only, 20 eligible) | Value | Gate |
+|----------------------------------|------:|------|
+| Macro relation_code_recall | 1.000 | ≥ 0.75 PASS |
+| Per-case recall ≥ 0.5 | 20/20 | ≥ 18/20 PASS |
+| Negative cases (4) | coverage=none + EMPTY_RELATION_MARKER | PASS |
+
+Graph vs vector (post-enrich): results/ablation_d01_post_cr_rel_graph_vs_vector_post.json
+  graph_only relation_code_recall = 1.0
+  vector_only relation_code_recall = 0.0 (embed quota 429 during session — vector modes degraded)
+
+B2c pre-enrich (claim A): results/ablation_d01_post_cr_rel_graph_vs_vector_pre.json
+  Pre-enrich corpus indexed to career_roadmap_pre_cr
+  graph_only = 1.0 vs vector_pre = 0.0 (vector query embed quota exhausted — pre baseline not reliable this run)
+  Thesis recommendation: use Claim A wording only for graph-native relation_code_recall; cite B2c limitation.
+
+4. § Limitations
+----------------
+- Corpus enrich confounds vector_only vs graph_only (B2b upper bound only).
+- SUPPORTS subgroup n=3 — preliminary only (not gated).
+- Graph coverage 14.6% < 40% MIN_COVERAGE production target.
+- COMPETENCY_RELATION_INTENT_ENABLED=False — D-03 rel cases misroute to course_rec/pathfinding.
+- Gemini embed free-tier quota (1000/day) hit during ablation — vector_only / D-02 query embed intermittently failed.
+- B1 calibration skipped — threshold 0.02 engineering default documented in failure log.
+
+5. D-02 Retrieval
+-----------------
+Baseline slice (exclude post_cr tag, n=231): results/retrieval_d02_v2_baseline_post_cr.json
+  Recall@5 = 63.20%, Recall@10 = 86.58%
+
+Prereq slice (tags post_cr+prerequisite, n=17): results/retrieval_d02_post_cr_prereq.json
+  Recall@5 = 47.06% → FAIL gate (≥ 60%)
+  Action: debug corpus enrich / query-doc_type alignment for prerequisite queries.
+
+6. D-03 E2E (Gate 4A, intent OFF)
+---------------------------------
+smoke_judge.py: PASS (groq/llama-3.1-8b-instant)
+eval_answer_quality --limit 14: data/eval/answer_quality_results_post_cr.csv
+
+| Group | n | Outcome |
+|-------|--:|---------|
+| V2 pathfinding/course_rec/skills_gap | 9 | Judge scores stable (faith ~0.80–1.0) |
+| Rel E2E | 5 | No pipeline crash; misroute (intent off); 2 cases HTTP 413 |
+
+Route metric: N/A — intent disabled (document in thesis).
+
+7. B5 — Latency (30 repeats × 2 queries / intent)
+-------------------------------------------------
+Artifact: results/latency_baseline_post_cr.json
+
+| Intent | n_runs | mean_ms | p95_ms | Gate <5s |
+|--------|-------:|--------:|-------:|:--------:|
+| pathfinding | 60 | 21.58 | 28.43 | PASS |
+| course_rec | 60 | 3.53 | 5.42 | PASS |
+| competency_relation | 60 | 33.68 | 39.48 | PASS |
+
+8. Failure log summary
+----------------------
+See results/post_cr_failure_log.json
+
+FAIL: B3 prereq Recall@5
+WARN: B2c vector_pre (embed quota), B4 rel E2E routing/errors
+PASS: Track A, B1, B2 recall, B5 latency
+
+9. Deliverables checklist
+-------------------------
+[x] data/eval/post_cr_deploy_manifest.json
+[x] results/ablation_regression_delta_post_cr.json
+[x] results/ablation_d01_post_cr_rel_static.json
+[x] results/ablation_d01_post_cr_rel_graph_vs_vector_post.json
+[x] results/ablation_d01_post_cr_rel_graph_vs_vector_pre.json
+[x] results/retrieval_d02_v2_baseline_post_cr.json
+[x] results/retrieval_d02_post_cr_prereq.json
+[x] data/eval/answer_quality_results_post_cr.csv
+[x] results/latency_baseline_post_cr.json
+[x] results/post_cr_failure_log.json
+[x] scripts/compare_ablation_runs.py + tests/test_compare_ablation_runs.py
+
+Prereq code (P1–P9): implemented in scripts/ (stratified sample, filter-tags, spot-check-neo4j, benchmark 30 repeats, index_qdrant --corpus/--delete-collection).

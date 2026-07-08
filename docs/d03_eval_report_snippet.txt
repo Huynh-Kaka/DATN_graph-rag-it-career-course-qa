@@ -1,0 +1,26 @@
+================================================================================
+ĐOẠN PHỤC VỤ BÁO CÁO — D-03 LLM-AS-A-JUDGE (9 CASE)
+================================================================================
+
+Phân vai thí nghiệm (Chương 5):
+- D-01 (25 case, answer_gold.jsonl): đo định lượng chính — ablation 4 cấu hình
+  fusion, metric rule-based (faithfulness, skill accuracy, hallucination rate).
+- D-02 (231 query): đo tầng retrieval (Recall, nDCG, MRR).
+- D-03 (9 case, answer_quality_gold.jsonl): mẫu định tính bổ sung — đánh giá
+  end-to-end luồng chat Gen 3 bằng LLM-as-a-Judge; không thay thế D-01.
+
+Hạn chế cỡ mẫu D-03:
+Với 9 testcase (3 pathfinding, 3 course_rec, 3 skills gap), kết quả LLM judge
+có thể biến thiên giữa các lần chạy; do đó D-03 không dùng để suy luận thống
+kê mạnh (không báo cáo p-value trên D-03). Cỡ mẫu được chọn có chủ đích do
+chi phí API judge và thời gian chạy E2E.
+
+Cấu hình judge (ghi trong báo cáo):
+- JUDGE_PROVIDER=local — trọng tài qua API OpenAI-compatible nội bộ
+  (CHATBOT_LOCAL_BASE_URL), tách biệt pipeline sinh câu trả lời chatbot.
+
+Lệnh chạy:
+  python scripts/smoke_judge.py
+  python scripts/eval_answer_quality.py
+
+================================================================================

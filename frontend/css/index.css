@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-body: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-hand: 'Montserrat', sans-serif;
+  --ink: #1a1a2e;
+  --paper: #f5f0e8;
+  --paper2: #ede6d6;
+  --paper3: #e0d8c8;
+  --border: #1a1a2e;
+  --muted: #7a6f5a;
+  --shadow: #d9cdb8;
+  --stamp-bg: #e8d5c4;
+}
+
+.dark-mode {
+  --ink: #e2d9c8;
+  --paper: #1e1c18;
+  --paper2: #2a2720;
+  --paper3: #33302a;
+  --border: #c8bfaa;
+  --muted: #9a9080;
+  --shadow: #0e0d0b;
+  --stamp-bg: #2e2820;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+.app {
+  font-family: var(--font-body);
+  width: 100%;
+  position: relative;
+}
+
+/* ========== WHALES ========== */
+.whale-float {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  animation: whaleAppear var(--dur, 8s) var(--delay, 0s) ease-in-out infinite;
+}
+
+@keyframes whaleAppear {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 0px) rotate(var(--rot, 0deg)) scale(1);
+  }
+  15% {
+    opacity: var(--max-op, 0.18);
+  }
+  50% {
+    opacity: var(--max-op, 0.18);
+    transform: translate(var(--dx, 12px), var(--dy, -8px)) rotate(var(--rot, 0deg)) scale(1.02);
+  }
+  85% {
+    opacity: var(--max-op, 0.18);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx2, 20px), var(--dy2, 4px)) rotate(var(--rot, 0deg)) scale(1);
+  }
+}
+
+/* ========== WELCOME (index.html) ========== */
+.screen-welcome {
+  min-height: 100vh;
+  background: var(--paper3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  transition: background 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.screen-welcome::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 28px,
+    rgba(26, 26, 46, 0.04) 28px,
+    rgba(26, 26, 46, 0.04) 29px
+  );
+  pointer-events: none;
+}
+
+.envelope {
+  --env-ratio: 2 / 1;
+  width: min(94vw, 880px);
+  max-width: 880px;
+  aspect-ratio: var(--env-ratio);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  position: relative;
+  border-radius: 3px;
+  box-shadow: 5px 5px 0 var(--shadow), 9px 9px 0 rgba(26, 26, 46, 0.07);
+  transition: background 0.4s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+@media (max-width: 520px) {
+  .envelope {
+    --env-ratio: 1.75 / 1;
+    width: min(96vw, 100%);
+  }
+}
+
+.env-border {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.stamp {
+  position: absolute;
+  top: clamp(10px, 3.5%, 20px);
+  right: clamp(12px, 2.5%, 24px);
+  z-index: 6;
+  width: 50px;
+  height: 60px;
+  background: var(--stamp-bg);
+  border: 2px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  opacity: 0.68;
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+.stamp::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px dashed var(--border);
+  opacity: 0.4;
+}
+
+.postmark {
+  position: absolute;
+  top: clamp(8px, 2.5%, 14px);
+  right: clamp(72px, 18%, 100px);
+  z-index: 6;
+  opacity: 0.17;
+  transform: rotate(-10deg);
+}
+
+.addr {
+  position: absolute;
+  top: clamp(12px, 4%, 22px);
+  left: clamp(12px, 2.5%, 24px);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  opacity: 0.2;
+}
+
+.env-content {
+  position: relative;
+  z-index: 4;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 4vw, 2.25rem) clamp(1.25rem, 5vw, 2.75rem);
+}
+
+.env-hero {
+  text-align: center;
+  align-self: center;
+  width: 100%;
+  max-width: 42rem;
+}
+
+.greeting {
+  font-family: var(--font-hand);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.7s ease both;
+  position: relative;
+}
+
+.underline-scribble {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeIn 0.7s 0.2s ease both;
+}
+
+a.chat-btn {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.chat-btn {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: transparent;
+  border: 2px solid var(--border);
+  padding: 0.55rem 1.6rem;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 var(--border);
+  transition: transform 0.1s, box-shadow 0.1s, background 0.15s;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+.chat-btn::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border: 1px dashed var(--border);
+  border-radius: 2px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.chat-btn:hover {
+  background: var(--paper2);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.chat-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--border);
+}
+
+.theme-btn {
+  font-family: var(--font-hand);
+  color: var(--muted);
+  background: transparent;
+  border: 1.5px solid var(--border);
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  opacity: 0.7;
+  transition: opacity 0.2s, background 0.15s;
+}
+
+.theme-btn:hover {
+  opacity: 1;
+  background: var(--paper2);
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 2px;
+  height: 1.5rem;
+  background: var(--ink);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 1.1s step-end infinite;
+  opacity: 0.45;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0;
+  }
+}

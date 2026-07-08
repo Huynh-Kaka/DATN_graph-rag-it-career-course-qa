@@ -1,0 +1,15 @@
+case_id,intent,route_intent,faithfulness,skill_completeness,no_hallucination,n_citations,n_valid_citations,error
+pf_ds_01,pathfinding,pathfinding,0.8,0.9,True,0,0,
+pf_gd_01,pathfinding,pathfinding,0.8,0.7,True,0,0,
+pf_devops_01,pathfinding,pathfinding,0.8,0.9,True,0,0,
+cr_py_01,course_rec,course_rec,0.8,1.0,True,0,0,
+cr_react_01,course_rec,course_rec,1.0,1.0,True,0,0,
+cr_docker_01,course_rec,course_rec,1.0,1.0,True,0,0,
+sg_mle_01,skills_gap,pathfinding,0.8,0.7,True,0,0,
+sg_bi_01,skills_gap,pathfinding,0.8,0.7,True,0,0,
+sg_bc_01,skills_gap,pathfinding,0.8,0.9,True,0,0,
+rel_react_e2e_01,competency_relation,course_rec,0.8,0.5,True,0,0,
+rel_aws_cert_e2e_01,competency_relation,course_rec,0.8,0.5,True,0,0,
+rel_cka_e2e_01,competency_relation,course_rec,1.0,0.0,True,0,0,
+rel_django_e2e_01,competency_relation,pathfinding,0.0,0.0,False,0,0,
+rel_empty_ansible_e2e_01,competency_relation,,0.0,0.0,False,0,0,"Error code: 413 - {'error': {'message': 'Request too large for model `llama-3.1-8b-instant` in organization `org_01ktc6zmfrfshbavzrdp6fhjwd` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 7255, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"

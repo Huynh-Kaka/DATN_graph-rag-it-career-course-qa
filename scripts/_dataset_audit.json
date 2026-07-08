@@ -1,0 +1,600 @@
+{
+  "file": "data\\bộ dữ liệu.xlsx",
+  "sheet_names": [
+    "career",
+    "competency_type",
+    "programming_language",
+    "framework",
+    "platform",
+    "tool",
+    "knowledge",
+    "softskill",
+    "certification",
+    "career_competency_map",
+    "subject",
+    "website",
+    "organization",
+    "instructor",
+    "subtitle",
+    "program",
+    "level",
+    "course",
+    "course_competency_map"
+  ],
+  "sheets": [
+    {
+      "sheet": "career",
+      "shape": [
+        63,
+        4
+      ],
+      "columns": [
+        "career_code",
+        "career_name",
+        "industry",
+        "taxonomy"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "competency_type",
+      "shape": [
+        7,
+        2
+      ],
+      "columns": [
+        "type_code",
+        "type_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "programming_language",
+      "shape": [
+        23,
+        3
+      ],
+      "columns": [
+        "item_code",
+        "type_code",
+        "item_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [
+        {
+          "column": "type_code",
+          "reason": "single_value",
+          "value": "CT_LANG"
+        }
+      ],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "framework",
+      "shape": [
+        64,
+        3
+      ],
+      "columns": [
+        "item_code",
+        "type_code",
+        "item_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [
+        {
+          "column": "type_code",
+          "reason": "single_value",
+          "value": "CT_FRAM"
+        }
+      ],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "platform",
+      "shape": [
+        30,
+        3
+      ],
+      "columns": [
+        "item_code",
+        "type_code",
+        "item_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [
+        {
+          "column": "type_code",
+          "reason": "single_value",
+          "value": "CT_PLAT"
+        }
+      ],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "tool",
+      "shape": [
+        39,
+        4
+      ],
+      "columns": [
+        "item_code",
+        "type_code",
+        "item_name",
+        "description"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [
+        {
+          "column": "type_code",
+          "reason": "single_value",
+          "value": "CT_TOOL"
+        }
+      ],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "knowledge",
+      "shape": [
+        51,
+        3
+      ],
+      "columns": [
+        "item_code",
+        "type_code",
+        "item_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [
+        {
+          "column": "type_code",
+          "reason": "single_value",
+          "value": "CT_KNOW"
+        }
+      ],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "softskill",
+      "shape": [
+        32,
+        3
+      ],
+      "columns": [
+        "item_code",
+        "type_code",
+        "item_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [
+        {
+          "column": "type_code",
+          "reason": "single_value",
+          "value": "CT_SOFT"
+        }
+      ],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "certification",
+      "shape": [
+        28,
+        3
+      ],
+      "columns": [
+        "item_code",
+        "type_code",
+        "item_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [
+        {
+          "column": "type_code",
+          "reason": "single_value",
+          "value": "CT_CERT"
+        }
+      ],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "career_competency_map",
+      "shape": [
+        1972,
+        5
+      ],
+      "columns": [
+        "map_id",
+        "career_code",
+        "type_code",
+        "item_code",
+        "priority_group"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [
+        {
+          "column": "priority_group",
+          "reason": "very_low_cardinality",
+          "unique": 3,
+          "values": [
+            "Mandatory",
+            "Recommended",
+            "Optional"
+          ]
+        }
+      ],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "subject",
+      "shape": [
+        73,
+        2
+      ],
+      "columns": [
+        "subject_code",
+        "subject_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "website",
+      "shape": [
+        43,
+        3
+      ],
+      "columns": [
+        "website_code",
+        "website_name",
+        "website_url"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "organization",
+      "shape": [
+        29,
+        2
+      ],
+      "columns": [
+        "org_code",
+        "org_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "instructor",
+      "shape": [
+        32,
+        3
+      ],
+      "columns": [
+        "instructor_code",
+        "instructor_name",
+        "org_code"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "subtitle",
+      "shape": [
+        3,
+        2
+      ],
+      "columns": [
+        "subtitle_code",
+        "subtitle_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "program",
+      "shape": [
+        18,
+        2
+      ],
+      "columns": [
+        "program_code",
+        "program_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "level",
+      "shape": [
+        3,
+        2
+      ],
+      "columns": [
+        "level_code",
+        "level_name"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    },
+    {
+      "sheet": "course",
+      "shape": [
+        339,
+        14
+      ],
+      "columns": [
+        "course_code",
+        "course_name",
+        "subject_code",
+        "program_code",
+        "level_code",
+        "website_code",
+        "org_code",
+        "instructor_code",
+        "subtitle_code",
+        "duration_hours",
+        "course_type",
+        "language",
+        "url",
+        "description"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [
+        {
+          "column": "level_code",
+          "reason": "very_low_cardinality",
+          "unique": 3,
+          "values": [
+            "LVL_FOUND",
+            "LVL_ASSOC",
+            "LVL_PRO"
+          ]
+        },
+        {
+          "column": "subtitle_code",
+          "reason": "very_low_cardinality",
+          "unique": 3,
+          "values": [
+            "SUB_EN",
+            "SUB_EN_VI",
+            "SUB_VI"
+          ]
+        },
+        {
+          "column": "language",
+          "reason": "very_low_cardinality",
+          "unique": 2,
+          "values": [
+            "English",
+            "Vietnamese"
+          ]
+        }
+      ],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 94.9
+    },
+    {
+      "sheet": "course_competency_map",
+      "shape": [
+        339,
+        6
+      ],
+      "columns": [
+        "map_id",
+        "course_code",
+        "type_code",
+        "item_code",
+        "relation_type",
+        "coverage_level"
+      ],
+      "high_null_columns": [],
+      "low_variance_columns": [
+        {
+          "column": "relation_type",
+          "reason": "single_value",
+          "value": "TEACH"
+        },
+        {
+          "column": "coverage_level",
+          "reason": "very_low_cardinality",
+          "unique": 3,
+          "values": [
+            "5",
+            "4",
+            "3"
+          ]
+        }
+      ],
+      "full_row_duplicates": 0,
+      "unnamed_columns": [],
+      "invalid_emails": {},
+      "salary_issues": {},
+      "long_text_columns": {},
+      "issues_found": [],
+      "completeness_score": 100.0
+    }
+  ],
+  "main_sheet": "career_competency_map",
+  "column_details": [
+    {
+      "column": "map_id",
+      "dtype": "str",
+      "filled": 1972,
+      "empty_pct": 0.0,
+      "unique": 1972,
+      "samples": [
+        "M00001",
+        "M00002",
+        "M00003"
+      ]
+    },
+    {
+      "column": "career_code",
+      "dtype": "str",
+      "filled": 1972,
+      "empty_pct": 0.0,
+      "unique": 63,
+      "samples": [
+        "SE",
+        "SE",
+        "SE"
+      ]
+    },
+    {
+      "column": "type_code",
+      "dtype": "str",
+      "filled": 1972,
+      "empty_pct": 0.0,
+      "unique": 7,
+      "samples": [
+        "CT_LANG",
+        "CT_LANG",
+        "CT_LANG"
+      ]
+    },
+    {
+      "column": "item_code",
+      "dtype": "str",
+      "filled": 1972,
+      "empty_pct": 0.0,
+      "unique": 257,
+      "samples": [
+        "L_JS",
+        "L_TS",
+        "L_SQL"
+      ]
+    },
+    {
+      "column": "priority_group",
+      "dtype": "str",
+      "filled": 1972,
+      "empty_pct": 0.0,
+      "unique": 3,
+      "samples": [
+        "Mandatory",
+        "Mandatory",
+        "Mandatory"
+      ]
+    }
+  ],
+  "value_distributions": {}
+}

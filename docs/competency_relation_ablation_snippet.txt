@@ -1,0 +1,20 @@
+D-01 competency_relation subset (answer_gold_rel.jsonl, 24 cases)
+----------------------------------------------------------------
+Chạy ablation static graph_only trên subset relation:
+
+  python scripts/validate_gold.py data/eval/answer_gold_rel.jsonl
+  python scripts/run_quality_ablation.py --gold data/eval/answer_gold_rel.jsonl --modes graph_only,vector_only --intents competency_relation
+
+Metric chính: relation_code_recall (exact gold_related_codes).
+So sánh exclusive_graph_rate: graph_only vs vector_only trên cùng subset.
+
+Coverage hiện tại (Excel merged): ~47 cạnh, ~14% career-map items có outgoing edge.
+Intent gate: COMPETENCY_RELATION_INTENT_ENABLED=1 chỉ khi coverage ≥ 40%.
+
+Regression pathfinding/course_rec (25 case gốc):
+
+  python scripts/run_quality_ablation.py --gold data/eval/answer_gold_v2.jsonl --limit 25
+
+Latency benchmark:
+
+  python scripts/benchmark_latency.py --out results/latency_baseline.json

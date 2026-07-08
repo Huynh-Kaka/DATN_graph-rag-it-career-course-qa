@@ -1,0 +1,15 @@
+%% Hình 3.2 — Wireframe trang landing (index.html)
+flowchart TB
+    subgraph page["Trang chào — frontend/index.html"]
+        direction TB
+        NAV["Nền phong bì (envelope) + họa tiết cá voi"]
+        HERO["Lời chào: «Mình chào bạn nhé, bạn cần hỗ trợ gì?»"]
+        BTN_CHAT["Nút «trò chuyện ngay» → chat.html"]
+        BTN_THEME["Nút đổi giao diện sáng/tối"]
+    end
+
+    NAV --> HERO
+    HERO --> BTN_CHAT
+    HERO --> BTN_THEME
+
+    style page fill:#f4f6fb,stroke:#4c78ff

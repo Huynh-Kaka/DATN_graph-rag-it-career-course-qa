@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IT Career Goal Advisor</title>
+  <style>
+    :root { --bg: #f4f6fb; --card: #fff; --ink: #1a1a2e; --accent: #4c78ff; --muted: #555; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--ink); margin: 0; padding: 2rem 1rem; }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    p.sub { color: var(--muted); margin-top: 0; }
+    form { background: var(--card); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+    label { display: block; font-weight: 600; margin: 1rem 0 0.35rem; font-size: 0.9rem; }
+    input, textarea { width: 100%; padding: 0.6rem 0.75rem; border: 1px solid #ccc; border-radius: 8px; font: inherit; }
+    button { margin-top: 1.25rem; background: var(--accent); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; }
+    button:hover { filter: brightness(1.05); }
+    .result { margin-top: 2rem; background: var(--card); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+    .result h2 { margin-top: 0; font-size: 1.15rem; }
+    .reply { white-space: pre-wrap; line-height: 1.55; }
+    .meta { font-size: 0.85rem; color: #666; margin-top: 1rem; }
+    .route-json { background: #f8f9fc; border: 1px solid #e2e6ef; border-radius: 8px; padding: 0.75rem 1rem; font-family: ui-monospace, monospace; font-size: 0.8rem; overflow-x: auto; white-space: pre-wrap; }
+    .badge { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 6px; margin-right: 0.35rem; }
+    .badge-in { background: #e8f5e9; color: #2e7d32; }
+    .badge-out { background: #ffebee; color: #c62828; }
+    .error-box { margin-top: 1.5rem; padding: 1rem 1.25rem; background: #fff3f3; border: 1px solid #e88; border-radius: 8px; color: #a33; white-space: pre-wrap; line-height: 1.5; }
+    .hint { font-size: 0.8rem; color: var(--muted); font-weight: 400; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Tư vấn mục tiêu nghề nghiệp IT</h1>
+    <p class="sub">Intent Router (Bước 1) + hồ sơ — Graph-RAG &amp; Gemini ở các bước sau.</p>
+
+    <form method="post" action="/advise">
+      <input type="hidden" name="session_id" value="{{ session_id }}"/>
+
+      <label for="current_level">Trình độ hiện tại</label>
+      <input id="current_level" name="current_level" required
+        value="{% if form %}{{ form.current_level }}{% endif %}"
+        placeholder="VD: Sinh viên năm 3, Fresher..."/>
+
+      <label for="target_role">Vai trò mục tiêu <span class="hint">(metadata phiên)</span></label>
+      <input id="target_role" name="target_role" required
+        value="{% if form %}{{ form.target_role }}{% endif %}"
+        placeholder="VD: Backend Developer"/>
+
+      <label for="interests">Sở thích / hướng quan tâm</label>
+      <textarea id="interests" name="interests" rows="2" required
+        placeholder="VD: API, Python, cloud">{% if form %}{{ form.interests }}{% endif %}</textarea>
+
+      <label for="strengths">Điểm mạnh</label>
+      <textarea id="strengths" name="strengths" rows="2" required
+        placeholder="VD: Tư duy logic, làm việc nhóm">{% if form %}{{ form.strengths }}{% endif %}</textarea>
+
+      <label for="message">Câu hỏi của bạn</label>
+      <textarea id="message" name="message" rows="3"
+        placeholder="VD: Làm Data Analyst cần gì? / Khóa SQL nào phù hợp?">{% if form %}{{ form.message }}{% endif %}</textarea>
+
+      <button type="submit">Gửi câu hỏi</button>
+    </form>
+
+    {% if result %}
+    <section class="result">
+      <h2>Phản hồi</h2>
+      {% if result.reply and (result.reply.startswith('Lỗi') or result.reply.startswith('Chưa cấu hình')) %}
+      <div class="error-box">{{ result.reply }}</div>
+      {% elif result.reply %}
+      <div class="reply">{{ result.reply }}</div>
+      {% endif %}
+
+      {% if result.route %}
+      <div class="meta">
+        <p>
+          <span class="badge badge-{{ result.route.domain }}">{{ result.route.domain }}</span>
+          <strong>intent:</strong> {{ result.route.intent }}
+          &nbsp;·&nbsp;
+          <strong>confidence:</strong> {{ result.route.confidence }}
+          {% if result.parse_fallback %}<em>(parse fallback)</em>{% endif %}
+          {% if result.career_normalized %}<em>(career đã chuẩn hóa)</em>{% endif %}
+        </p>
+        <p><strong>Intent Router JSON:</strong></p>
+        <pre class="route-json">{{ route_json }}</pre>
+        {% if result.session_id %}
+        <p><strong>Session:</strong> {{ result.session_id }}</p>
+        <ul>
+          <li>career: {{ result.session.career or '—' }}</li>
+          <li>competency: {{ result.session.competency or '—' }}</li>
+          <li>missing_slots: {% if result.session.missing_slots %}{{ result.session.missing_slots | join(', ') }}{% else %}—{% endif %}</li>
+        </ul>
+        {% endif %}
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+  </div>
+</body>
+</html>

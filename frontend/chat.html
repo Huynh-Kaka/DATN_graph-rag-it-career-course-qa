@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi" class="chat-page">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trò chuyện — Chatbot</title>
+  <link rel="stylesheet" href="css/chat.css?v=5"/>
+</head>
+<body class="chat-page">
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="whale-sym" viewBox="0 0 120 78">
+    <ellipse cx="56" cy="42" rx="42" ry="22" fill="#1e3a6e"/>
+    <ellipse cx="16" cy="38" rx="13" ry="12" fill="#1e3a6e"/>
+    <ellipse cx="50" cy="50" rx="26" ry="10" fill="#c8daf5" opacity="0.55"/>
+    <circle cx="11" cy="35" r="2.5" fill="white"/>
+    <circle cx="11.5" cy="34.5" r="1" fill="#1e3a6e"/>
+    <path d="M60 20 Q68 8 76 16 Q70 20 60 20Z" fill="#1e3a6e"/>
+    <path d="M94 38 Q110 28 118 20 Q114 36 118 48 Q110 42 94 38Z" fill="#2a4f8a"/>
+    <path d="M38 52 Q32 64 44 66 Q46 56 46 52Z" fill="#1e3a6e" opacity="0.75"/>
+    <circle cx="6" cy="18" r="3.5" fill="none" stroke="#7aaee8" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="14" cy="10" r="2" fill="none" stroke="#7aaee8" stroke-width="1.2" opacity="0.55"/>
+    <circle cx="4" cy="8" r="1.2" fill="#7aaee8" opacity="0.4"/>
+    <path d="M100 62 Q108 56 112 62 Q108 68 100 62Z" fill="none" stroke="#7aaee8" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="118" cy="58" r="1.5" fill="#7aaee8" opacity="0.4"/>
+  </symbol>
+</svg>
+
+<div class="app" id="app">
+
+  <div class="screen-chat active" id="screenChat">
+    <svg class="whale-float" style="width:68px;top:10%;left:55%;--dur:13s;--delay:0s;--rot:-6deg;--max-op:0.16;--dx:20px;--dy:-8px;--dx2:28px;--dy2:6px" viewBox="0 0 120 78"><use href="#whale-sym"/></svg>
+    <svg class="whale-float" style="width:50px;top:55%;left:30%;--dur:10s;--delay:2s;--rot:10deg;--max-op:0.14;--dx:-12px;--dy:-10px;--dx2:-20px;--dy2:4px" viewBox="0 0 120 78"><use href="#whale-sym"/></svg>
+    <svg class="whale-float" style="width:44px;top:75%;left:65%;--dur:15s;--delay:4s;--rot:-12deg;--max-op:0.13;--dx:14px;--dy:-16px;--dx2:22px;--dy2:2px" viewBox="0 0 120 78"><use href="#whale-sym"/></svg>
+    <svg class="whale-float" style="width:58px;top:30%;left:75%;--dur:11s;--delay:6s;--rot:4deg;--max-op:0.15;--dx:-18px;--dy:10px;--dx2:-26px;--dy2:-6px" viewBox="0 0 120 78"><use href="#whale-sym"/></svg>
+    <svg class="whale-float" style="width:40px;top:15%;left:20%;--dur:12s;--delay:8s;--rot:-3deg;--max-op:0.12;--dx:10px;--dy:-6px;--dx2:18px;--dy2:3px" viewBox="0 0 120 78"><use href="#whale-sym"/></svg>
+
+    <div class="sidebar" id="chatSidebar">
+      <button type="button" class="new-chat-btn" onclick="newChat()">tạo chat mới</button>
+      <div id="historyList">
+      </div>
+    </div>
+    <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
+    <div class="chat-main">
+      <div class="chat-topbar">
+        <div class="chat-topbar-start">
+          <button
+            type="button"
+            class="sidebar-toggle"
+            id="sidebarToggle"
+            aria-label="Mở lịch sử chat"
+            aria-expanded="false"
+          >☰</button>
+          <a class="back-btn" href="index.html">← quay lại</a>
+          <a class="back-btn" href="form.html" id="formNavLink">form tư vấn</a>
+        </div>
+        <button type="button" class="theme-btn" onclick="toggleTheme()" style="color:var(--muted);background:transparent;border:1.5px solid var(--border);padding:0.35rem 0.65rem;cursor:pointer;border-radius:2px;display:flex;align-items:center;gap:5px;opacity:0.65;transition:opacity 0.2s;">
+          <svg id="moonIco2" width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M14 10.5A6.5 6.5 0 0 1 5.5 2a6.5 6.5 0 1 0 8.5 8.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+          <svg id="sunIco2" width="13" height="13" viewBox="0 0 16 16" fill="none" style="display:none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="chat-msgs" id="chatMsgs" role="log" aria-live="polite" aria-relevant="additions text"></div>
+      <div class="input-bar">
+        <div class="input-wrap">
+          <textarea
+            class="chat-input"
+            id="chatInput"
+            rows="1"
+            placeholder="hỏi mình điều bạn còn lo lắng về mục tiêu nghề nghiệp IT của bạn"
+            aria-label="Nhập tin nhắn"
+          ></textarea>
+          <button type="button" class="send-btn" id="sendBtn" aria-label="Gửi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/theme.js?v=3"></script>
+<script src="js/chat.js?v=8"></script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+================================================================================
+  TIẾN TRÌNH PHÁT TRIỂN HỆ THỐNG TƯ VẤN HƯỚNG NGHIỆP IT
+  THEO MÔ HÌNH GRAPH-RAG — TÀI LIỆU PHỤC VỤ BÁO CÁO ĐỒ ÁN
+================================================================================
+Phiên bản tài liệu: 2026-06
+Dự án: IT Career Goal Advisor — Graph-RAG Web
+Ghi chú: Gen 1 (phiên bản khởi đầu) đã hoàn thành vai trò kiểm chứng và được
+thay thế hoàn toàn trong codebase hiện tại; nội dung Gen 1 được mô tả dựa trên
+mã nguồn lịch sử và kiến trúc đã triển khai.
+
+
+================================================================================
+PHẦN 1. BỐI CẢNH VÀ MỤC TIÊU CHUNG
+================================================================================
+
+Hệ thống được xây dựng nhằm tư vấn định hướng nghề nghiệp trong lĩnh vực CNTT,
+kết hợp hai nguồn tri thức:
+  (1) Đồ thị tri thức (Knowledge Graph) trên Neo4j — quan hệ cứng giữa Nghề nghiệp
+      (Career), Năng lực/Kỹ năng (Competency), Khóa học (Course), Môn học (Subject).
+  (2) Truy hồi ngữ nghĩa (Vector Retrieval) trên Qdrant — tài liệu mô tả nghề,
+      kỹ năng, khóa học được embedding bằng mô hình Gemini.
+
+Quá trình phát triển được chia thành ba thế hệ kiến trúc (Gen 1 → Gen 2 → Gen 3),
+mỗi thế hệ sau kế thừa nền tảng dữ liệu và bổ sung lớp điều phối, đánh giá chất
+lượng phù hợp hơn với yêu cầu thực tế của người dùng và của báo cáo khoa học.
+
+
+================================================================================
+PHẦN 2. THẾ HỆ 1 (GEN 1) — PHIÊN BẢN KHỞI ĐẦU / KIẾN TRÚC TIỀN ĐỀ
+================================================================================
+
+2.1. Vai trò trong dự án
+------------------------
+Gen 1 đóng vai trò giai đoạn kiểm chứng (proof-of-concept có kiểm soát): chứng
+minh rằng việc kết hợp truy vấn đồ thị Neo4j và truy hồi vector Qdrant, sau đó
+đưa ngữ cảnh vào mô hình ngôn ngữ lớn (LLM) Gemini, có thể sinh ra lời khuyên
+nghề nghiệp có căn cứ từ dữ liệu nội bộ. Đây là kiến trúc tiền đề cho các thế
+hệ sau mở rộng về cấu trúc dữ liệu, giao diện và độ tin cậy.
+
+2.2. Thành phần phần mềm (đã triển khai trong giai đoạn này)
+-----------------------------------------------------------
+  • app/services/graph_rag_service.py — lớp GraphRAGService, điều phối pipeline.
+  • app/services/llm_client.py       — lớp LLMClient, gọi Gemini sinh văn bản tự do.
+  • app/api/routes.py                — API POST /api/advise.
+  • app/rag/graph_builder.py         — GraphContextBuilder (dùng chung, vẫn tồn tại).
+  • app/rag/retriever.py             — VectorRetriever (phiên bản đơn giản hơn hiện tại).
+
+2.3. Nền tảng công nghệ
+-----------------------
+  • FastAPI — framework web, endpoint đồng bộ (sync).
+  • Neo4j — đồ thị Career – NEED_* – Competency – TEACH_* – Course.
+  • Qdrant — vector database, collection career_roadmap.
+  • Google Gemini API (google.genai) — sinh câu trả lời tự nhiên tiếng Việt.
+  • Embedding Gemini — vector hóa truy vấn và tài liệu (qua VectorRetriever).
+  • Dữ liệu nguồn: file Excel (scripts/ingest.py) nạp vào Neo4j; scripts/index_qdrant.py
+    xây chỉ mục vector.
+
+2.4. Hợp đồng API (đầu vào / đầu ra)
+-------------------------------------
+Endpoint: POST /api/advise
+
+Đầu vào (JSON — model CareerRequest):
+  • current_level  : trình độ hiện tại (chuỗi tự do)
+  • target_role    : vai trò/nghề mục tiêu
+  • interests      : sở thích
+  • strengths      : điểm mạnh
+
+Đầu ra (JSON):
+  • query          : câu truy vấn đã ghép từ hồ sơ (phục vụ debug/minh bạch)
+  • graph_context  : danh sách chuỗi mô tả ngữ cảnh từ Neo4j
+  • docs           : danh sách đoạn văn từ vector retrieval (top-3)
+  • advice         : câu trả lời văn bản tự do do Gemini sinh
+
+2.5. Luồng xử lý chi tiết (GraphRAGService.advise)
+--------------------------------------------------
+Bước 1 — Tiếp nhận hồ sơ:
+  Nhận dict profile từ API, trích target_role và các trường mô tả người dùng.
+
+Bước 2 — Xây dựng truy vấn vector:
+  Ghép chuỗi: "career goal for {target_role}; current level=...; interests=...;
+  strengths=..." để embed và tìm kiếm trên Qdrant.
+
+Bước 3 — Truy vấn đồ thị (GraphContextBuilder):
+  • Cypher _CYPHER_CONTEXT: match Career theo tên gần đúng (fuzzy rank),
+    lấy NEED_* → Competency, TEACH_* → Course, Industry.
+  • Kết quả format thành list[str] tiếng Việt, ví dụ:
+      "Nghề (từ graph): Backend Developer [BE]"
+      "Kỹ năng cần có: Python, SQL, ..."
+      "Khóa học liên quan: ..."
+  • Nếu không kết nối Neo4j: trả stub hướng dẫn ingest.
+
+Bước 4 — Truy hồi vector (VectorRetriever.retrieve):
+  • top_k = 3, trả về list đoạn text (không có metadata doc_type đầy đủ như Gen 3).
+  • Chưa có BM25Okapi, RRF, graph-aware boost (các cơ chế bổ sung ở Gen 3).
+
+Bước 5 — Sinh câu trả lời (LLMClient.generate_career_plan):
+  • System prompt: cố vấn nghề IT; chỉ dựa ngữ cảnh cung cấp; tiếng Việt;
+    cấu trúc: mục tiêu, khoảng cách kỹ năng, lộ trình 30 ngày theo tuần,
+    gợi ý tài nguyên; tối đa ~600 từ.
+  • User prompt: ghép ## Hồ sơ + ## Ngữ cảnh knowledge graph + ## Tài liệu vector.
+  • temperature = 0.4, max_output_tokens = 1024.
+  • Cơ chế fallback model Gemini khi quota/404 (danh sách model dự phòng).
+
+Bước 6 — Trả kết quả tổng hợp cho client.
+
+2.6. Mô hình tích hợp Graph và Vector ở Gen 1
+---------------------------------------------
+Gen 1 sử dụng mô hình tích hợp lỏng (late fusion đơn giản):
+  • Hai nhánh graph và vector chạy độc lập, không có seed node dẫn hướng Cypher.
+  • Không có bước re-rank vector theo subgraph Neo4j.
+  • Ngữ cảnh hai nguồn được nối chuỗi trong prompt LLM — không có lớp FusionService
+    hay structured output.
+
+Đây là thiết kế hợp lý cho giai đoạn kiểm chứng vì giảm độ phức tạp triển khai,
+cho phép đo lường nhanh chất lượng “có/không” của pipeline Graph-RAG cơ bản.
+
+2.7. Khả năng đạt được (đóng góp của Gen 1)
+-------------------------------------------
+  ✓ Chứng minh pipeline end-to-end: Excel → Neo4j + Qdrant → API → Gemini → lời khuyên.
+  ✓ Thiết lập module graph_builder và retriever làm nền cho thế hệ sau.
+  ✓ Xác định schema hồ sơ tối thiểu (4 trường) cho tư vấn một lần (one-shot).
+  ✓ Tích hợp Gemini với xử lý lỗi quota và fallback model.
+  ✓ Cung cấp API machine-readable để kiểm thử tự động và demo sớm.
+
+2.8. Hạn chế đã được ghi nhận (động lực cho Gen 2 và Gen 3)
+------------------------------------------------------------
+  (H1) Không lưu phiên hội thoại — mỗi request độc lập, không theo dõi ngữ cảnh đa lượt.
+  (H2) Hồ sơ đầu vào đơn giản, chưa chuẩn hóa enum (background, weekly_time, goals).
+  (H3) Đầu ra chỉ là văn bản tự do — khó hiển thị có cấu trúc trên UI, khó đánh giá
+       tự động (faithfulness, skill accuracy).
+  (H4) Không phân loại ý định (intent): mọi câu hỏi đều đi một pipeline cố định.
+  (H5) Truy vấn graph dạng “context chung” — chưa tách pathfinding, course_rec,
+       skills_gap, subject_career như ontology thực tế yêu cầu.
+  (H6) Vector retrieval thô — chưa hybrid BM25+RRF, chưa tight fusion (seed → Cypher).
+  (H7) Không lưu advice vào PostgreSQL — không phục vụ luồng form dài hạn.
+  (H8) Không có skills-gap typed theo item_code — so khớp kỹ năng còn mơ hồ.
+
+
+================================================================================
+PHẦN 3. THẾ HỆ 2 (GEN 2) — PHIÊN BẢN FORM TƯ VẤN CÓ CẤU TRÚC
+================================================================================
+
+3.1. Vai trò
+------------
+Gen 2 giải quyết trực tiếp các hạn chế H2, H3, H7 của Gen 1: chuyển từ tư vấn
+một lần sang luồng form có lưu trữ, với đầu ra JSON có schema và tích hợp cơ sở
+dữ liệu quan hệ PostgreSQL.
+
+3.2. Thành phần chính
+---------------------
+  • app/api/advisory_routes.py   — POST /api/advisory/start, GET session/advice, ...
+  • app/services/advisory_service.py — AdvisoryService
+  • app/advice/schema.py         — ADVICE_RESULT_JSON_SCHEMA
+  • app/generator/advisory_prompt.py
+  • app/db/profile_repository.py — profile, session, advice_results
+  • frontend/form.html           — giao diện form
+
+3.3. Cải tiến so với Gen 1
+--------------------------
+  • Hồ sơ chuẩn hóa: background, target_role (enum), known_skills, goals,
+    weekly_time, role_note — đủ cho báo cáo và phân tích nhân khẩu học người dùng.
+  • Graph: vẫn dùng GraphContextBuilder cho ngữ cảnh tóm tắt; bổ sung GraphRepository
+    cho pathfinding_by_type, skills-gap typed (item_code).
+  • LLM: Gemini structured output (response_schema) → skills_gap, roadmap,
+    recommended_courses, estimated_months — không còn văn bản tự do thuần túy.
+  • Lưu cache advice theo session_id; hỗ trợ tái sử dụng profile.
+  • Pre-fill known_by_type từ graph khi submit form — giảm hỏi lặp ở Gen 3.
+
+3.4. Hạn chế còn lại (động lực cho Gen 3)
+-----------------------------------------
+  (H9)  Chưa có hội thoại tự nhiên đa lượt — người dùng phải điền form trước.
+  (H10) Chưa có intent router — không phân biệt pathfinding vs course_rec vs skills_gap.
+  (H11) Graph context vẫn dạng list[str] — chưa tight fusion với vector seeds.
+  (H12) Chưa có đánh giá ablation 4 cấu hình RAG cho luận văn.
+
+
+================================================================================
+PHẦN 4. THẾ HỆ 3 (GEN 3) — KIẾN TRÚC GRAPH-RAG TÍCH HỢP CHẶT CHẼ
+================================================================================
+
+4.1. Vai trò
+------------
+Gen 3 là kiến trúc chính hiện tại của đồ án: chatbot hội thoại với phân loại ý định,
+tight fusion, hybrid retrieval, và phản hồi có cấu trúc cho UI.
+
+4.2. Thành phần chính
+---------------------
+  • app/api/chat_routes.py        — POST /api/chat, quản lý session
+  • app/services/chat_service.py  — orchestrator trung tâm
+  • app/intent/router.py          — IntentRouterService (6+ intent)
+  • app/rag/fusion.py             — FusionService, map_hits_to_graph_nodes
+  • app/rag/retriever.py          — BM25Okapi + RRF + graph-aware boost
+  • app/graph/repository.py       — Cypher typed (pathfinding, course_rec, multihop)
+  • app/generator/response_generator.py
+  • app/eval/ablation_pipeline.py — 4 cấu hình D-01 (vector/graph/late/tight)
+  • frontend/chat.html
+
+4.3. Luồng Graph-RAG tiêu biểu (intent pathfinding)
+---------------------------------------------------
+  1. Intent router xác định pathfinding + entity career.
+  2. VectorRetriever.retrieve_docs (BM25+RRF+Qdrant) — lần 1.
+  3. map_hits_to_graph_nodes → seed_career_codes, seed_competency_codes.
+  4. GraphRepository.pathfinding(career, seed_*) → PathfindingResult (Pydantic JSON).
+  5. extract_relevant_ids_from_graph → re-retrieve vector với graph-aware boost.
+  6. FusionService.aggregate → context_block + evidence.
+  7. ResponseGenerator.pathfinding: JSON graph đầy đủ + vector context + exemplars.
+  8. structured_from_pathfinding → UI + API response.
+
+4.4. Cải tiến so với Gen 2 (và kế thừa giải quyết hạn chế Gen 1)
+-----------------------------------------------------------------
+  • (H1)(H9)  Session đa lượt, lịch sử tin nhắn, competency orchestrator 7 nhóm.
+  • (H4)(H10) Intent: pathfinding, course_rec, skills_gap, subject_career,
+              competency_slot_fill, roadmap_followup, slot_fill.
+  • (H5)      Cypher chuyên biệt theo intent; multi-hop Career→Competency→Course (A-02).
+  • (H6)      Tight fusion: vector seeds dẫn hướng Cypher; graph-aware rerank (A-03).
+  • (H3)      Structured reply + validator chống citation ảo.
+  • (H12)     Pipeline ablation D-01, eval retrieval D-02, LLM-as-judge D-03.
+
+4.5. Vị trí của Gen 2 trong kiến trúc hiện tại
+----------------------------------------------
+Gen 2 (form /api/advisory) và Gen 3 (chat /api/chat) cùng tồn tại — phục vụ
+hai kênh tương tác: onboarding có cấu trúc (form) và hỏi đáp linh hoạt (chat).
+Gen 1 không còn trong codebase vì vai trò của nó đã được Gen 2 và Gen 3 thay thế
+đầy đủ hơn.
+
+
+================================================================================
+PHẦN 5. BẢNG SO SÁNH TÓM TẮT BA THẾ HỆ
+================================================================================
+
+Tiêu chí              | Gen 1 (khởi đầu)     | Gen 2 (form)          | Gen 3 (chat)
+----------------------|----------------------|------------------------|---------------------------
+API chính             | POST /api/advise     | POST /api/advisory/*   | POST /api/chat
+Tương tác             | One-shot             | Form một lần           | Hội thoại đa lượt
+Hồ sơ                 | 4 trường tự do       | Enum + DB PostgreSQL   | Session + profile
+Graph                 | GraphContextBuilder  | Builder + Repository   | Repository + seeds
+Vector                | retrieve top-3       | (không trọng tâm)      | BM25+RRF+boost
+Fusion                | Ghép prompt          | Structured JSON        | FusionService tight
+LLM output            | Văn bản tự do        | JSON schema            | Generator + structured
+Intent                | Không                | Không                  | Router 6+ loại
+Đánh giá khoa học     | Chưa có              | Một phần               | D-01/02/03 đầy đủ
+Trạng thái codebase   | Đã thay thế hoàn toàn| Đang vận hành          | Kiến trúc chính
+
+
+================================================================================
+PHẦN 6. KẾT LUẬN — VAI TRÒ VÀ VIỆC THAY THẾ GEN 1
+================================================================================
+
+6.1. Gen 1 đã hoàn thành những gì?
+---------------------------------
+Phiên bản khởi đầu (Gen 1) đã hoàn thành đúng vai trò kiến trúc tiền đề và giai
+đoạn kiểm chứng:
+  • Xác nhận tính khả thi kỹ thuật của Graph-RAG trên domain tư vấn nghề IT Việt Nam.
+  • Thiết lập pipeline dữ liệu Neo4j + Qdrant + Gemini làm nền cho toàn bộ đồ án.
+  • Định hình hướng tích hợp graph–vector–LLM mà Gen 3 phát triển thành tight fusion.
+  • Cung cấp baseline tư duy cho thí nghiệm ablation (so sánh late vs tight fusion)
+    trong chương thực nghiệm — thông qua AblationPipeline, không cần duy trì API cũ.
+
+6.2. Vì sao thay thế hoàn toàn Gen 1 là quyết định kiến trúc hợp lý?
+---------------------------------------------------------------------
+  (1) Chức năng tư vấn một lần của Gen 1 được Gen 2 bao phủ tốt hơn (form có cấu
+      trúc, lưu DB) và Gen 3 bao phủ linh hoạt hơn (chat đa intent).
+  (2) Đầu ra văn bản tự do của Gen 1 không đáp ứng yêu cầu hiển thị UI và đánh giá
+      định lượng — Gen 2/3 dùng structured output và metrics D-01/D-03.
+  (3) Late fusion đơn giản của Gen 1 đã được thay bằng tight fusion có đo lường
+      (RETRIEVAL_GRAPH_BOOST, seed nodes, ablation 4 mode) — đây là đóng góp khoa
+      học chính của đồ án, không thể thể hiện đầy đủ trên Gen 1.
+  (4) Duy trì song song endpoint /api/advise gây trùng lặp trách nhiệm, tăng chi phí
+      bảo trì và gây nhầm lẫn khi viết báo cáo — việc gỡ bỏ sau giai đoạn kiểm chứng
+      là bước chuẩn hóa kiến trúc (E-01 trong kế hoạch nâng cấp dự án).
+
+6.3. Cách trình bày trong báo cáo đồ án (gợi ý)
+-------------------------------------------------
+  • Chương 3 (Thiết kế): Mô tả tiến trình Gen 1 → 2 → 3 như evolution có chủ đích;
+    dùng sơ đồ sequence cho Gen 3 làm kiến trúc đích.
+  • Chương 4 (Cài đặt): Ghi rõ Gen 1 thuộc giai đoạn đầu đã kết thúc; codebase
+    hiện tại gồm Gen 2 + Gen 3; trích dẫn file thay vì /api/advise.
+  • Chương 5 (Thực nghiệm): Dùng AblationPipeline (4 cấu hình) thay vì chạy lại
+    Gen 1; bảng so sánh VectorOnly / GraphOnly / LateFusion / TightFusion thể hiện
+    tiến bộ từ mô hình tích hợp lỏng (tư tưởng Gen 1) sang tích hợp chặt (Gen 3).
+  • Phần hạn chế & hướng phát triển: Neo4j sync driver (E-02), hyperparameter env
+    (E-03) — không liên quan Gen 1.
+
+
+================================================================================
+PHỤ LỤC A — SƠ ĐỒ LUỒNG GEN 1 (MÔ TẢ VĂN BẢN)
+================================================================================
+
+  [Client] --POST /api/advise--> [routes.advise_api]
+                                      |
+                                      v
+                              [GraphRAGService.advise]
+                                 /      |      \
+                                /       |       \
+                               v        v        v
+                    [GraphContextBuilder] [VectorRetriever] [LLMClient]
+                         |                    |                  |
+                    Neo4j Cypher          Qdrant top-3      Gemini API
+                    list[str]             list[str]         advice: str
+                         \                    |                  /
+                          \                   |                 /
+                           v                  v                v
+                         Ghép user_prompt (late fusion trong prompt)
+                                       |
+                                       v
+                         Response {query, graph_context, docs, advice}
+
+
+================================================================================
+PHỤ LỤC B — SƠ ĐỒ LUỒNG GEN 3 pathfinding (THAM CHIẾU BÁO CÁO)
+================================================================================
+
+  User message --> IntentRouter --> ChatService._answer_from_intent
+        |
+        +--> VectorRetriever (lần 1) --> seed_map
+        +--> GraphRepository.pathfinding(seeds) --> PathfindingResult
+        +--> VectorRetriever (lần 2, graph boost)
+        +--> FusionService.aggregate
+        +--> ResponseGenerator + structured output
+        +--> API {reply, structured, graph, evidence}
+
+
+================================================================================
+PHỤ LỤC C — TÀI LIỆU THAM CHIẾU TRONG REPO (SAU KHI GỠ GEN 1)
+================================================================================
+
+  • app/services/chat_service.py      — orchestrator Gen 3
+  • app/services/advisory_service.py — Gen 2
+  • app/rag/fusion.py               — tight fusion
+  • app/eval/ablation_pipeline.py   — thí nghiệm thay thế so sánh trực tiếp Gen 1
+  • scripts/run_quality_ablation.py — chạy ablation D-01
+  • data/eval/                      — gold set và kết quả đo lường
+
+  Mã Gen 1 (graph_rag_service, llm_client, routes) có thể tra cứu trong lịch sử
+  Git của dự án nếu hội đồng yêu cầu minh chứng mã giai đoạn kiểm chứng.
+
+================================================================================
+HẾT TÀI LIỆU
+================================================================================

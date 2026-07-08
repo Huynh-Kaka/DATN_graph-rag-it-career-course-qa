@@ -1,0 +1,36 @@
+%% Hình 3.11 — Pipeline dữ liệu: Excel → Graph + Vector + BM25
+flowchart LR
+    subgraph source["Nguồn dữ liệu"]
+        XLSX["data/bộ dữ liệu.xlsx<br/>Career, Course, Competency maps"]
+        SUPP["competency_relation_supplement.jsonl"]
+    end
+
+    subgraph ingest["Ingest đồ thị"]
+        ING["scripts/ingest.py"]
+        NEO[("Neo4j<br/>Nodes + NEED_*/TEACH_*<br/>+ IN_SUBJECT + relations")]
+    end
+
+    subgraph index["Index truy hồi"]
+        CORP["scripts/build_index_corpus.py<br/>→ index_corpus.jsonl"]
+        QDR["scripts/index_qdrant.py<br/>embedding 768d"]
+        BM25["bm25_corpus.json<br/>BM25Okapi local"]
+        VDB[("Qdrant collection<br/>career_roadmap")]
+    end
+
+    subgraph eval["Gold & đánh giá"]
+        GOLD["data/eval/*.jsonl<br/>retrieval + answer quality"]
+        SCR["scripts/eval_retrieval.py<br/>eval_answer_quality.py"]
+    end
+
+    XLSX --> ING
+    SUPP --> ING
+    ING --> NEO
+
+    XLSX --> CORP
+    NEO --> CORP
+    CORP --> QDR --> VDB
+    CORP --> BM25
+
+    NEO --> GOLD
+    VDB --> SCR
+    BM25 --> SCR

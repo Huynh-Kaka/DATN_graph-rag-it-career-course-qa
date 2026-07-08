@@ -1,0 +1,45 @@
+%% CHANGELOG v2:
+%% - Bổ sung bước forced intent adjustment theo session context (roadmap_followup/course_rec/competency_slot_fill).
+%% - Sửa luồng phase idle/collecting: chỉ vào competency orchestrator khi đúng intent hoặc đang gap_summary.
+%% - Bổ sung xử lý hỏi tự do/exit-flow trong competency collection.
+%% - Bổ sung fallback Qdrant "Index required" -> retry không filter rồi lọc local.
+flowchart TD
+    A([Start]) --> B[User gửi message]
+    B --> C[ChatService._process_turn]
+    C --> D[build_router_user_message + IntentRouterService.route]
+    D --> E[maybe_adjust_outcome(state,text,outcome)]
+    E --> F[apply_route_to_state + save session]
+
+    F --> G{domain == out?}
+    G -->|Yes| G1[OUT_OF_DOMAIN_MESSAGE<br/>set last_domain_out=true] --> Z([End])
+    G -->|No| H{outcome.stop?}
+    H -->|Yes| H1[slot_fill/greeting reply] --> Z
+    H -->|No| I{intent}
+
+    I -->|roadmap_followup| R1[RoadmapFollowupService.build] --> R2[build evidence] --> Z
+    I -->|subject_career| S1[GraphRepository.subject_to_careers] --> Z
+    I -->|competency_relation| CR1[Graph competency_relations] --> CR2{coverage full?}
+    CR2 -->|No| CR3[format static] --> Z
+    CR2 -->|Yes| CR4[retrieve vector + fusion + generator] --> Z
+
+    I -->|competency_slot_fill| CS0[CompetencyTypeOrchestrator.handle_turn]
+    CS0 --> CS1{handled?}
+    CS1 -->|No (free question)| I2[fall through intents dưới]
+    CS1 -->|Yes| CS2[Trả card/summary + save session] --> Z
+
+    I -->|pathfinding| P0{collecting + đổi career rõ ràng + không phải free question?}
+    P0 -->|Yes| P1[start_collection_with_card -> intent competency_slot_fill] --> Z
+    P0 -->|No| P2{career đổi khi phase gap_summary/course?}
+    P2 -->|Yes| P3[clear known_by_type + index=0 + phase=idle]
+    P2 -->|No| P4[giữ state]
+    P3 --> P5[pathfinding Neo4j with seed ids]
+    P4 --> P5[pathfinding Neo4j with seed ids]
+    P5 --> P6[vector retrieve relevant_ids]
+    P6 --> P7[fusion + generator.pathfinding] --> Z
+
+    I -->|course_rec| C1[course_recommendation Neo4j] --> C2[vector retrieve relevant_ids] --> C3[fusion + generator.course_rec] --> Z
+    I2 --> FB[generator.slot_fill fallback]
+    FB --> Z
+
+    C2 -. Qdrant Index required .-> C2A[retry no filter + local doc_type filter]
+    P6 -. Qdrant Index required .-> P6A[retry no filter + local doc_type filter]

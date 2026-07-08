@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chào bạn — Chatbot</title>
+  <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="whale-sym" viewBox="0 0 120 78">
+    <ellipse cx="56" cy="42" rx="42" ry="22" fill="#1e3a6e"/>
+    <ellipse cx="16" cy="38" rx="13" ry="12" fill="#1e3a6e"/>
+    <ellipse cx="50" cy="50" rx="26" ry="10" fill="#c8daf5" opacity="0.55"/>
+    <circle cx="11" cy="35" r="2.5" fill="white"/>
+    <circle cx="11.5" cy="34.5" r="1" fill="#1e3a6e"/>
+    <path d="M60 20 Q68 8 76 16 Q70 20 60 20Z" fill="#1e3a6e"/>
+    <path d="M94 38 Q110 28 118 20 Q114 36 118 48 Q110 42 94 38Z" fill="#2a4f8a"/>
+    <path d="M38 52 Q32 64 44 66 Q46 56 46 52Z" fill="#1e3a6e" opacity="0.75"/>
+    <circle cx="6" cy="18" r="3.5" fill="none" stroke="#7aaee8" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="14" cy="10" r="2" fill="none" stroke="#7aaee8" stroke-width="1.2" opacity="0.55"/>
+    <circle cx="4" cy="8" r="1.2" fill="#7aaee8" opacity="0.4"/>
+    <path d="M100 62 Q108 56 112 62 Q108 68 100 62Z" fill="none" stroke="#7aaee8" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="118" cy="58" r="1.5" fill="#7aaee8" opacity="0.4"/>
+  </symbol>
+</svg>
+
+<div class="app" id="app">
+
+  <div class="screen-welcome" id="screenWelcome">
+    <svg class="whale-float" style="width:72px;top:12%;left:8%;--dur:11s;--delay:0s;--rot:-8deg;--max-op:0.22;--dx:18px;--dy:-10px;--dx2:30px;--dy2:5px" viewBox="0 0 120 78"><use href="#whale-sym"/></svg>
+    <svg class="whale-float" style="width:52px;top:65%;left:78%;--dur:14s;--delay:3s;--rot:6deg;--max-op:0.18;--dx:-14px;--dy:-6px;--dx2:-22px;--dy2:8px" viewBox="0 0 120 78"><use href="#whale-sym"/></svg>
+    <svg class="whale-float" style="width:44px;top:78%;left:18%;--dur:9s;--delay:5s;--rot:12deg;--max-op:0.15;--dx:10px;--dy:-14px;--dx2:16px;--dy2:3px" viewBox="0 0 120 78"><use href="#whale-sym"/></svg>
+    <svg class="whale-float" style="width:60px;top:20%;left:72%;--dur:13s;--delay:7s;--rot:-4deg;--max-op:0.2;--dx:-20px;--dy:8px;--dx2:-30px;--dy2:-4px" viewBox="0 0 120 78"><use href="#whale-sym"/></svg>
+
+    <div class="envelope" id="env">
+      <svg class="env-border" viewBox="0 0 1000 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="998" height="498" fill="none" stroke="rgba(26,26,46,0.32)" stroke-width="1.5" rx="2"/>
+        <rect x="4" y="4" width="992" height="492" fill="none" stroke="rgba(26,26,46,0.07)" stroke-width="0.8" rx="1.5"/>
+      </svg>
+      <div class="stamp">
+        <div style="font-size:18px;opacity:0.5;">✉</div>
+        <div style="width:26px;display:flex;flex-direction:column;gap:3px;">
+          <div style="height:2px;background:var(--ink);border-radius:1px;opacity:0.35;width:100%"></div>
+          <div style="height:2px;background:var(--ink);border-radius:1px;opacity:0.35;width:65%"></div>
+        </div>
+      </div>
+      <svg class="postmark" width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="23" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="25" cy="25" r="17" fill="none" stroke="currentColor" stroke-width="1"/>
+        <line x1="9" y1="25" x2="41" y2="25" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <div class="addr">
+        <div style="width:58px;height:2px;background:var(--ink);border-radius:1px"></div>
+        <div style="width:42px;height:2px;background:var(--ink);border-radius:1px"></div>
+        <div style="width:50px;height:2px;background:var(--ink);border-radius:1px"></div>
+      </div>
+      <div class="env-content">
+        <div class="env-hero">
+          <p class="greeting">
+            Mình chào bạn nhé, bạn cần hỗ trợ gì?
+            <span class="cursor-blink"></span>
+            <svg class="underline-scribble" viewBox="0 0 300 8" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <path d="M2 5 Q40 2 80 5 Q120 8 160 4 Q200 1 240 5 Q270 7 298 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.2"/>
+            </svg>
+          </p>
+          <div class="btn-row">
+            <a class="chat-btn" href="chat.html">trò chuyện ngay</a>
+            <button type="button" class="theme-btn" onclick="toggleTheme()">
+              <svg id="moonIco" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M14 10.5A6.5 6.5 0 0 1 5.5 2a6.5 6.5 0 1 0 8.5 8.5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
+              <svg id="sunIco" width="14" height="14" viewBox="0 0 16 16" fill="none" style="display:none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="1" x2="8" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="13" x2="8" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="8" x2="3" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+        <!-- Luồng API: xem frontend/js/chat.js (hàm sendMsg) -->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/theme.js"></script>
+</body>
+</html>

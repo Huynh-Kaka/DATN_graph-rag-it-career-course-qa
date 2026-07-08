@@ -1,0 +1,53 @@
+%% Hình 3.9 — Sequence: chat với Validator và confidence gate
+sequenceDiagram
+    actor User as Người dùng
+    participant UI as Frontend chat.js
+    participant API as FastAPI /api/chat
+    participant Chat as ChatService
+    participant Router as IntentRouterService
+    participant Follow as followup/context
+    participant Retriever as VectorRetriever
+    participant Graph as GraphRepository
+    participant Fusion as FusionService
+    participant Gen as ResponseGenerator
+    participant Conf as compute_confidence
+    participant Val as Validator
+    participant DB as SessionRepository
+
+    User->>UI: Nhập câu hỏi
+    UI->>API: POST /api/chat
+    API->>Chat: handle_message
+    Chat->>DB: get_or_create + append user msg
+    Chat->>Router: route(text, context)
+    Chat->>Follow: maybe_adjust_outcome
+    Chat->>Follow: apply_route_to_state
+    Chat->>DB: save(state)
+
+    alt intent pathfinding / course_rec
+        Chat->>Retriever: retrieve_docs (vector+BM25+RRF)
+        Retriever-->>Chat: hits → seed_map
+        Chat->>Graph: pathfinding / course_rec (seeds)
+        Graph-->>Chat: graph_payload
+        Chat->>Retriever: retrieve_docs(relevant_ids)
+        Chat->>Fusion: aggregate(graph, vector, seeds)
+        Fusion-->>Chat: context_block + evidence
+        Chat->>Gen: generate(intent, graph, vector_context)
+        Gen->>Conf: compute_confidence(found, n_comp, route_conf)
+        alt conf < GENERATOR_CONFIDENCE_THRESHOLD hoặc not found
+            Conf-->>Gen: thấp
+            Gen-->>Chat: formatter_static (fallback)
+        else conf đủ cao
+            Conf-->>Gen: đủ tin cậy
+            Gen->>Gen: Gemini / Ollama local
+            Gen->>Val: validate_and_strip_hallucinated_citations
+            Val-->>Gen: cleaned text
+            Gen-->>Chat: final reply
+        end
+        Chat-->>API: reply + structured + evidence
+    else competency_slot_fill
+        Chat->>Chat: CompetencyTypeOrchestrator
+    end
+
+    API->>DB: append assistant message
+    API-->>UI: ChatResponse JSON
+    UI-->>User: bubble / structured card + feedback bar

@@ -1,0 +1,69 @@
+%% CHANGELOG v2:
+%% - Cập nhật endpoint thật: POST /api/chat.
+%% - Thêm bước maybe_adjust_outcome và nhánh orchestrator competency 7 bước.
+%% - Làm rõ nhánh pathfinding/course_rec dùng Neo4j + Qdrant + Fusion + ResponseGenerator.
+%% - Bổ sung fallback Qdrant payload index thiếu (retry không filter).
+sequenceDiagram
+    actor User
+    participant UI as Frontend
+    participant API as FastAPI /api/chat
+    participant Chat as ChatService
+    participant Router as IntentRouterService
+    participant Follow as session.followup/context
+    participant Orch as CompetencyTypeOrchestrator
+    participant Graph as GraphRepository(Neo4j)
+    participant Retriever as VectorRetriever(Qdrant)
+    participant Fusion as FusionService
+    participant Gen as ResponseGenerator
+    participant DB as SessionRepository(DB)
+
+    User->>UI: Nhập câu hỏi
+    UI->>API: POST /api/chat
+    API->>Chat: handle_message(message, session_id)
+    Chat->>DB: get_or_create(session)
+    Chat->>DB: append user message
+
+    Chat->>Router: route(text, router_context)
+    Chat->>Follow: maybe_adjust_outcome(state,text,outcome)
+    Chat->>Follow: apply_route_to_state
+    Chat->>DB: save(state)
+
+    alt domain == out
+        Chat-->>API: OUT_OF_DOMAIN_MESSAGE
+    else outcome.stop == true
+        Chat-->>API: slot_fill/greeting reply
+    else intent == competency_slot_fill (hoặc collecting delegated)
+        Chat->>Orch: handle_turn(state,text)
+        alt orch.handled
+            Orch-->>Chat: card/summary + optional graph
+            Chat->>DB: save(state)
+            Chat-->>API: competency response
+        else free question / not handled
+            Chat->>Graph: pathfinding or course_rec branch
+        end
+    else intent == pathfinding/course_rec/competency_relation/roadmap_followup
+        alt pathfinding hoặc course_rec
+            Chat->>Retriever: retrieve_docs(top_k, doc_type)
+            Retriever->>Retriever: map hits -> seed ids
+            Chat->>Graph: query Neo4j with seeds
+            Chat->>Retriever: retrieve_docs(relevant_ids)
+            opt Qdrant "Index required"
+                Retriever->>Retriever: retry without filter
+                Retriever->>Retriever: local filter by doc_type
+            end
+            Chat->>Fusion: aggregate(graph, vector_docs, seed_ids)
+            Chat->>Gen: generate (Gemini/Local + fallback)
+            Gen-->>Chat: final reply
+        else competency_relation
+            Chat->>Graph: competency_relations
+            Chat->>Fusion: aggregate if coverage full
+            Chat->>Gen: competency_relation response
+        else roadmap_followup
+            Chat->>Graph: roadmap service graph calls
+        end
+        Chat-->>API: reply + route + structured + evidence
+    end
+
+    API->>DB: append assistant message
+    API-->>UI: ChatResponse JSON
+    UI-->>User: Hiển thị kết quả

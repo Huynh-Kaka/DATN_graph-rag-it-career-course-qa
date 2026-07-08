@@ -1,0 +1,14 @@
+%% Sơ đồ tuần tự tổng quát — IT Career Goal Advisor (báo cáo)
+%% Chi tiết: sequence_3_9.mmd
+sequenceDiagram
+    actor User as Người dùng
+    participant UI as Giao diện
+    participant API as API Server
+    participant HT as Lõi xử lý
+
+    User->>UI: Câu hỏi / form tư vấn
+    UI->>API: Gửi yêu cầu
+    API->>HT: Phân loại & xử lý
+    HT-->>API: Kết quả
+    API-->>UI: Phản hồi
+    UI-->>User: Hiển thị kết quả

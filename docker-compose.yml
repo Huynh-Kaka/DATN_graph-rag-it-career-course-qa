@@ -1,0 +1,108 @@
+# Docker-first: dựng toàn bộ hệ thống (app + Neo4j + Qdrant + PostgreSQL) bằng Docker.
+#
+# Chạy:  docker compose up -d --build
+#
+# App trong container KHÔNG dùng .env cho host DB — các biến NEO4J_URI/QDRANT_URL/DATABASE_URL
+# được ghi đè ở khối `environment` bên dưới để trỏ tới tên service (neo4j/qdrant/postgres),
+# không phải localhost. Các biến còn lại (GEMINI_API_KEY, embedding, LLM...) đọc từ .env qua env_file.
+#
+# Mật khẩu DB local lấy từ .env nếu có, nếu không dùng default an toàn cho môi trường dev.
+
+services:
+  neo4j:
+    image: neo4j:5-community
+    container_name: career-neo4j
+    restart: unless-stopped
+    ports:
+      - "7474:7474"   # HTTP Browser (http://localhost:7474)
+      - "7687:7687"   # Bolt (driver)
+    environment:
+      NEO4J_AUTH: "neo4j/${NEO4J_LOCAL_PASSWORD:-neo4jpassword}"
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_apoc_export_file_enabled: "true"
+      NEO4J_apoc_import_file_enabled: "true"
+      NEO4J_dbms_security_procedures_unrestricted: "apoc.*"
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -u neo4j -p ${NEO4J_LOCAL_PASSWORD:-neo4jpassword} 'RETURN 1' || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 12
+      start_period: 45s
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: career-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"   # REST/HTTP API
+      - "6334:6334"   # gRPC API
+    volumes:
+      - qdrant_data:/qdrant/storage
+    healthcheck:
+      # Qdrant image không có curl/wget — dùng /dev/tcp của bash để kiểm tra cổng đang lắng nghe.
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/6333' || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 20s
+
+  postgres:
+    image: postgres:16
+    container_name: career-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER:-career}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-careerpass}"
+      POSTGRES_DB: "${POSTGRES_DB:-careerdb}"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-career} -d ${POSTGRES_DB:-careerdb}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: career-app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      PORT: "8000"
+      # Ghi đè host DB để trỏ tới các service Docker (thắng giá trị trong .env).
+      NEO4J_URI: "bolt://neo4j:7687"
+      NEO4J_USER: "neo4j"
+      NEO4J_PASSWORD: "${NEO4J_LOCAL_PASSWORD:-neo4jpassword}"
+      QDRANT_URL: "http://qdrant:6333"
+      QDRANT_API_KEY: ""
+      DATABASE_URL: "postgresql://${POSTGRES_USER:-career}:${POSTGRES_PASSWORD:-careerpass}@postgres:5432/${POSTGRES_DB:-careerdb}"
+    depends_on:
+      neo4j:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  neo4j_data:
+  neo4j_logs:
+  qdrant_data:
+  postgres_data:

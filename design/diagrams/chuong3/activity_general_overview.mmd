@@ -1,0 +1,38 @@
+%% Hình tổng quát — LUỒNG XỬ LÝ HỆ THỐNG (đã sửa đúng theo code)
+flowchart TD
+    Start([● Bắt đầu]) --> U1[Truy cập hệ thống]
+    U1 --> U2{Chọn kênh?}
+
+    U2 -->|Chat| U3[Gửi tin nhắn]
+    U2 -->|Form| U4[Điền form 4 bước]
+
+    U3 --> S1[Tiếp nhận → phân loại intent<br/>kèm confidence]
+    S1 --> S4{Trong miền IT?}
+    S4 -->|Không| S5[Thông báo ngoài miền]
+
+    S4 -->|Có| S9{Đủ tin cậy?<br/>route.confidence}
+    S9 -->|Không| S10[Hỏi lại làm rõ<br/>rồi dừng lượt]
+    S9 -->|Có| S6{Loại xử lý?}
+
+    S6 -->|Competency| S7[Thu thập 7 nhóm<br/>→ gap → gợi ý khóa học]
+    S6 -->|Hỏi đáp Graph-RAG| S8[Tight fusion<br/>Vector seed → Neo4j → Fusion]
+    S6 -->|competency_relation| CR{Coverage đầy đủ?}
+
+    S8 --> S12[LLM sinh câu trả lời]
+    CR -->|Có| S12
+    CR -->|Không| S13[Formatter tĩnh]
+
+    S12 --> V1[Validator<br/>chống ảo giác / strip citation lỗi]
+
+    U4 --> F1[Sinh lộ trình & skills gap]
+
+    S5 --> U5[Xem kết quả]
+    S7 --> U5
+    S10 --> U5
+    S13 --> U5
+    V1 --> U5
+    F1 --> U5
+
+    U5 --> U6{Tiếp tục?}
+    U6 -->|Có| U2
+    U6 -->|Không| End([● Kết thúc])

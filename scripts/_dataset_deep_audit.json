@@ -1,0 +1,253 @@
+{
+  "row_counts": {
+    "career": 63,
+    "competency_type": 7,
+    "programming_language": 23,
+    "framework": 64,
+    "platform": 30,
+    "tool": 39,
+    "knowledge": 51,
+    "softskill": 32,
+    "certification": 28,
+    "career_competency_map": 1972,
+    "subject": 73,
+    "website": 43,
+    "organization": 29,
+    "instructor": 32,
+    "subtitle": 3,
+    "program": 18,
+    "level": 3,
+    "course": 339,
+    "course_competency_map": 339
+  },
+  "duplicate_item_codes_across_sheets": [],
+  "total_unique_competency_items": 267,
+  "competency_types": [
+    {
+      "type_code": "CT_LANG",
+      "type_name": "Programming Language"
+    },
+    {
+      "type_code": "CT_FRAM",
+      "type_name": "Framework"
+    },
+    {
+      "type_code": "CT_PLAT",
+      "type_name": "Platform"
+    },
+    {
+      "type_code": "CT_TOOL",
+      "type_name": "Tool"
+    },
+    {
+      "type_code": "CT_KNOW",
+      "type_name": "Knowledge"
+    },
+    {
+      "type_code": "CT_SOFT",
+      "type_name": "Softskill"
+    },
+    {
+      "type_code": "CT_CERT",
+      "type_name": "Certification"
+    }
+  ],
+  "type_code_mismatches": [],
+  "career_competency_map": {
+    "rows": 1972,
+    "orphan_career_code": 0,
+    "orphan_type_code": 0,
+    "orphan_item_code": 3,
+    "priority_groups": {
+      "Mandatory": 895,
+      "Recommended": 713,
+      "Optional": 364
+    },
+    "careers_without_any_skill": [],
+    "avg_skills_per_career": 31.3,
+    "min_skills": 14,
+    "max_skills": 71
+  },
+  "denylist_mappings_still_in_excel": [],
+  "course_fk_orphans": {
+    "subject_code": {
+      "orphan_count": 0,
+      "samples": []
+    },
+    "program_code": {
+      "orphan_count": 0,
+      "samples": []
+    },
+    "level_code": {
+      "orphan_count": 0,
+      "samples": []
+    },
+    "website_code": {
+      "orphan_count": 0,
+      "samples": []
+    },
+    "org_code": {
+      "orphan_count": 0,
+      "samples": []
+    },
+    "instructor_code": {
+      "orphan_count": 0,
+      "samples": []
+    },
+    "subtitle_code": {
+      "orphan_count": 0,
+      "samples": []
+    }
+  },
+  "course_empty_fields": {
+    "website_code": 60,
+    "org_code": 60,
+    "instructor_code": 60,
+    "url": 60
+  },
+  "invalid_course_urls": [],
+  "courses_missing_url": 60,
+  "duration_hours": {
+    "null": 0,
+    "zero": 0,
+    "negative": 0,
+    "min": 3.0,
+    "max": 60.0,
+    "mean": 20.7
+  },
+  "course_competency_map": {
+    "rows": 339,
+    "orphan_course": 0,
+    "orphan_item": 0,
+    "orphan_type": 0,
+    "relation_types": {
+      "TEACH": 339
+    },
+    "coverage_levels": {
+      "4": 190,
+      "5": 121,
+      "3": 28
+    }
+  },
+  "career_industries": {
+    "Software Engineering": 10,
+    "Data and AI": 10,
+    "Cloud/Infra": 10,
+    "Cybersecurity": 9,
+    "Product/Design/Business IT": 9,
+    "Support/Consulting": 6,
+    "Quality": 5,
+    "Leadership": 4
+  },
+  "career_taxonomies": {
+    "Engineering": 10,
+    "Security": 9,
+    "Data": 5,
+    "AI": 5,
+    "Infrastructure": 5,
+    "Testing": 5,
+    "Operations": 4,
+    "Leadership": 4,
+    "Architecture": 2,
+    "Product": 2,
+    "Business Analysis": 2,
+    "Design": 2,
+    "Support": 2,
+    "Consulting": 2,
+    "Documentation": 1,
+    "Agile": 1,
+    "Pre-sales": 1,
+    "Project Management Support": 1
+  },
+  "sample_careers": [
+    {
+      "career_code": "SE",
+      "career_name": "Software Engineer",
+      "industry": "Software Engineering",
+      "taxonomy": "Engineering"
+    },
+    {
+      "career_code": "FE",
+      "career_name": "Frontend Developer",
+      "industry": "Software Engineering",
+      "taxonomy": "Engineering"
+    },
+    {
+      "career_code": "BE",
+      "career_name": "Backend Developer",
+      "industry": "Software Engineering",
+      "taxonomy": "Engineering"
+    },
+    {
+      "career_code": "FS",
+      "career_name": "Fullstack Developer",
+      "industry": "Software Engineering",
+      "taxonomy": "Engineering"
+    },
+    {
+      "career_code": "MOB",
+      "career_name": "Mobile Developer",
+      "industry": "Software Engineering",
+      "taxonomy": "Engineering"
+    },
+    {
+      "career_code": "GAME",
+      "career_name": "Game Developer",
+      "industry": "Software Engineering",
+      "taxonomy": "Engineering"
+    },
+    {
+      "career_code": "EMB",
+      "career_name": "Embedded Software Engineer",
+      "industry": "Software Engineering",
+      "taxonomy": "Engineering"
+    },
+    {
+      "career_code": "FIRM",
+      "career_name": "Firmware Engineer",
+      "industry": "Software Engineering",
+      "taxonomy": "Engineering"
+    }
+  ],
+  "competency_items_not_in_any_career": {
+    "count": 13,
+    "samples": [
+      "L_PHP",
+      "L_RUBY",
+      "F_FASTIFY",
+      "F_DJANGO",
+      "F_FLASK",
+      "F_LARAVEL",
+      "F_RAILS",
+      "F_GIN",
+      "F_ECHO",
+      "F_ACTIX",
+      "F_AXUM",
+      "T_MYSQLW",
+      "C_CKAD"
+    ]
+  },
+  "duplicate_map_ids_ccm": 0,
+  "duplicate_map_ids_ccmap": 0,
+  "nonstandard_item_codes": [],
+  "long_item_names": [],
+  "instructor_orphan_org": 0,
+  "invalid_website_urls": [],
+  "course_languages": {
+    "English": 271,
+    "Vietnamese": 68
+  },
+  "course_types": {
+    "Framework Course": 64,
+    "University Subject": 60,
+    "Certification Preparation": 56,
+    "Tool Tutorial": 39,
+    "Platform Course": 30,
+    "Video Learning": 28,
+    "Language Course": 23,
+    "Knowledge Course": 22,
+    "Softskill Course": 17
+  },
+  "duplicate_career_names": [],
+  "tool_description_empty_pct": 0.0
+}

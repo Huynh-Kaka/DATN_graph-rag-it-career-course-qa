@@ -1,0 +1,94 @@
+D-01 V2 Fusion Rerun Report (Post-CR graph 47 cạnh)
+====================================================
+Date: 2026-06-13
+Snapshot: 2026-06-13
+Baseline frozen: results/ablation_d01_v2_* (2026-06-12, graph ~26 cạnh)
+Rerun suffix: _v2_r2
+
+Pre-flight: validate_gold ×3 OK | Neo4j 47 edges 14.6% | spot-check OK | smoke OK
+Embed: intermittent Gemini 429 (free tier); runs completed with retries
+
+--------------------------------------------------------------------------------
+1. B4 Hint-mode 80×4 static [BẢNG CHÍNH]
+--------------------------------------------------------------------------------
+Artifacts: results/ablation_d01_v2_r2_static.json, .tex
+Delta:     results/ablation_delta_v2_r2_static.json (paired=320, regressions=0)
+
+| Mode        | answer_entity_f1 (r2) | V2 orig | Δ      | ontology_f1 |
+|-------------|----------------------:|--------:|-------:|------------:|
+| VectorOnly  | 0.0127                | 0.0176  | −0.0049| 0.0667      |
+| GraphOnly   | 0.4758                | 0.4758  |  0.0   | 0.8674      |
+| LateFusion  | 0.2526                | 0.2710  | −0.0184| 0.8674      |
+| TightFusion | 0.3869                | 0.3958  | −0.0089| 0.8674      |
+
+Gate directional: GraphOnly >> VectorOnly — PASS (giữ thứ tự V2)
+Gate delta ±0.02 on tight_fusion answer_entity_f1 — PASS (−0.0089)
+Claim hint-mode: Graph* >> Vector — GIỮ NGUYÊN sau deploy 47 cạnh
+
+--------------------------------------------------------------------------------
+2. B6 No-hint 25×4 static [CHỨNG MINH TIGHT]
+--------------------------------------------------------------------------------
+Artifacts: results/ablation_d01_v2_r2_no_hint.json, .tex
+Delta:     results/ablation_delta_v2_r2_no_hint.json (paired=100, regressions=9)
+
+| Mode        | answer_entity_f1 (r2) | V2 orig | Δ       | ontology_f1 |
+|-------------|----------------------:|--------:|--------:|------------:|
+| VectorOnly  | 0.0144                | 0.0152  | −0.0009 | 0.0         |
+| GraphOnly   | 0.2602                | 0.2602  |  0.0    | 0.2697      |
+| LateFusion  | 0.1325                | 0.1395  | −0.0070 | 0.2697      |
+| TightFusion | 0.4178                | 0.5502  | −0.1324 | 0.5133      |
+
+Gate directional: Tight (0.418) > Late (0.133) > Graph (0.260)? 
+  → Tight > Late PASS; Tight > Graph PASS
+Gate regression F1 drop >0.15: 9 cases on tight_fusion — WARN (absolute drop, direction kept)
+ontology_f1 tight dropped 0.68→0.51 — investigate Hard no-hint subset
+
+Recommendation: Giữ claim "Tight giúp no-hint" nhưng ghi footnote giảm ~0.13 F1 vs V2 gốc
+(có thể do corpus enrich / embed noise; cần xem summary_by_cypher_matched Hard).
+
+--------------------------------------------------------------------------------
+3. B5 Generative 15×4 [BẢNG PHỤ E2E]
+--------------------------------------------------------------------------------
+Artifacts: results/ablation_d01_v2_r2_generative.json, .tex
+Delta:     results/ablation_delta_v2_r2_generative.json (paired=60, regressions=0)
+
+| Mode        | answer_entity_f1 (r2) | V2 orig | cosine_sim (r2) | orig cosine |
+|-------------|----------------------:|--------:|----------------:|------------:|
+| VectorOnly  | 0.0181                | 0.0165  | 0.0             | 0.774       |
+| GraphOnly   | 0.6859                | 0.6870  | 0.0             | 0.867       |
+| LateFusion  | 0.4675                | 0.4798  | 0.0             | 0.871       |
+| TightFusion | 0.4632                | 0.4769  | 0.0             | 0.862       |
+
+WARN: cosine_similarity = 0.0 toàn bộ run r2 — generative cosine vs gold có thể fail
+(kiểm tra LLM output / embedding trong ablation_pipeline). answer_entity_f1 vẫn ổn định.
+
+Gate directional Graph >> Vector — PASS
+
+--------------------------------------------------------------------------------
+4. § Ảnh hưởng deploy competency_relation (47 cạnh + corpus enrich)
+--------------------------------------------------------------------------------
+- B4 hint: Graph metrics IDENTICAL to V2 (graph_only delta 0.0) → pathfinding/course_rec
+  không bị regress bởi relation deploy.
+- Vector/Late/Tight hint: giảm nhẹ answer_entity_f1 (<0.02) — trong ngưỡng engineering.
+- B6 no-hint: Tight giảm mạnh hơn (−0.13) — cần theo dõi; hướng Tight > Late vẫn đúng.
+- Corpus enrich có thể tăng vector context overlap → giảm exclusive_graph_rate nhẹ Late.
+
+--------------------------------------------------------------------------------
+5. Claim cập nhật cho luận văn
+--------------------------------------------------------------------------------
+GIỮ:
+  - Hint 80: GraphOnly/Late/Tight >> VectorOnly (ontology + answer_entity_f1)
+  - No-hint: TightFusion > LateFusion và > GraphOnly (mean)
+  - Generative: Graph >> Vector (entity F1)
+
+SOFTEN / FOOTNOTE:
+  - No-hint Tight absolute F1 thấp hơn V2 gốc ~13 điểm — ghi "rerun post-CR"
+  - Generative cosine_similarity không dùng số r2 (artifact lỗi metric)
+  - Dùng bảng B4 r2 làm chính nếu thesis mô tả hệ thống hiện tại (47 cạnh)
+
+--------------------------------------------------------------------------------
+6. Deliverables & lệnh tái tạo
+--------------------------------------------------------------------------------
+See docs/plan_d01_v2_fusion_rerun.md §4–§5
+
+Failure log: results/v2_r2_failure_log.json

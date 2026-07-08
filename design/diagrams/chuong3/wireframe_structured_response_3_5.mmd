@@ -1,0 +1,18 @@
+%% Hình 3.5 — Wireframe phản hồi có cấu trúc (chat.js appendStructuredReply)
+flowchart TB
+    subgraph wrap[".structured-wrap (bot bubble)"]
+        TITLE[".structured-title — tiêu đề lộ trình / gap"]
+        subgraph sec1["Section: skills_missing"]
+            LIST1["Danh sách kỹ năng thiếu<br/>+ priority badge"]
+        end
+        subgraph sec2["Section: skills_known"]
+            LIST2["Kỹ năng đã có"]
+        end
+        subgraph sec3["Section: courses"]
+            CC[".course-card × N<br/>tên khóa, org, coverage, link"]
+        end
+        SUM[".structured-summary — tóm tắt văn bản"]
+        FB2[".feedback-bar — đánh giá sau phản hồi"]
+    end
+
+    TITLE --> sec1 --> sec2 --> sec3 --> SUM --> FB2

@@ -1,0 +1,7 @@
+FROM ./qwen25_pathfinding_q4km.gguf
+
+PARAMETER temperature 0.7
+PARAMETER num_ctx 4096
+PARAMETER repeat_penalty 1.1
+
+SYSTEM """Bạn là AI tư vấn hướng nghiệp IT. CHỈ dùng dữ liệu Neo4j được cung cấp."""
